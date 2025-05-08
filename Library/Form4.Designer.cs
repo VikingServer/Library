@@ -28,208 +28,368 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button3 = new Button();
-            button2 = new Button();
-            button4 = new Button();
-            label1 = new Label();
+            panelNav = new Panel();
+            btnMenu = new Button();
+            btnLogout = new Button();
+            btnBookOperations = new Button();
+            btnAddHall = new Button();
+            labelNavTitle = new Label();
+            panelHeader = new Panel();
+            labelTitle = new Label();
+            panelContent = new Panel();
+            panelForm = new Panel();
+            btnPrint = new Button();
+            btnUpdateTable = new Button();
+            textBoxFilePath = new TextBox();
+            labelFilePath = new Label();
+            textBoxReadingRoom = new TextBox();
+            labelReadingRoom = new Label();
+            textBoxAuthor = new TextBox();
+            labelAuthor = new Label();
+            panelData = new Panel();
             dataGridView1 = new DataGridView();
             Author = new DataGridViewTextBoxColumn();
             Count = new DataGridViewTextBoxColumn();
             ReadingRoom = new DataGridViewTextBoxColumn();
-            button1 = new Button();
-            textBox1 = new TextBox();
-            label2 = new Label();
-            label3 = new Label();
-            textBox2 = new TextBox();
-            label4 = new Label();
-            textBox3 = new TextBox();
+            btnLoadTable = new Button();
+            panelNav.SuspendLayout();
+            panelHeader.SuspendLayout();
+            panelContent.SuspendLayout();
+            panelForm.SuspendLayout();
+            panelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // button3
+            // panelNav
             // 
-            button3.BackColor = SystemColors.HotTrack;
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.ForeColor = SystemColors.WindowText;
-            button3.Location = new Point(29, 12);
-            button3.Name = "button3";
-            button3.Size = new Size(224, 69);
-            button3.TabIndex = 13;
-            button3.Text = "Добавить читальный зал";
-            button3.UseVisualStyleBackColor = false;
+            panelNav.BackColor = Color.FromArgb(41, 128, 185);
+            panelNav.Controls.Add(btnMenu);
+            panelNav.Controls.Add(btnLogout);
+            panelNav.Controls.Add(btnBookOperations);
+            panelNav.Controls.Add(btnAddHall);
+            panelNav.Controls.Add(labelNavTitle);
+            panelNav.Dock = DockStyle.Left;
+            panelNav.Location = new Point(0, 0);
+            panelNav.Name = "panelNav";
+            panelNav.Size = new Size(340, 1134);
+            panelNav.TabIndex = 0;
             // 
-            // button2
+            // btnMenu
             // 
-            button2.BackColor = SystemColors.HotTrack;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.ForeColor = SystemColors.WindowText;
-            button2.Location = new Point(293, 12);
-            button2.Name = "button2";
-            button2.Size = new Size(244, 69);
-            button2.TabIndex = 15;
-            button2.Text = "Добавить книгу";
-            button2.UseVisualStyleBackColor = false;
+            btnMenu.BackColor = Color.Transparent;
+            btnMenu.FlatAppearance.BorderSize = 0;
+            btnMenu.FlatStyle = FlatStyle.Flat;
+            btnMenu.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnMenu.ForeColor = Color.White;
+            btnMenu.Location = new Point(0, 136);
+            btnMenu.Name = "btnMenu";
+            btnMenu.Size = new Size(340, 52);
+            btnMenu.TabIndex = 9;
+            btnMenu.Text = "Меню";
+            btnMenu.TextAlign = ContentAlignment.MiddleLeft;
+            btnMenu.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnLogout
             // 
-            button4.BackColor = SystemColors.HotTrack;
-            button4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.ForeColor = SystemColors.WindowText;
-            button4.Location = new Point(575, 12);
-            button4.Name = "button4";
-            button4.Size = new Size(169, 69);
-            button4.TabIndex = 16;
-            button4.Text = "Меню";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
+            btnLogout.BackColor = Color.FromArgb(231, 76, 60);
+            btnLogout.Dock = DockStyle.Bottom;
+            btnLogout.FlatAppearance.BorderSize = 0;
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLogout.ForeColor = Color.White;
+            btnLogout.Location = new Point(0, 1065);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(340, 69);
+            btnLogout.TabIndex = 5;
+            btnLogout.Text = "Выйти";
+            btnLogout.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // btnBookOperations
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(612, 108);
-            label1.Name = "label1";
-            label1.Size = new Size(207, 62);
-            label1.TabIndex = 17;
-            label1.Text = "Справка";
+            btnBookOperations.BackColor = Color.Transparent;
+            btnBookOperations.FlatAppearance.BorderSize = 0;
+            btnBookOperations.FlatStyle = FlatStyle.Flat;
+            btnBookOperations.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBookOperations.ForeColor = Color.White;
+            btnBookOperations.Location = new Point(0, 312);
+            btnBookOperations.Name = "btnBookOperations";
+            btnBookOperations.Size = new Size(340, 52);
+            btnBookOperations.TabIndex = 2;
+            btnBookOperations.Text = "Операции с книгами";
+            btnBookOperations.TextAlign = ContentAlignment.MiddleLeft;
+            btnBookOperations.UseVisualStyleBackColor = false;
+            // 
+            // btnAddHall
+            // 
+            btnAddHall.BackColor = Color.Transparent;
+            btnAddHall.FlatAppearance.BorderSize = 0;
+            btnAddHall.FlatStyle = FlatStyle.Flat;
+            btnAddHall.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAddHall.ForeColor = Color.White;
+            btnAddHall.Location = new Point(0, 224);
+            btnAddHall.Name = "btnAddHall";
+            btnAddHall.Size = new Size(340, 52);
+            btnAddHall.TabIndex = 3;
+            btnAddHall.Text = "Добавить зал";
+            btnAddHall.TextAlign = ContentAlignment.MiddleLeft;
+            btnAddHall.UseVisualStyleBackColor = false;
+            // 
+            // labelNavTitle
+            // 
+            labelNavTitle.Dock = DockStyle.Top;
+            labelNavTitle.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labelNavTitle.ForeColor = Color.White;
+            labelNavTitle.Location = new Point(0, 0);
+            labelNavTitle.Name = "labelNavTitle";
+            labelNavTitle.Padding = new Padding(11, 21, 0, 21);
+            labelNavTitle.Size = new Size(340, 136);
+            labelNavTitle.TabIndex = 0;
+            labelNavTitle.Text = "Справка";
+            // 
+            // panelHeader
+            // 
+            panelHeader.BackColor = Color.White;
+            panelHeader.Controls.Add(btnLoadTable);
+            panelHeader.Controls.Add(labelTitle);
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(340, 0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(1888, 84);
+            panelHeader.TabIndex = 1;
+            // 
+            // labelTitle
+            // 
+            labelTitle.AutoSize = true;
+            labelTitle.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labelTitle.ForeColor = Color.FromArgb(41, 128, 185);
+            labelTitle.Location = new Point(22, 21);
+            labelTitle.Name = "labelTitle";
+            labelTitle.Size = new Size(173, 50);
+            labelTitle.TabIndex = 0;
+            labelTitle.Text = "Справка";
+            // 
+            // panelContent
+            // 
+            panelContent.BackColor = Color.White;
+            panelContent.Controls.Add(panelForm);
+            panelContent.Controls.Add(panelData);
+            panelContent.Dock = DockStyle.Fill;
+            panelContent.Location = new Point(340, 84);
+            panelContent.Name = "panelContent";
+            panelContent.Size = new Size(1888, 1050);
+            panelContent.TabIndex = 2;
+            // 
+            // panelForm
+            // 
+            panelForm.Controls.Add(btnPrint);
+            panelForm.Controls.Add(btnUpdateTable);
+            panelForm.Controls.Add(textBoxFilePath);
+            panelForm.Controls.Add(labelFilePath);
+            panelForm.Controls.Add(textBoxReadingRoom);
+            panelForm.Controls.Add(labelReadingRoom);
+            panelForm.Controls.Add(textBoxAuthor);
+            panelForm.Controls.Add(labelAuthor);
+            panelForm.Dock = DockStyle.Fill;
+            panelForm.Location = new Point(0, 525);
+            panelForm.Name = "panelForm";
+            panelForm.Padding = new Padding(22, 21, 22, 21);
+            panelForm.Size = new Size(1888, 525);
+            panelForm.TabIndex = 0;
+            // 
+            // btnPrint
+            // 
+            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnPrint.BackColor = Color.FromArgb(52, 152, 219);
+            btnPrint.FlatAppearance.BorderSize = 0;
+            btnPrint.FlatStyle = FlatStyle.Flat;
+            btnPrint.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPrint.ForeColor = Color.White;
+            btnPrint.Location = new Point(1517, 104);
+            btnPrint.Name = "btnPrint";
+            btnPrint.Size = new Size(346, 67);
+            btnPrint.TabIndex = 27;
+            btnPrint.Text = "Печать";
+            btnPrint.UseVisualStyleBackColor = false;
+            // 
+            // btnUpdateTable
+            // 
+            btnUpdateTable.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnUpdateTable.BackColor = Color.FromArgb(52, 152, 219);
+            btnUpdateTable.FlatAppearance.BorderSize = 0;
+            btnUpdateTable.FlatStyle = FlatStyle.Flat;
+            btnUpdateTable.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUpdateTable.ForeColor = Color.White;
+            btnUpdateTable.Location = new Point(1517, 21);
+            btnUpdateTable.Name = "btnUpdateTable";
+            btnUpdateTable.Size = new Size(346, 67);
+            btnUpdateTable.TabIndex = 26;
+            btnUpdateTable.Text = "Обновить таблицу";
+            btnUpdateTable.UseVisualStyleBackColor = false;
+            // 
+            // textBoxFilePath
+            // 
+            textBoxFilePath.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxFilePath.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxFilePath.Location = new Point(225, 167);
+            textBoxFilePath.Name = "textBoxFilePath";
+            textBoxFilePath.Size = new Size(1066, 43);
+            textBoxFilePath.TabIndex = 26;
+            // 
+            // labelFilePath
+            // 
+            labelFilePath.AutoSize = true;
+            labelFilePath.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            labelFilePath.Location = new Point(22, 170);
+            labelFilePath.Name = "labelFilePath";
+            labelFilePath.Size = new Size(177, 37);
+            labelFilePath.TabIndex = 25;
+            labelFilePath.Text = "Путь к файлу";
+            // 
+            // textBoxReadingRoom
+            // 
+            textBoxReadingRoom.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxReadingRoom.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxReadingRoom.Location = new Point(225, 94);
+            textBoxReadingRoom.Name = "textBoxReadingRoom";
+            textBoxReadingRoom.Size = new Size(1066, 43);
+            textBoxReadingRoom.TabIndex = 24;
+            // 
+            // labelReadingRoom
+            // 
+            labelReadingRoom.AutoSize = true;
+            labelReadingRoom.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            labelReadingRoom.Location = new Point(22, 97);
+            labelReadingRoom.Name = "labelReadingRoom";
+            labelReadingRoom.Size = new Size(202, 37);
+            labelReadingRoom.TabIndex = 23;
+            labelReadingRoom.Text = "Читальный зал";
+            // 
+            // textBoxAuthor
+            // 
+            textBoxAuthor.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxAuthor.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxAuthor.Location = new Point(225, 21);
+            textBoxAuthor.Name = "textBoxAuthor";
+            textBoxAuthor.Size = new Size(1066, 43);
+            textBoxAuthor.TabIndex = 22;
+            // 
+            // labelAuthor
+            // 
+            labelAuthor.AutoSize = true;
+            labelAuthor.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            labelAuthor.Location = new Point(22, 24);
+            labelAuthor.Name = "labelAuthor";
+            labelAuthor.Size = new Size(91, 37);
+            labelAuthor.TabIndex = 21;
+            labelAuthor.Text = "Автор";
+            // 
+            // panelData
+            // 
+            panelData.Controls.Add(dataGridView1);
+            panelData.Dock = DockStyle.Top;
+            panelData.Location = new Point(0, 0);
+            panelData.Name = "panelData";
+            panelData.Padding = new Padding(22, 21, 22, 21);
+            panelData.Size = new Size(1888, 525);
+            panelData.TabIndex = 1;
             // 
             // dataGridView1
             // 
+            dataGridView1.BackgroundColor = Color.White;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Author, Count, ReadingRoom });
-            dataGridView1.Location = new Point(411, 197);
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.Location = new Point(22, 21);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(673, 256);
-            dataGridView1.TabIndex = 18;
+            dataGridView1.Size = new Size(1844, 483);
+            dataGridView1.TabIndex = 0;
             // 
             // Author
             // 
             Author.HeaderText = "Автор";
             Author.MinimumWidth = 6;
             Author.Name = "Author";
-            Author.Width = 125;
+            Author.Width = 300;
             // 
             // Count
             // 
-            Count.HeaderText = "Количество";
+            Count.HeaderText = "Количество книг";
             Count.MinimumWidth = 6;
             Count.Name = "Count";
-            Count.Resizable = DataGridViewTriState.True;
-            Count.Width = 125;
+            Count.Width = 200;
             // 
             // ReadingRoom
             // 
             ReadingRoom.HeaderText = "Читальный зал";
             ReadingRoom.MinimumWidth = 6;
             ReadingRoom.Name = "ReadingRoom";
-            ReadingRoom.Width = 125;
+            ReadingRoom.Width = 300;
             // 
-            // button1
+            // btnLoadTable
             // 
-            button1.BackColor = SystemColors.HotTrack;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.WindowText;
-            button1.Location = new Point(575, 628);
-            button1.Name = "button1";
-            button1.Size = new Size(381, 69);
-            button1.TabIndex = 19;
-            button1.Text = "Печать";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(201, 513);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(299, 27);
-            textBox1.TabIndex = 21;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(118, 507);
-            label2.Name = "label2";
-            label2.Size = new Size(77, 31);
-            label2.TabIndex = 22;
-            label2.Text = "Автор";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(118, 558);
-            label3.Name = "label3";
-            label3.Size = new Size(169, 31);
-            label3.TabIndex = 23;
-            label3.Text = "Читальный зал";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(293, 564);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(404, 27);
-            textBox2.TabIndex = 24;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(853, 509);
-            label4.Name = "label4";
-            label4.Size = new Size(149, 31);
-            label4.TabIndex = 25;
-            label4.Text = "Путь к файлу";
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(1008, 515);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(409, 27);
-            textBox3.TabIndex = 26;
+            btnLoadTable.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnLoadTable.BackColor = Color.FromArgb(52, 152, 219);
+            btnLoadTable.FlatAppearance.BorderSize = 0;
+            btnLoadTable.FlatStyle = FlatStyle.Flat;
+            btnLoadTable.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLoadTable.ForeColor = Color.White;
+            btnLoadTable.Location = new Point(1528, 19);
+            btnLoadTable.Name = "btnLoadTable";
+            btnLoadTable.Size = new Size(338, 52);
+            btnLoadTable.TabIndex = 28;
+            btnLoadTable.Text = "Загрузить таблицу";
+            btnLoadTable.UseVisualStyleBackColor = false;
             // 
             // Form4
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1454, 756);
-            Controls.Add(textBox3);
-            Controls.Add(label4);
-            Controls.Add(textBox2);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(textBox1);
-            Controls.Add(button1);
-            Controls.Add(dataGridView1);
-            Controls.Add(label1);
-            Controls.Add(button4);
-            Controls.Add(button2);
-            Controls.Add(button3);
+            ClientSize = new Size(2228, 1134);
+            Controls.Add(panelContent);
+            Controls.Add(panelHeader);
+            Controls.Add(panelNav);
             Name = "Form4";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form4";
+            Text = "Библиотека - Справка";
+            WindowState = FormWindowState.Maximized;
+            panelNav.ResumeLayout(false);
+            panelHeader.ResumeLayout(false);
+            panelHeader.PerformLayout();
+            panelContent.ResumeLayout(false);
+            panelForm.ResumeLayout(false);
+            panelForm.PerformLayout();
+            panelData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Button button3;
-        private Button button2;
-        private Button button4;
-        private Label label1;
+        private Panel panelNav;
+        private Button btnLogout;
+        private Button btnBookOperations;
+        private Button btnAddHall;
+        private Label labelNavTitle;
+        private Panel panelHeader;
+        private Label labelTitle;
+        private Panel panelContent;
+        private Panel panelData;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn Author;
-        private DataGridViewTextBoxColumn ReadingRoom;
-        private Button button1;
-        private Label label2;
-        private TextBox textBox1;
         private DataGridViewTextBoxColumn Count;
-        private Label label3;
-        private TextBox textBox2;
-        private Label label4;
-        private TextBox textBox3;
+        private DataGridViewTextBoxColumn ReadingRoom;
+        private Panel panelForm;
+        private TextBox textBoxAuthor;
+        private Label labelAuthor;
+        private TextBox textBoxReadingRoom;
+        private Label labelReadingRoom;
+        private TextBox textBoxFilePath;
+        private Label labelFilePath;
+        private Button btnUpdateTable;
+        private Button btnPrint;
+        private Button btnMenu;
+        private Button btnLoadTable;
     }
 }

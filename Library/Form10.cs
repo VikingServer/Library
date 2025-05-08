@@ -15,6 +15,7 @@ namespace Library
         public Form10()
         {
             InitializeComponent();
+            label1.Text = "Информация о библиотеке";
         }
 
         private void button2_Click(object sender, EventArgs e)

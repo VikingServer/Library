@@ -28,97 +28,199 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form10));
+            panelNav = new Panel();
+            btnLogout = new Button();
+            btnHelp = new Button();
+            btnAddHall = new Button();
+            btnBookOperations = new Button();
+            labelNavTitle = new Label();
+            panelHeader = new Panel();
+            labelTitle = new Label();
+            panelContent = new Panel();
             label1 = new Label();
-            button2 = new Button();
-            button1 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            pictureBox1 = new PictureBox();
+            panelNav.SuspendLayout();
+            panelHeader.SuspendLayout();
+            panelContent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
+            // 
+            // panelNav
+            // 
+            panelNav.BackColor = Color.FromArgb(41, 128, 185);
+            panelNav.Controls.Add(btnLogout);
+            panelNav.Controls.Add(btnHelp);
+            panelNav.Controls.Add(btnAddHall);
+            panelNav.Controls.Add(btnBookOperations);
+            panelNav.Controls.Add(labelNavTitle);
+            panelNav.Dock = DockStyle.Left;
+            panelNav.Location = new Point(0, 0);
+            panelNav.Name = "panelNav";
+            panelNav.Size = new Size(340, 1134);
+            panelNav.TabIndex = 0;
+            // 
+            // btnLogout
+            // 
+            btnLogout.BackColor = Color.FromArgb(231, 76, 60);
+            btnLogout.Dock = DockStyle.Bottom;
+            btnLogout.FlatAppearance.BorderSize = 0;
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLogout.ForeColor = Color.White;
+            btnLogout.Location = new Point(0, 1065);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(340, 69);
+            btnLogout.TabIndex = 5;
+            btnLogout.Text = "Выйти";
+            btnLogout.UseVisualStyleBackColor = false;
+            // 
+            // btnHelp
+            // 
+            btnHelp.BackColor = Color.Transparent;
+            btnHelp.FlatAppearance.BorderSize = 0;
+            btnHelp.FlatStyle = FlatStyle.Flat;
+            btnHelp.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnHelp.ForeColor = Color.White;
+            btnHelp.Location = new Point(0, 349);
+            btnHelp.Name = "btnHelp";
+            btnHelp.Size = new Size(337, 58);
+            btnHelp.TabIndex = 3;
+            btnHelp.Text = "Сделать справку";
+            btnHelp.TextAlign = ContentAlignment.MiddleLeft;
+            btnHelp.UseVisualStyleBackColor = false;
+            btnHelp.Click += button3_Click;
+            // 
+            // btnAddHall
+            // 
+            btnAddHall.BackColor = Color.Transparent;
+            btnAddHall.FlatAppearance.BorderSize = 0;
+            btnAddHall.FlatStyle = FlatStyle.Flat;
+            btnAddHall.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAddHall.ForeColor = Color.White;
+            btnAddHall.Location = new Point(0, 271);
+            btnAddHall.Name = "btnAddHall";
+            btnAddHall.Size = new Size(340, 52);
+            btnAddHall.TabIndex = 2;
+            btnAddHall.Text = "Добавить зал";
+            btnAddHall.TextAlign = ContentAlignment.MiddleLeft;
+            btnAddHall.UseVisualStyleBackColor = false;
+            btnAddHall.Click += button1_Click;
+            // 
+            // btnBookOperations
+            // 
+            btnBookOperations.BackColor = Color.Transparent;
+            btnBookOperations.FlatAppearance.BorderSize = 0;
+            btnBookOperations.FlatStyle = FlatStyle.Flat;
+            btnBookOperations.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBookOperations.ForeColor = Color.White;
+            btnBookOperations.Location = new Point(0, 188);
+            btnBookOperations.Name = "btnBookOperations";
+            btnBookOperations.Size = new Size(340, 52);
+            btnBookOperations.TabIndex = 1;
+            btnBookOperations.Text = "Операции с книгами";
+            btnBookOperations.TextAlign = ContentAlignment.MiddleLeft;
+            btnBookOperations.UseVisualStyleBackColor = false;
+            btnBookOperations.Click += button2_Click;
+            // 
+            // labelNavTitle
+            // 
+            labelNavTitle.Dock = DockStyle.Top;
+            labelNavTitle.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labelNavTitle.ForeColor = Color.White;
+            labelNavTitle.Location = new Point(0, 0);
+            labelNavTitle.Name = "labelNavTitle";
+            labelNavTitle.Padding = new Padding(11, 21, 0, 21);
+            labelNavTitle.Size = new Size(340, 136);
+            labelNavTitle.TabIndex = 0;
+            labelNavTitle.Text = "Меню \r\nадминистратора";
+            // 
+            // panelHeader
+            // 
+            panelHeader.BackColor = Color.White;
+            panelHeader.Controls.Add(labelTitle);
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(340, 0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(1888, 84);
+            panelHeader.TabIndex = 1;
+            // 
+            // labelTitle
+            // 
+            labelTitle.AutoSize = true;
+            labelTitle.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labelTitle.ForeColor = Color.FromArgb(41, 128, 185);
+            labelTitle.Location = new Point(22, 21);
+            labelTitle.Name = "labelTitle";
+            labelTitle.Size = new Size(536, 50);
+            labelTitle.TabIndex = 0;
+            labelTitle.Text = "Администратор библиотеки";
+            // 
+            // panelContent
+            // 
+            panelContent.BackColor = Color.White;
+            panelContent.Controls.Add(label1);
+            panelContent.Controls.Add(pictureBox1);
+            panelContent.Dock = DockStyle.Fill;
+            panelContent.Location = new Point(340, 84);
+            panelContent.Name = "panelContent";
+            panelContent.Padding = new Padding(22, 21, 22, 21);
+            panelContent.Size = new Size(1888, 1050);
+            panelContent.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(435, 47);
+            label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(22, 488);
             label1.Name = "label1";
-            label1.Size = new Size(633, 62);
-            label1.TabIndex = 0;
-            label1.Text = "Администратор библиотеки";
+            label1.Size = new Size(90, 37);
+            label1.TabIndex = 1;
+            label1.Text = "label1";
             // 
-            // button2
+            // pictureBox1
             // 
-            button2.BackColor = SystemColors.HotTrack;
-            button2.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.ForeColor = SystemColors.WindowText;
-            button2.Location = new Point(144, 162);
-            button2.Name = "button2";
-            button2.Size = new Size(252, 98);
-            button2.TabIndex = 11;
-            button2.Text = "Выдать/принять книгу";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
-            // 
-            // button1
-            // 
-            button1.BackColor = SystemColors.HotTrack;
-            button1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.WindowText;
-            button1.Location = new Point(599, 162);
-            button1.Name = "button1";
-            button1.Size = new Size(252, 98);
-            button1.TabIndex = 12;
-            button1.Text = "Добавить читальный зал";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
-            // button3
-            // 
-            button3.BackColor = SystemColors.HotTrack;
-            button3.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.ForeColor = SystemColors.WindowText;
-            button3.Location = new Point(1053, 162);
-            button3.Name = "button3";
-            button3.Size = new Size(252, 98);
-            button3.TabIndex = 13;
-            button3.Text = "Справка";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
-            // 
-            // button4
-            // 
-            button4.BackColor = SystemColors.HotTrack;
-            button4.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.ForeColor = SystemColors.WindowText;
-            button4.Location = new Point(549, 497);
-            button4.Name = "button4";
-            button4.Size = new Size(382, 98);
-            button4.TabIndex = 14;
-            button4.Text = "Информация о библиотеке";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(22, 21);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(720, 422);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // Form10
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1479, 760);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button1);
-            Controls.Add(button2);
-            Controls.Add(label1);
+            ClientSize = new Size(2228, 1134);
+            Controls.Add(panelContent);
+            Controls.Add(panelHeader);
+            Controls.Add(panelNav);
             Name = "Form10";
-            Text = "Form10";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Библиотека - Панель администратора";
+            WindowState = FormWindowState.Maximized;
+            panelNav.ResumeLayout(false);
+            panelHeader.ResumeLayout(false);
+            panelHeader.PerformLayout();
+            panelContent.ResumeLayout(false);
+            panelContent.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
+        private Panel panelNav;
+        private Panel panelHeader;
+        private Label labelTitle;
+        private Panel panelContent;
+        private PictureBox pictureBox1;
+        private Label labelNavTitle;
+        private Button btnBookOperations;
+        private Button btnAddHall;
+        private Button btnHelp;
+        private Button btnLogout;
         private Label label1;
-        private Button button2;
-        private Button button1;
-        private Button button3;
-        private Button button4;
     }
 }

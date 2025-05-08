@@ -23,12 +23,21 @@ namespace Library
             form4.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnBookOperations_Click(object sender, EventArgs e)
         {
-
+            Close();
+            Form2 form2 = new Form2();
+            form2.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
+        {
+            Close();
+            Form10 form10 = new Form10();
+            form10.Show();
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
         {
             Close();
             Form10 form10 = new Form10();
