@@ -44,5 +44,12 @@ namespace Library
             Form12 form12 = new Form12();
             form12.Show();
         }
+
+        private void btnAddBook_Click(object sender, EventArgs e)
+        {
+            Close();
+            Form5 form5 = new Form5();
+            form5.Show();
+        }
     }
 }
