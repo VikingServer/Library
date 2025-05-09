@@ -37,11 +37,16 @@
             panelHeader = new Panel();
             labelTitle = new Label();
             panelContent = new Panel();
+            dataGridView1 = new DataGridView();
+            labWorkingSchedule = new Label();
             labInfLibrary = new Label();
             pictureBox1 = new PictureBox();
+            DayOfWeek = new DataGridViewTextBoxColumn();
+            OpeningHours = new DataGridViewTextBoxColumn();
             panelNav.SuspendLayout();
             panelHeader.SuspendLayout();
             panelContent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -88,7 +93,7 @@
             btnMyBooks.Text = "Мои книги";
             btnMyBooks.TextAlign = ContentAlignment.MiddleLeft;
             btnMyBooks.UseVisualStyleBackColor = false;
-            btnMyBooks.Click += this.btnMyBooks_Click;
+            btnMyBooks.Click += btnMyBooks_Click;
             // 
             // btnSelectBook
             // 
@@ -142,6 +147,8 @@
             // panelContent
             // 
             panelContent.BackColor = Color.White;
+            panelContent.Controls.Add(dataGridView1);
+            panelContent.Controls.Add(labWorkingSchedule);
             panelContent.Controls.Add(labInfLibrary);
             panelContent.Controls.Add(pictureBox1);
             panelContent.Dock = DockStyle.Fill;
@@ -151,11 +158,34 @@
             panelContent.Size = new Size(1560, 795);
             panelContent.TabIndex = 2;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { DayOfWeek, OpeningHours });
+            dataGridView1.Location = new Point(836, 88);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowTemplate.Height = 31;
+            dataGridView1.Size = new Size(335, 355);
+            dataGridView1.TabIndex = 5;
+            // 
+            // labWorkingSchedule
+            // 
+            labWorkingSchedule.AutoSize = true;
+            labWorkingSchedule.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            labWorkingSchedule.Location = new Point(836, 21);
+            labWorkingSchedule.Name = "labWorkingSchedule";
+            labWorkingSchedule.Size = new Size(207, 37);
+            labWorkingSchedule.TabIndex = 4;
+            labWorkingSchedule.Text = "График работы";
+            // 
             // labInfLibrary
             // 
             labInfLibrary.AutoSize = true;
             labInfLibrary.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            labInfLibrary.Location = new Point(22, 488);
+            labInfLibrary.Location = new Point(22, 489);
             labInfLibrary.Name = "labInfLibrary";
             labInfLibrary.Size = new Size(359, 37);
             labInfLibrary.TabIndex = 3;
@@ -170,6 +200,21 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
+            // 
+            // DayOfWeek
+            // 
+            DayOfWeek.HeaderText = "День недели";
+            DayOfWeek.MinimumWidth = 40;
+            DayOfWeek.Name = "DayOfWeek";
+            DayOfWeek.ReadOnly = true;
+            DayOfWeek.Width = 150;
+            // 
+            // OpeningHours
+            // 
+            OpeningHours.HeaderText = "Часы работы";
+            OpeningHours.Name = "OpeningHours";
+            OpeningHours.ReadOnly = true;
+            OpeningHours.Width = 142;
             // 
             // ReaderMenuForm
             // 
@@ -188,6 +233,7 @@
             panelHeader.PerformLayout();
             panelContent.ResumeLayout(false);
             panelContent.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -204,5 +250,9 @@
         private Panel panelContent;
         private Label labInfLibrary;
         private PictureBox pictureBox1;
+        private DataGridView dataGridView1;
+        private Label labWorkingSchedule;
+        private DataGridViewTextBoxColumn DayOfWeek;
+        private DataGridViewTextBoxColumn OpeningHours;
     }
 }
