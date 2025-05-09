@@ -1,43 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="Form1.cs">
+    <Compile Update="AuthorizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form10.cs">
+    <Compile Update="LibraryAdministrator\AdministratorBookManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form11.cs">
+    <Compile Update="LibraryAdministrator\AdministratorManagementOfReadingRoomsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form12.cs">
+    <Compile Update="LibraryAdministrator\AdministratorMenuLibraryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form13.cs">
+    <Compile Update="Librarian\LibrarianMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form2.cs">
+    <Compile Update="Librarian\LibrarianBookKeeping.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form3.cs">
+    <Compile Update="Reader\ReaderMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form4.cs">
+    <Compile Update="LibraryAdministrator\AdministratorSynopsisForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form5.cs">
+    <Compile Update="Librarian\LibrarianBookManagmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form6.cs">
+    <Compile Update="Librarian\LibrarianManageReadersForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form7.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form8.cs">
+    <Compile Update="Reader\ReaderSelectBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form9.cs">
+    <Compile Update="Reader\ReaderBooks.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
