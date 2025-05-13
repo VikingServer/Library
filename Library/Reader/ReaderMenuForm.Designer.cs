@@ -38,11 +38,11 @@
             labelTitle = new Label();
             panelContent = new Panel();
             dataGridView1 = new DataGridView();
+            DayOfWeek = new DataGridViewTextBoxColumn();
+            OpeningHours = new DataGridViewTextBoxColumn();
             labWorkingSchedule = new Label();
             labInfLibrary = new Label();
             pictureBox1 = new PictureBox();
-            DayOfWeek = new DataGridViewTextBoxColumn();
-            OpeningHours = new DataGridViewTextBoxColumn();
             panelNav.SuspendLayout();
             panelHeader.SuspendLayout();
             panelContent.SuspendLayout();
@@ -78,6 +78,7 @@
             btnLogout.TabIndex = 5;
             btnLogout.Text = "Выйти";
             btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnMyBooks
             // 
@@ -171,6 +172,21 @@
             dataGridView1.Size = new Size(335, 355);
             dataGridView1.TabIndex = 5;
             // 
+            // DayOfWeek
+            // 
+            DayOfWeek.HeaderText = "День недели";
+            DayOfWeek.MinimumWidth = 40;
+            DayOfWeek.Name = "DayOfWeek";
+            DayOfWeek.ReadOnly = true;
+            DayOfWeek.Width = 150;
+            // 
+            // OpeningHours
+            // 
+            OpeningHours.HeaderText = "Часы работы";
+            OpeningHours.Name = "OpeningHours";
+            OpeningHours.ReadOnly = true;
+            OpeningHours.Width = 142;
+            // 
             // labWorkingSchedule
             // 
             labWorkingSchedule.AutoSize = true;
@@ -200,21 +216,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
-            // 
-            // DayOfWeek
-            // 
-            DayOfWeek.HeaderText = "День недели";
-            DayOfWeek.MinimumWidth = 40;
-            DayOfWeek.Name = "DayOfWeek";
-            DayOfWeek.ReadOnly = true;
-            DayOfWeek.Width = 150;
-            // 
-            // OpeningHours
-            // 
-            OpeningHours.HeaderText = "Часы работы";
-            OpeningHours.Name = "OpeningHours";
-            OpeningHours.ReadOnly = true;
-            OpeningHours.Width = 142;
             // 
             // ReaderMenuForm
             // 

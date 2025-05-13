@@ -30,5 +30,10 @@ namespace Library
             ReaderBooks readerBooks = new ReaderBooks();
             readerBooks.Show();
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            UtilsForForm.LogOutOfAccount(this);
+        }
     }
 }
