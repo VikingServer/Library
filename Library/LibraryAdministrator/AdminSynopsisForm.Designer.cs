@@ -160,7 +160,7 @@
             panelHeader.Size = new Size(1888, 84);
             panelHeader.TabIndex = 1;
             // 
-            // btnLoadTable
+            // btnSearchBook
             // 
             btnLoadTable.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnLoadTable.BackColor = Color.FromArgb(52, 152, 219);

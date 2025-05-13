@@ -4,16 +4,16 @@
     <Compile Update="AuthorizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="LibraryAdministrator\AdministratorBookManagementForm.cs">
+    <Compile Update="LibraryAdministrator\AdminBookManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="LibraryAdministrator\AdministratorManagementOfReadingRoomsForm.cs">
+    <Compile Update="LibraryAdministrator\AdminManagementOfReadingRoomsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="LibraryAdministrator\AdministratorMenuLibraryForm.cs">
+    <Compile Update="LibraryAdministrator\AdminMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Librarian\LibrarianMenu.cs">
+    <Compile Update="Librarian\LibrarianMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Librarian\LibrarianBookKeeping.cs">
@@ -22,7 +22,7 @@
     <Compile Update="Reader\ReaderMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="LibraryAdministrator\AdministratorSynopsisForm.cs">
+    <Compile Update="LibraryAdministrator\AdminSynopsisForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Librarian\LibrarianBookManagmentForm.cs">
@@ -37,7 +37,7 @@
     <Compile Update="Reader\ReaderSelectBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Reader\ReaderBooks.cs">
+    <Compile Update="Reader\ReaderBooksForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

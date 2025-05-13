@@ -10,18 +10,18 @@ using System.Windows.Forms;
 
 namespace Library
 {
-    public partial class ReaderBooks : Form
+    public partial class Synopsis : Form
     {
-        public ReaderBooks()
+        public Synopsis()
         {
             InitializeComponent();
         }
 
-        private void btnMenu_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
             Close();
-            ReaderMenuForm menuForm = new ReaderMenuForm();
-            menuForm.Show();
+            AdminMenuForm form10 = new AdminMenuForm();
+            form10.Show();
         }
     }
 }

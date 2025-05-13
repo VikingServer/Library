@@ -12,9 +12,11 @@ namespace Library
 {
     public partial class ReaderMenuForm : Form
     {
+        public Form Authorization;
         public ReaderMenuForm()
         {
             InitializeComponent();
+            Authorization = new AuthorizationForm();
         }
 
         private void btnSelectBook_Click(object sender, EventArgs e)
@@ -27,13 +29,14 @@ namespace Library
         private void btnMyBooks_Click(object sender, EventArgs e)
         {
             Close();
-            ReaderBooks readerBooks = new ReaderBooks();
+            ReaderBooksForm readerBooks = new ReaderBooksForm();
             readerBooks.Show();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            UtilsForForm.LogOutOfAccount(this);
+            Authorization.Show();
+            Close();
         }
     }
 }

@@ -10,33 +10,41 @@ using System.Windows.Forms;
 
 namespace Library
 {
-    public partial class AdministratorMenuLibraryForm : Form
+    public partial class AdminMenuForm : Form
     {
-        public AdministratorMenuLibraryForm()
+        public Form Authorization;
+        public AdminMenuForm()
         {
             InitializeComponent();
             label1.Text = "Информация о библиотеке";
+            Authorization = new AuthorizationForm();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
-            AdministratorBookManagementForm form2 = new AdministratorBookManagementForm();
+            AdminBookManagementForm form2 = new AdminBookManagementForm();
             form2.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAddHall_Click(object sender, EventArgs e)
         {
             Close();
-            AdministratorManagementOfReadingRoomsForm form3 = new AdministratorManagementOfReadingRoomsForm();
+            AdminManagementOfReadingRoomsForm form3 = new AdminManagementOfReadingRoomsForm();
             form3.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnHelp_Click(object sender, EventArgs e)
         {
             Close();
             Synopsis form4 = new Synopsis();
             form4.Show();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Authorization.Show();
+            Close();
         }
     }
 }

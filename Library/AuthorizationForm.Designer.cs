@@ -35,10 +35,10 @@
             panel2 = new Panel();
             panelFormContainer = new Panel();
             label4 = new Label();
-            button2 = new Button();
-            textBox2 = new TextBox();
+            btnEntry = new Button();
+            textBoxPassword = new TextBox();
             label3 = new Label();
-            textBox1 = new TextBox();
+            textBoxLogin = new TextBox();
             label2 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -54,16 +54,16 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(450, 1080);
+            panel1.Size = new Size(506, 1134);
             panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(56, 400);
+            pictureBox1.Location = new Point(63, 420);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(338, 315);
+            pictureBox1.Size = new Size(380, 331);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -74,9 +74,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 28.2F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(56, 200);
+            label1.Location = new Point(63, 210);
             label1.Name = "label1";
-            label1.Size = new Size(240, 62);
+            label1.Size = new Size(240, 51);
             label1.TabIndex = 0;
             label1.Text = "Библиотека";
             // 
@@ -85,23 +85,23 @@
             panel2.BackColor = Color.White;
             panel2.Controls.Add(panelFormContainer);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(450, 0);
+            panel2.Location = new Point(506, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1530, 1080);
+            panel2.Size = new Size(1722, 1134);
             panel2.TabIndex = 1;
             // 
             // panelFormContainer
             // 
             panelFormContainer.Anchor = AnchorStyles.None;
             panelFormContainer.Controls.Add(label4);
-            panelFormContainer.Controls.Add(button2);
-            panelFormContainer.Controls.Add(textBox2);
+            panelFormContainer.Controls.Add(btnEntry);
+            panelFormContainer.Controls.Add(textBoxPassword);
             panelFormContainer.Controls.Add(label3);
-            panelFormContainer.Controls.Add(textBox1);
+            panelFormContainer.Controls.Add(textBoxLogin);
             panelFormContainer.Controls.Add(label2);
-            panelFormContainer.Location = new Point(400, 290);
+            panelFormContainer.Location = new Point(451, 304);
             panelFormContainer.Name = "panelFormContainer";
-            panelFormContainer.Size = new Size(730, 500);
+            panelFormContainer.Size = new Size(821, 525);
             panelFormContainer.TabIndex = 12;
             // 
             // label4
@@ -109,77 +109,77 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 28.2F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(41, 128, 185);
-            label4.Location = new Point(214, 0);
+            label4.Location = new Point(241, 0);
             label4.Name = "label4";
-            label4.Size = new Size(303, 62);
+            label4.Size = new Size(303, 51);
             label4.TabIndex = 11;
             label4.Text = "Вход в систему";
             // 
-            // button2
+            // btnEntry
             // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            button2.BackColor = Color.FromArgb(41, 128, 185);
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(160, 370);
-            button2.Name = "button2";
-            button2.Size = new Size(410, 74);
-            button2.TabIndex = 10;
-            button2.Text = "Войти";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            btnEntry.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnEntry.BackColor = Color.FromArgb(41, 128, 185);
+            btnEntry.FlatAppearance.BorderSize = 0;
+            btnEntry.FlatStyle = FlatStyle.Flat;
+            btnEntry.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEntry.ForeColor = Color.White;
+            btnEntry.Location = new Point(180, 388);
+            btnEntry.Name = "btnEntry";
+            btnEntry.Size = new Size(461, 78);
+            btnEntry.TabIndex = 10;
+            btnEntry.Text = "Войти";
+            btnEntry.UseVisualStyleBackColor = false;
+            btnEntry.Click += button2_Click;
             // 
-            // textBox2
+            // textBoxPassword
             // 
-            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox2.BorderStyle = BorderStyle.FixedSingle;
-            textBox2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(160, 290);
-            textBox2.Name = "textBox2";
-            textBox2.PasswordChar = '*';
-            textBox2.Size = new Size(410, 38);
-            textBox2.TabIndex = 4;
+            textBoxPassword.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxPassword.BorderStyle = BorderStyle.FixedSingle;
+            textBoxPassword.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxPassword.Location = new Point(180, 304);
+            textBoxPassword.Name = "textBoxPassword";
+            textBoxPassword.PasswordChar = '*';
+            textBoxPassword.Size = new Size(461, 32);
+            textBoxPassword.TabIndex = 4;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(160, 240);
+            label3.Location = new Point(180, 252);
             label3.Name = "label3";
-            label3.Size = new Size(112, 38);
+            label3.Size = new Size(89, 30);
             label3.TabIndex = 3;
             label3.Text = "Пароль";
             // 
-            // textBox1
+            // textBoxLogin
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(160, 180);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(410, 38);
-            textBox1.TabIndex = 2;
+            textBoxLogin.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxLogin.BorderStyle = BorderStyle.FixedSingle;
+            textBoxLogin.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxLogin.Location = new Point(180, 189);
+            textBoxLogin.Name = "textBoxLogin";
+            textBoxLogin.Size = new Size(461, 32);
+            textBoxLogin.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(160, 130);
+            label2.Location = new Point(180, 136);
             label2.Name = "label2";
-            label2.Size = new Size(95, 38);
+            label2.Size = new Size(75, 30);
             label2.TabIndex = 1;
             label2.Text = "Логин";
             // 
             // AuthorizationForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1980, 1080);
+            ClientSize = new Size(2228, 1134);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "Form1";
+            Name = "AuthorizationForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Библиотека - Вход в систему";
             WindowState = FormWindowState.Maximized;
@@ -197,10 +197,10 @@
         private Panel panel1;
         private Label label1;
         private Panel panel2;
-        private Button button2;
-        private TextBox textBox2;
+        private Button btnEntry;
+        private TextBox textBoxPassword;
         private Label label3;
-        private TextBox textBox1;
+        private TextBox textBoxLogin;
         private Label label2;
         private PictureBox pictureBox1;
         private Label label4;

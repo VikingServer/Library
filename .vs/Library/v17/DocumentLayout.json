@@ -3,24 +3,44 @@
   "WorkspaceRootPath": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u043F\u0438\u0442\u043F\u043E\\\u043A\u0443\u0440\u0441\u0430\u0447\\library\\library\\librarian\\librarianmanagereadersform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\librarian\\librarianmanagereadersform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u043F\u0438\u0442\u043F\u043E\\\u043A\u0443\u0440\u0441\u0430\u0447\\library\\library\\librarian\\librarianmanagereadersform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\librarian\\librarianmanagereadersform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u043F\u0438\u0442\u043F\u043E\\\u043A\u0443\u0440\u0441\u0430\u0447\\library\\library\\librarian\\librarianbookmanagmentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\librarian\\librarianbookmanagmentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u043F\u0438\u0442\u043F\u043E\\\u043A\u0443\u0440\u0441\u0430\u0447\\library\\library\\librarian\\librarianbookmanagmentform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\librarian\\librarianbookmanagmentform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u043F\u0438\u0442\u043F\u043E\\\u043A\u0443\u0440\u0441\u0430\u0447\\library\\library\\reader\\readermenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\reader\\readermenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u043F\u0438\u0442\u043F\u043E\\\u043A\u0443\u0440\u0441\u0430\u0447\\library\\library\\utilsforform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\utilsforform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u043F\u0438\u0442\u043F\u043E\\\u043A\u0443\u0440\u0441\u0430\u0447\\library\\library\\librarian\\librarianmanagereadersform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\librarian\\librarianmanagereadersform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u043F\u0438\u0442\u043F\u043E\\\u043A\u0443\u0440\u0441\u0430\u0447\\library\\library\\reader\\readermenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u043F\u0438\u0442\u043F\u043E\\\u043A\u0443\u0440\u0441\u0430\u0447\\library\\library\\librarian\\librarianbookmanagmentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\librarian\\librarianbookmanagmentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u043F\u0438\u0442\u043F\u043E\\\u043A\u0443\u0440\u0441\u0430\u0447\\library\\library\\databaseconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\databaseconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u043F\u0438\u0442\u043F\u043E\\\u043A\u0443\u0440\u0441\u0430\u0447\\library\\library\\authorizationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\authorizationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\library\\reader\\readermenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\reader\\readermenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\library\\libraryadministrator\\administratormenulibraryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\libraryadministrator\\administratormenulibraryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u043F\u0438\u0442\u043F\u043E\\\u043A\u0443\u0440\u0441\u0430\u0447\\library\\library\\librarian\\librarianmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\librarian\\librarianmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,33 +58,122 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UtilsForForm.cs",
-              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\UtilsForForm.cs",
-              "RelativeDocumentMoniker": "Library\\UtilsForForm.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\UtilsForForm.cs",
-              "RelativeToolTip": "Library\\UtilsForForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAhAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "LibrarianManageReadersForm.Designer.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\Librarian\\LibrarianManageReadersForm.Designer.cs",
+              "RelativeDocumentMoniker": "Library\\Librarian\\LibrarianManageReadersForm.Designer.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\Librarian\\LibrarianManageReadersForm.Designer.cs",
+              "RelativeToolTip": "Library\\Librarian\\LibrarianManageReadersForm.Designer.cs",
+              "ViewState": "AgIAAM0BAAAAAAAAAAAAAOkBAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T15:17:36.22Z",
+              "WhenOpened": "2025-05-13T23:13:18.768Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
+              "Title": "AuthorizationForm.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\AuthorizationForm.cs",
+              "RelativeDocumentMoniker": "Library\\AuthorizationForm.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\AuthorizationForm.cs",
+              "RelativeToolTip": "Library\\AuthorizationForm.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAA1wCAAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T21:42:46.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "ReaderMenuForm.cs",
               "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\Reader\\ReaderMenuForm.cs",
               "RelativeDocumentMoniker": "Library\\Reader\\ReaderMenuForm.cs",
               "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\Reader\\ReaderMenuForm.cs",
               "RelativeToolTip": "Library\\Reader\\ReaderMenuForm.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAApwCMAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABIAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T15:15:33Z",
+              "WhenOpened": "2025-05-13T21:42:30.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LibrarianManageReadersForm.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\Librarian\\LibrarianManageReadersForm.cs",
+              "RelativeDocumentMoniker": "Library\\Librarian\\LibrarianManageReadersForm.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\Librarian\\LibrarianManageReadersForm.cs",
+              "RelativeToolTip": "Library\\Librarian\\LibrarianManageReadersForm.cs",
+              "ViewState": "AgIAAJEBAAAAAAAAAAAnwKgBAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T21:41:21.13Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LibrarianManageReadersForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\Librarian\\LibrarianManageReadersForm.cs",
+              "RelativeDocumentMoniker": "Library\\Librarian\\LibrarianManageReadersForm.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\Librarian\\LibrarianManageReadersForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "Library\\Librarian\\LibrarianManageReadersForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T21:41:03.245Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LibrarianBookManagmentForm.Designer.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\Librarian\\LibrarianBookManagmentForm.Designer.cs",
+              "RelativeDocumentMoniker": "Library\\Librarian\\LibrarianBookManagmentForm.Designer.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\Librarian\\LibrarianBookManagmentForm.Designer.cs",
+              "RelativeToolTip": "Library\\Librarian\\LibrarianBookManagmentForm.Designer.cs",
+              "ViewState": "AgIAANgBAAAAAAAAAAArwPgBAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T18:40:32.445Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "LibrarianBookManagmentForm.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\Librarian\\LibrarianBookManagmentForm.cs",
+              "RelativeDocumentMoniker": "Library\\Librarian\\LibrarianBookManagmentForm.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\Librarian\\LibrarianBookManagmentForm.cs",
+              "RelativeToolTip": "Library\\Librarian\\LibrarianBookManagmentForm.cs",
+              "ViewState": "AgIAAO4BAAAAAAAAAAAWwN8BAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T17:49:27.371Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LibrarianBookManagmentForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\Librarian\\LibrarianBookManagmentForm.cs",
+              "RelativeDocumentMoniker": "Library\\Librarian\\LibrarianBookManagmentForm.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\Librarian\\LibrarianBookManagmentForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "Library\\Librarian\\LibrarianBookManagmentForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T17:20:59.938Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DatabaseConnection.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\DatabaseConnection.cs",
+              "RelativeDocumentMoniker": "Library\\DatabaseConnection.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\DatabaseConnection.cs",
+              "RelativeToolTip": "Library\\DatabaseConnection.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAwBgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T17:29:53.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "ReaderMenuForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\Reader\\ReaderMenuForm.cs",
               "RelativeDocumentMoniker": "Library\\Reader\\ReaderMenuForm.cs",
@@ -72,30 +181,6 @@
               "RelativeToolTip": "Library\\Reader\\ReaderMenuForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-13T15:15:22.322Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AdministratorMenuLibraryForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\LibraryAdministrator\\AdministratorMenuLibraryForm.cs",
-              "RelativeDocumentMoniker": "Library\\LibraryAdministrator\\AdministratorMenuLibraryForm.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\LibraryAdministrator\\AdministratorMenuLibraryForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "Library\\LibraryAdministrator\\AdministratorMenuLibraryForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T19:46:49.243Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LibrarianMenu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\Librarian\\LibrarianMenu.cs",
-              "RelativeDocumentMoniker": "Library\\Librarian\\LibrarianMenu.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041F\u0418\u0422\u041F\u041E\\\u041A\u0443\u0440\u0441\u0430\u0447\\Library\\Library\\Librarian\\LibrarianMenu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "Library\\Librarian\\LibrarianMenu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T15:15:14.86Z",
               "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
             }
           ]

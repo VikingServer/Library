@@ -35,7 +35,7 @@
             btnAddReader = new Button();
             labelNavTitle = new Label();
             panelHeader = new Panel();
-            btnLoadTable = new Button();
+            btnSearchBook = new Button();
             labelTitle = new Label();
             panelContent = new Panel();
             panelForm = new Panel();
@@ -138,6 +138,7 @@
             btnLogout.TabIndex = 5;
             btnLogout.Text = "Выйти";
             btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnAddReader
             // 
@@ -170,7 +171,7 @@
             // panelHeader
             // 
             panelHeader.BackColor = Color.White;
-            panelHeader.Controls.Add(btnLoadTable);
+            panelHeader.Controls.Add(btnSearchBook);
             panelHeader.Controls.Add(labelTitle);
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(356, 0);
@@ -178,20 +179,21 @@
             panelHeader.Size = new Size(1872, 84);
             panelHeader.TabIndex = 1;
             // 
-            // btnLoadTable
+            // btnSearchBook
             // 
-            btnLoadTable.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnLoadTable.BackColor = Color.FromArgb(52, 152, 219);
-            btnLoadTable.FlatAppearance.BorderSize = 0;
-            btnLoadTable.FlatStyle = FlatStyle.Flat;
-            btnLoadTable.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            btnLoadTable.ForeColor = Color.White;
-            btnLoadTable.Location = new Point(1512, 32);
-            btnLoadTable.Name = "btnLoadTable";
-            btnLoadTable.Size = new Size(338, 52);
-            btnLoadTable.TabIndex = 27;
-            btnLoadTable.Text = "Загрузить таблицу книг";
-            btnLoadTable.UseVisualStyleBackColor = false;
+            btnSearchBook.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSearchBook.BackColor = Color.FromArgb(52, 152, 219);
+            btnSearchBook.FlatAppearance.BorderSize = 0;
+            btnSearchBook.FlatStyle = FlatStyle.Flat;
+            btnSearchBook.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSearchBook.ForeColor = Color.White;
+            btnSearchBook.Location = new Point(1675, 32);
+            btnSearchBook.Name = "btnSearchBook";
+            btnSearchBook.Size = new Size(175, 52);
+            btnSearchBook.TabIndex = 27;
+            btnSearchBook.Text = "Поиск";
+            btnSearchBook.UseVisualStyleBackColor = false;
+            btnSearchBook.Click += BtnSearchBook_Click;
             // 
             // labelTitle
             // 
@@ -279,6 +281,7 @@
             btnUpdateTable.TabIndex = 26;
             btnUpdateTable.Text = "Обновить таблицу";
             btnUpdateTable.UseVisualStyleBackColor = false;
+            btnUpdateTable.Click += btnUpdateTable_Click;
             // 
             // btnDelete
             // 
@@ -294,6 +297,7 @@
             btnDelete.TabIndex = 25;
             btnDelete.Text = "Удалить";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnEdit
             // 
@@ -309,6 +313,7 @@
             btnEdit.TabIndex = 24;
             btnEdit.Text = "Изменить данные";
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnAdd
             // 
@@ -324,6 +329,7 @@
             btnAdd.TabIndex = 9;
             btnAdd.Text = "Добавить книгу";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // textBoxReader
             // 
@@ -374,6 +380,7 @@
             checkBoxIssued.TabIndex = 31;
             checkBoxIssued.Text = "Выдан";
             checkBoxIssued.UseVisualStyleBackColor = true;
+            checkBoxIssued.CheckedChanged += СheckBoxIssued_CheckedChanged;
             // 
             // textBoxReadingRoom
             // 
@@ -402,6 +409,7 @@
             textBoxYear.Name = "textBoxYear";
             textBoxYear.Size = new Size(322, 43);
             textBoxYear.TabIndex = 29;
+            textBoxYear.KeyPress += TextBoxYear_KeyPress;
             // 
             // label5
             // 
@@ -487,11 +495,14 @@
             dataGridViewBooks.Columns.AddRange(new DataGridViewColumn[] { NameBook, Author, ReadingRoom, PublishingHouse, YearPublication, Mark, StartDate, FinishDate, Reader });
             dataGridViewBooks.Dock = DockStyle.Fill;
             dataGridViewBooks.Location = new Point(22, 21);
+            dataGridViewBooks.MultiSelect = false;
             dataGridViewBooks.Name = "dataGridViewBooks";
             dataGridViewBooks.RowHeadersWidth = 51;
             dataGridViewBooks.RowTemplate.Height = 29;
+            dataGridViewBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewBooks.Size = new Size(1828, 483);
             dataGridViewBooks.TabIndex = 0;
+            dataGridViewBooks.SelectionChanged += DataGridViewBooks_SelectionChanged;
             // 
             // NameBook
             // 
@@ -530,7 +541,7 @@
             // 
             // Mark
             // 
-            Mark.HeaderText = "Метка";
+            Mark.HeaderText = "Статус";
             Mark.MinimumWidth = 100;
             Mark.Name = "Mark";
             // 
@@ -563,7 +574,7 @@
             Controls.Add(panelContent);
             Controls.Add(panelHeader);
             Controls.Add(panelNav);
-            Name = "Form5";
+            Name = "LibrarianBookManagmentForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Библиотека - Управление книгами";
             WindowState = FormWindowState.Maximized;
@@ -587,7 +598,7 @@
         private Button btnAddReader;
         private Label labelNavTitle;
         private Panel panelHeader;
-        private Button btnLoadTable;
+        private Button btnSearchBook;
         private Label labelTitle;
         private Panel panelContent;
         private Panel panelForm;

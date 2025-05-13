@@ -1,6 +1,6 @@
 ﻿namespace Library
 {
-    partial class LibrarianMenu
+    partial class AdminMenuForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LibrarianMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminMenuForm));
             panelNav = new Panel();
             btnLogout = new Button();
-            btnAccounting = new Button();
-            btnAddReader = new Button();
-            btnAddBook = new Button();
+            btnHelp = new Button();
+            btnAddHall = new Button();
+            btnBookOperations = new Button();
             labelNavTitle = new Label();
             panelHeader = new Panel();
             labelTitle = new Label();
             panelContent = new Panel();
             dataGridView1 = new DataGridView();
-            labWorkingSchedule = new Label();
-            labInfLibrary = new Label();
-            pictureBox1 = new PictureBox();
             DayOfWeek = new DataGridViewTextBoxColumn();
             OpeningHours = new DataGridViewTextBoxColumn();
+            labWorkingSchedule = new Label();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
             panelNav.SuspendLayout();
             panelHeader.SuspendLayout();
             panelContent.SuspendLayout();
@@ -55,9 +55,9 @@
             // 
             panelNav.BackColor = Color.FromArgb(41, 128, 185);
             panelNav.Controls.Add(btnLogout);
-            panelNav.Controls.Add(btnAccounting);
-            panelNav.Controls.Add(btnAddReader);
-            panelNav.Controls.Add(btnAddBook);
+            panelNav.Controls.Add(btnHelp);
+            panelNav.Controls.Add(btnAddHall);
+            panelNav.Controls.Add(btnBookOperations);
             panelNav.Controls.Add(labelNavTitle);
             panelNav.Dock = DockStyle.Left;
             panelNav.Location = new Point(0, 0);
@@ -79,54 +79,55 @@
             btnLogout.TabIndex = 5;
             btnLogout.Text = "Выйти";
             btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
-            // btnAccounting
+            // btnHelp
             // 
-            btnAccounting.BackColor = Color.Transparent;
-            btnAccounting.FlatAppearance.BorderSize = 0;
-            btnAccounting.FlatStyle = FlatStyle.Flat;
-            btnAccounting.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAccounting.ForeColor = Color.White;
-            btnAccounting.Location = new Point(0, 349);
-            btnAccounting.Name = "btnAccounting";
-            btnAccounting.Size = new Size(340, 52);
-            btnAccounting.TabIndex = 3;
-            btnAccounting.Text = "Учет";
-            btnAccounting.TextAlign = ContentAlignment.MiddleLeft;
-            btnAccounting.UseVisualStyleBackColor = false;
-            btnAccounting.Click += btnAccounting_Click;
+            btnHelp.BackColor = Color.Transparent;
+            btnHelp.FlatAppearance.BorderSize = 0;
+            btnHelp.FlatStyle = FlatStyle.Flat;
+            btnHelp.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnHelp.ForeColor = Color.White;
+            btnHelp.Location = new Point(0, 349);
+            btnHelp.Name = "btnHelp";
+            btnHelp.Size = new Size(337, 58);
+            btnHelp.TabIndex = 3;
+            btnHelp.Text = "Сделать справку";
+            btnHelp.TextAlign = ContentAlignment.MiddleLeft;
+            btnHelp.UseVisualStyleBackColor = false;
+            btnHelp.Click += btnHelp_Click;
             // 
-            // btnAddReader
+            // btnAddHall
             // 
-            btnAddReader.BackColor = Color.Transparent;
-            btnAddReader.FlatAppearance.BorderSize = 0;
-            btnAddReader.FlatStyle = FlatStyle.Flat;
-            btnAddReader.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAddReader.ForeColor = Color.White;
-            btnAddReader.Location = new Point(0, 271);
-            btnAddReader.Name = "btnAddReader";
-            btnAddReader.Size = new Size(340, 52);
-            btnAddReader.TabIndex = 2;
-            btnAddReader.Text = "Добавить читателя";
-            btnAddReader.TextAlign = ContentAlignment.MiddleLeft;
-            btnAddReader.UseVisualStyleBackColor = false;
-            btnAddReader.Click += btnAddReader_Click;
+            btnAddHall.BackColor = Color.Transparent;
+            btnAddHall.FlatAppearance.BorderSize = 0;
+            btnAddHall.FlatStyle = FlatStyle.Flat;
+            btnAddHall.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAddHall.ForeColor = Color.White;
+            btnAddHall.Location = new Point(0, 271);
+            btnAddHall.Name = "btnAddHall";
+            btnAddHall.Size = new Size(340, 52);
+            btnAddHall.TabIndex = 2;
+            btnAddHall.Text = "Добавить зал";
+            btnAddHall.TextAlign = ContentAlignment.MiddleLeft;
+            btnAddHall.UseVisualStyleBackColor = false;
+            btnAddHall.Click += btnAddHall_Click;
             // 
-            // btnAddBook
+            // btnBookOperations
             // 
-            btnAddBook.BackColor = Color.Transparent;
-            btnAddBook.FlatAppearance.BorderSize = 0;
-            btnAddBook.FlatStyle = FlatStyle.Flat;
-            btnAddBook.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAddBook.ForeColor = Color.White;
-            btnAddBook.Location = new Point(0, 188);
-            btnAddBook.Name = "btnAddBook";
-            btnAddBook.Size = new Size(340, 52);
-            btnAddBook.TabIndex = 1;
-            btnAddBook.Text = "Работа с книгами";
-            btnAddBook.TextAlign = ContentAlignment.MiddleLeft;
-            btnAddBook.UseVisualStyleBackColor = false;
-            btnAddBook.Click += btnAddBook_Click;
+            btnBookOperations.BackColor = Color.Transparent;
+            btnBookOperations.FlatAppearance.BorderSize = 0;
+            btnBookOperations.FlatStyle = FlatStyle.Flat;
+            btnBookOperations.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBookOperations.ForeColor = Color.White;
+            btnBookOperations.Location = new Point(0, 188);
+            btnBookOperations.Name = "btnBookOperations";
+            btnBookOperations.Size = new Size(340, 52);
+            btnBookOperations.TabIndex = 1;
+            btnBookOperations.Text = "Операции с книгами";
+            btnBookOperations.TextAlign = ContentAlignment.MiddleLeft;
+            btnBookOperations.UseVisualStyleBackColor = false;
+            btnBookOperations.Click += button2_Click;
             // 
             // labelNavTitle
             // 
@@ -157,16 +158,16 @@
             labelTitle.ForeColor = Color.FromArgb(41, 128, 185);
             labelTitle.Location = new Point(22, 21);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(280, 50);
+            labelTitle.Size = new Size(536, 50);
             labelTitle.TabIndex = 0;
-            labelTitle.Text = "Библиотекарь";
+            labelTitle.Text = "Администратор библиотеки";
             // 
             // panelContent
             // 
             panelContent.BackColor = Color.White;
             panelContent.Controls.Add(dataGridView1);
             panelContent.Controls.Add(labWorkingSchedule);
-            panelContent.Controls.Add(labInfLibrary);
+            panelContent.Controls.Add(label1);
             panelContent.Controls.Add(pictureBox1);
             panelContent.Dock = DockStyle.Fill;
             panelContent.Location = new Point(340, 84);
@@ -181,42 +182,12 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { DayOfWeek, OpeningHours });
-            dataGridView1.Location = new Point(892, 88);
+            dataGridView1.Location = new Point(890, 88);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 31;
             dataGridView1.Size = new Size(335, 355);
             dataGridView1.TabIndex = 7;
-            // 
-            // labWorkingSchedule
-            // 
-            labWorkingSchedule.AutoSize = true;
-            labWorkingSchedule.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            labWorkingSchedule.Location = new Point(892, 21);
-            labWorkingSchedule.Name = "labWorkingSchedule";
-            labWorkingSchedule.Size = new Size(207, 37);
-            labWorkingSchedule.TabIndex = 6;
-            labWorkingSchedule.Text = "График работы";
-            // 
-            // labInfLibrary
-            // 
-            labInfLibrary.AutoSize = true;
-            labInfLibrary.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            labInfLibrary.Location = new Point(22, 488);
-            labInfLibrary.Name = "labInfLibrary";
-            labInfLibrary.Size = new Size(359, 37);
-            labInfLibrary.TabIndex = 1;
-            labInfLibrary.Text = "Информация о библиотеке";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(22, 21);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(720, 422);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // DayOfWeek
             // 
@@ -233,7 +204,37 @@
             OpeningHours.ReadOnly = true;
             OpeningHours.Width = 142;
             // 
-            // LibrarianMenu
+            // labWorkingSchedule
+            // 
+            labWorkingSchedule.AutoSize = true;
+            labWorkingSchedule.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            labWorkingSchedule.Location = new Point(890, 21);
+            labWorkingSchedule.Name = "labWorkingSchedule";
+            labWorkingSchedule.Size = new Size(207, 37);
+            labWorkingSchedule.TabIndex = 6;
+            labWorkingSchedule.Text = "График работы";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(22, 488);
+            label1.Name = "label1";
+            label1.Size = new Size(90, 37);
+            label1.TabIndex = 1;
+            label1.Text = "label1";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(22, 21);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(720, 422);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // AdminMenuForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -241,9 +242,9 @@
             Controls.Add(panelContent);
             Controls.Add(panelHeader);
             Controls.Add(panelNav);
-            Name = "LibrarianMenu";
+            Name = "AdminMenuForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Библиотека - Панель библиотекаря";
+            Text = "Библиотека - Панель администратора";
             WindowState = FormWindowState.Maximized;
             panelNav.ResumeLayout(false);
             panelHeader.ResumeLayout(false);
@@ -258,16 +259,16 @@
         #endregion
 
         private Panel panelNav;
-        private Button btnLogout;
-        private Button btnAccounting;
-        private Button btnAddReader;
-        private Button btnAddBook;
-        private Label labelNavTitle;
         private Panel panelHeader;
         private Label labelTitle;
         private Panel panelContent;
-        private Label labInfLibrary;
         private PictureBox pictureBox1;
+        private Label labelNavTitle;
+        private Button btnBookOperations;
+        private Button btnAddHall;
+        private Button btnHelp;
+        private Button btnLogout;
+        private Label label1;
         private DataGridView dataGridView1;
         private Label labWorkingSchedule;
         private DataGridViewTextBoxColumn DayOfWeek;

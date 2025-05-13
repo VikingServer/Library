@@ -9,27 +9,44 @@ namespace Library
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "1")
+            if (textBoxLogin.Text == "1")
             {
-                AdministratorMenuLibraryForm form10 = new AdministratorMenuLibraryForm();
-                form10.ShowDialog();
+                AdminMenuForm adminMenu = new AdminMenuForm();
                 Hide();
+                adminMenu.Authorization = this;
+                adminMenu.Show();
 
+                CleanTextBox();
             }
-
-            if (textBox1.Text == "2")
+            else if (textBoxLogin.Text == "2")
             {
-                LibrarianMenu form11 = new LibrarianMenu();
-                form11.Show();
+                LibrarianMenuForm librarianMenu = new LibrarianMenuForm();
+                Hide();
+                librarianMenu.Authorization = this;
+                librarianMenu.Show();
+
+                CleanTextBox();
 
             }
-
-            if (textBox1.Text == "3")
+            else if (textBoxLogin.Text == "3")
             {
-                ReaderMenuForm form13 = new ReaderMenuForm();
-                form13.Show();
+                ReaderMenuForm readerMenu = new ReaderMenuForm();
+                Hide();
+                readerMenu.Authorization = this;
+                readerMenu.Show();
 
+                CleanTextBox();
             }
+            else
+            {
+                MessageBox.Show("Неверный логин или пароль!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CleanTextBox()
+        {
+            textBoxLogin.Clear();
+            textBoxPassword.Clear();
         }
     }
 }

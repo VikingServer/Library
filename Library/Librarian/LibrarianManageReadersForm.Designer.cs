@@ -35,7 +35,7 @@
             btnBookOperations = new Button();
             labelNavTitle = new Label();
             panelHeader = new Panel();
-            btnLoadTable = new Button();
+            btnSearchReader = new Button();
             labelTitle = new Label();
             panelContent = new Panel();
             panelForm = new Panel();
@@ -138,6 +138,7 @@
             btnLogout.TabIndex = 5;
             btnLogout.Text = "Выйти";
             btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnBookOperations
             // 
@@ -153,6 +154,7 @@
             btnBookOperations.Text = "Операции с книгами";
             btnBookOperations.TextAlign = ContentAlignment.MiddleLeft;
             btnBookOperations.UseVisualStyleBackColor = false;
+            btnBookOperations.Click += btnBookOperations_Click;
             // 
             // labelNavTitle
             // 
@@ -169,7 +171,7 @@
             // panelHeader
             // 
             panelHeader.BackColor = Color.White;
-            panelHeader.Controls.Add(btnLoadTable);
+            panelHeader.Controls.Add(btnSearchReader);
             panelHeader.Controls.Add(labelTitle);
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(356, 0);
@@ -177,20 +179,21 @@
             panelHeader.Size = new Size(1872, 84);
             panelHeader.TabIndex = 1;
             // 
-            // btnLoadTable
+            // btnSearchReader
             // 
-            btnLoadTable.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnLoadTable.BackColor = Color.FromArgb(52, 152, 219);
-            btnLoadTable.FlatAppearance.BorderSize = 0;
-            btnLoadTable.FlatStyle = FlatStyle.Flat;
-            btnLoadTable.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            btnLoadTable.ForeColor = Color.White;
-            btnLoadTable.Location = new Point(1512, 32);
-            btnLoadTable.Name = "btnLoadTable";
-            btnLoadTable.Size = new Size(338, 52);
-            btnLoadTable.TabIndex = 27;
-            btnLoadTable.Text = "Загрузить таблицу читателей";
-            btnLoadTable.UseVisualStyleBackColor = false;
+            btnSearchReader.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSearchReader.BackColor = Color.FromArgb(52, 152, 219);
+            btnSearchReader.FlatAppearance.BorderSize = 0;
+            btnSearchReader.FlatStyle = FlatStyle.Flat;
+            btnSearchReader.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSearchReader.ForeColor = Color.White;
+            btnSearchReader.Location = new Point(1675, 32);
+            btnSearchReader.Name = "btnSearchReader";
+            btnSearchReader.Size = new Size(175, 52);
+            btnSearchReader.TabIndex = 27;
+            btnSearchReader.Text = "Поиск";
+            btnSearchReader.UseVisualStyleBackColor = false;
+            btnSearchReader.Click += btnSearchReader_Click;
             // 
             // labelTitle
             // 
@@ -266,6 +269,7 @@
             btnAdd.TabIndex = 9;
             btnAdd.Text = "Добавить читателя";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnDelete
             // 
@@ -281,6 +285,7 @@
             btnDelete.TabIndex = 25;
             btnDelete.Text = "Удалить";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnUpdateTable
             // 
@@ -296,6 +301,7 @@
             btnUpdateTable.TabIndex = 26;
             btnUpdateTable.Text = "Обновить таблицу";
             btnUpdateTable.UseVisualStyleBackColor = false;
+            btnUpdateTable.Click += btnUpdateTable_Click;
             // 
             // textBoxAddress
             // 
@@ -481,6 +487,7 @@
             dataGridViewReaders.RowTemplate.Height = 29;
             dataGridViewReaders.Size = new Size(1828, 483);
             dataGridViewReaders.TabIndex = 0;
+            dataGridViewReaders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             // 
             // LastName
             // 
@@ -543,7 +550,7 @@
             Address.Name = "Address";
             Address.Width = 250;
             // 
-            // ManageReadersForm
+            // LibrarianManageReadersForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -551,7 +558,7 @@
             Controls.Add(panelContent);
             Controls.Add(panelHeader);
             Controls.Add(panelNav);
-            Name = "Form6";
+            Name = "LibrarianManageReadersForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Библиотека - Управление читателями";
             WindowState = FormWindowState.Maximized;
@@ -575,7 +582,7 @@
         private Button btnBookOperations;
         private Label labelNavTitle;
         private Panel panelHeader;
-        private Button btnLoadTable;
+        private Button btnSearchReader;
         private Label labelTitle;
         private Panel panelContent;
         private Panel panelForm;

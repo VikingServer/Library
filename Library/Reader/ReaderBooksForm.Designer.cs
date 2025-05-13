@@ -1,6 +1,6 @@
 ﻿namespace Library
 {
-    partial class ReaderBooks
+    partial class ReaderBooksForm
     {
         /// <summary>
         /// Required designer variable.
@@ -152,7 +152,7 @@
             panelHeader.Size = new Size(1459, 92);
             panelHeader.TabIndex = 1;
             // 
-            // btnLoadTable
+            // btnSearchBook
             // 
             btnLoadTable.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnLoadTable.BackColor = Color.FromArgb(52, 152, 219);

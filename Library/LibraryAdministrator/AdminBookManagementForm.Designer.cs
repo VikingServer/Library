@@ -1,6 +1,6 @@
 ﻿namespace Library
 {
-    partial class AdministratorBookManagementForm
+    partial class AdminBookManagementForm
     {
         /// <summary>
         /// Required designer variable.
@@ -270,7 +270,7 @@
             btnAdd.TabIndex = 9;
             btnAdd.Text = "Добавить книгу";
             btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += button1_Click;
+            btnAdd.Click += btnAdd_Click;
             // 
             // textBox5
             // 
@@ -308,7 +308,6 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(1066, 43);
             textBox2.TabIndex = 20;
-            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // textBox1
             // 

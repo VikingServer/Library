@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Library
 {
-    public partial class AdministratorManagementOfReadingRoomsForm : Form
+    public partial class AdminManagementOfReadingRoomsForm : Form
     {
-        public AdministratorManagementOfReadingRoomsForm()
+        public AdminManagementOfReadingRoomsForm()
         {
             InitializeComponent();
         }
@@ -26,21 +26,21 @@ namespace Library
         private void btnBookOperations_Click(object sender, EventArgs e)
         {
             Close();
-            AdministratorBookManagementForm form2 = new AdministratorBookManagementForm();
+            AdminBookManagementForm form2 = new AdminBookManagementForm();
             form2.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             Close();
-            AdministratorMenuLibraryForm form10 = new AdministratorMenuLibraryForm();
+            AdminMenuForm form10 = new AdminMenuForm();
             form10.Show();
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
             Close();
-            AdministratorMenuLibraryForm form10 = new AdministratorMenuLibraryForm();
+            AdminMenuForm form10 = new AdminMenuForm();
             form10.Show();
         }
     }
