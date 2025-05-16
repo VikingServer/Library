@@ -1,0 +1,213 @@
+CREATE TABLE Библиотека (
+    id INT PRIMARY KEY,
+    название VARCHAR(255) UNIQUE,
+    адрес VARCHAR(255) NOT NULL,
+    телефон VARCHAR(14) NOT NULL
+);
+
+CREATE TABLE ГрафикРаботы (
+    id INT references Библиотека(id),
+    ДеньНедели VARCHAR(255) NOT NULL,
+    ЧасыРаботы VARCHAR(255) NOT NULL,
+	primary key(id, ДеньНедели)
+);
+
+CREATE TABLE ЧитальныеЗалыВБиблиотеке (
+    id INT references Библиотека(id),
+   idЧитальногоЗала serial primary key
+);
+
+CREATE TABLE ЧитальныеЗалы (
+   idЧитальногоЗала serial primary key references ЧитальныеЗалыВБиблиотеке (idЧитальногоЗала),
+	Название varchar(255) UNIQUE
+);
+
+CREATE TABLE Читатели(
+    idЧитателя serial primary key,
+    НомерТелефона varchar(11) not null
+);
+
+
+CREATE TABLE ЧитальныеЗалыИЧитатели(
+    idЧитателя serial references Читатели(idЧитателя),
+    idЧитальногоЗала serial references ЧитальныеЗалыВБиблиотеке (idЧитальногоЗала),
+	primary key(idЧитателя, idЧитальногоЗала)
+);
+
+
+CREATE TABLE ФИОЧитатели(
+    idЧитателя serial primary key references Читатели(idЧитателя),
+    Фамилия varchar(255) not null,
+	Имя varchar(255) not null, 
+	Отчество varchar(255)
+);
+
+CREATE TABLE ПаспортныеДанныеЧитатели(
+    idЧитателя serial primary key references Читатели(idЧитателя),
+    Серия varchar(4) not null,
+	Номер varchar(6) not null, 
+	КемВыдан varchar(255) not null,
+	ДатаВыдачи date not null,
+	АдресРегистрации varchar(255) not null
+);
+
+CREATE TABLE ЧитальныйЗалИКниги(
+    idЧитальногоЗала serial references ЧитальныеЗалыВБиблиотеке (idЧитальногоЗала),
+    idКниги serial primary key
+); 
+
+CREATE TABLE КнигиИАвтор(
+    idКниги serial primary key references ЧитальныйЗалИКниги (idКниги),
+    Автор varchar(255) not null
+);
+
+CREATE TABLE Книги(
+    idКниги serial primary key references ЧитальныйЗалИКниги (idКниги),
+    Название varchar(255) not null,
+	Издательство varchar(255),
+	ГодИздания date
+);
+
+CREATE TABLE КнигиМетка(
+    idКниги serial primary key references ЧитальныйЗалИКниги (idКниги),
+    Метка varchar(5) not null
+);
+
+CREATE TABLE Книгооборот(
+    idКниги serial primary key references ЧитальныйЗалИКниги (idКниги),
+    ДатаВыдачи date,
+	ДатаВозврата date
+);
+
+CREATE TABLE ЧитателиИКниги(
+    idКниги serial primary key references ЧитальныйЗалИКниги (idКниги),
+    idЧитателя serial references Читатели(idЧитателя)
+);
+
+CREATE TABLE ЧитальныеЗалыВместимость(
+    idЧитальногоЗала serial primary key references ЧитальныеЗалыВБиблиотеке (idЧитальногоЗала),
+    Вместимость int not null
+);
+
+
+
+
+Роли
+
+CREATE ROLE admin;
+GRANT ALL ON Библиотека TO admin;
+GRANT ALL ON ГрафикРаботы TO admin;
+GRANT ALL ON Книги TO admin;
+GRANT ALL ON КнигиИАвтор TO admin;
+GRANT ALL ON КнигиМетка TO admin;
+GRANT ALL ON Книгооборот TO admin;
+GRANT ALL ON ПаспортныеДанныеЧитатели TO admin;
+GRANT ALL ON ЧитальныеЗалы TO admin;
+GRANT ALL ON ЧитальныеЗалыВБиблиотеке TO admin;
+GRANT ALL ON ЧитальныеЗалыВместимость TO admin;
+GRANT ALL ON ЧитальныйЗалИКниги TO admin;
+GRANT ALL ON ЧитальныеЗалыИЧитатели TO admin;
+GRANT ALL ON Читатели TO admin;
+GRANT ALL ON ЧитателиИКниги TO admin;
+GRANT ALL ON ФИОЧитатели TO admin;
+
+Create ROLE АдминистраторБиблиотеки;
+GRANT SELECT ON Библиотека TO АдминистраторБиблиотеки;
+GRANT SELECT ON ГрафикРаботы TO АдминистраторБиблиотеки;
+GRANT ALL ON Книги TO АдминистраторБиблиотеки;
+GRANT ALL ON КнигиИАвтор TO АдминистраторБиблиотеки;
+GRANT ALL ON ЧитальныеЗалы TO АдминистраторБиблиотеки;
+GRANT ALL ON ЧитальныеЗалыВБиблиотеке TO АдминистраторБиблиотеки;
+GRANT ALL ON ЧитальныеЗалыВместимость TO АдминистраторБиблиотеки;
+GRANT ALL ON ЧитальныйЗалИКниги TO АдминистраторБиблиотеки;
+
+
+CREATE ROLE Библиотекарь;
+GRANT Select ON Библиотека TO Библиотекарь;
+GRANT Select ON ГрафикРаботы TO Библиотекарь;
+GRANT Select ON Книги TO Библиотекарь;
+GRANT Select ON КнигиИАвтор TO Библиотекарь;
+GRANT Select, Insert, Update, Delete, TRUNCATE  ON КнигиМетка TO Библиотекарь;
+GRANT Select, Insert, Update, Delete, TRUNCATE ON Книгооборот TO Библиотекарь;
+GRANT Select, Insert, Update, Delete, TRUNCATE ON ПаспортныеДанныеЧитатели TO Библиотекарь;
+GRANT Select ON ЧитальныеЗалы TO Библиотекарь;
+GRANT Select ON ЧитальныеЗалыВБиблиотеке TO Библиотекарь;
+GRANT Select ON ЧитальныеЗалыВместимость TO Библиотекарь;
+GRANT Select ON ЧитальныйЗалИКниги TO Библиотекарь;
+GRANT Select, Insert, Update, Delete, TRUNCATE ON ЧитальныеЗалыИЧитатели TO Библиотекарь;
+GRANT Select, Insert, Update, Delete, TRUNCATE ON Читатели TO Библиотекарь;
+GRANT Select, Insert, Update, Delete, TRUNCATE ON ЧитателиИКниги TO Библиотекарь;
+GRANT Select, Insert, Update, Delete, TRUNCATE ON ФИОЧитатели TO Библиотекарь;
+
+CREATE ROLE Читатель;
+GRANT Select ON Библиотека TO Читатель;
+GRANT Select ON ГрафикРаботы TO Читатель;
+GRANT Select ON Книги TO Читатель;
+GRANT Select ON КнигиИАвтор TO Читатель;
+GRANT Select ON КнигиМетка TO Читатель;
+GRANT Select ON Книгооборот TO Читатель;
+GRANT Select ON ЧитальныеЗалы TO Читатель;
+GRANT Select ON ЧитальныеЗалыВБиблиотеке TO Читатель;
+GRANT Select ON ЧитальныйЗалИКниги TO Читатель;
+GRANT Select ON ЧитателиИКниги TO Читатель;
+
+
+Триггеры:
+Проверка вместимости
+CREATE OR REPLACE FUNCTION check_capacity()
+RETURNS TRIGGER AS
+$$
+DECLARE
+    current_capacity INTEGER;
+    max_capacity INTEGER;
+BEGIN
+    -- Получаем текущее количество записей для данного idЧитателя
+    SELECT COUNT(*)
+    INTO current_capacity
+    FROM ЧитальныеЗалыИЧитатели
+    WHERE idЧитателя = NEW.idЧитателя;
+
+    -- Получаем вместимость для данного idЧитального зала
+    SELECT Вместимость
+    INTO max_capacity
+    FROM ЧитальныеЗалыВместимость
+    WHERE idЧитальногоЗала = NEW.idЧитальногоЗала;
+
+    -- Проверяем, можно ли добавить новую запись
+    IF current_capacity < max_capacity THEN
+        RETURN NEW;
+    ELSE
+        RAISE EXCEPTION 'Невозможно добавить новую запись, в зале нет мест.';
+    END IF;
+END;
+$$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER check_capacity_trigger
+BEFORE INSERT ON ЧитальныеЗалыИЧитатели
+FOR EACH ROW
+EXECUTE FUNCTION check_capacity();
+
+CREATE OR REPLACE FUNCTION check_reading_room()
+RETURNS TRIGGER AS
+$$
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM ЧитальныеЗалыИЧитатели ci, ЧитальныеЗалыИКниги ki
+        WHERE ci.idЧитателя = NEW.idЧитателя
+        AND ki.idЧитальногоЗала = ci.idЧитальногоЗала
+        AND ki.idКниги = NEW.idКниги
+    ) THEN
+        RETURN NEW;
+    ELSE
+        RAISE EXCEPTION 'Cannot create new entry. The reading room for this reader does not have access to this book.';
+    END IF;
+END;
+$$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER check_reading_room_trigger
+BEFORE INSERT ON ЧитателиИКниги
+FOR EACH ROW
+EXECUTE FUNCTION check_reading_room();
