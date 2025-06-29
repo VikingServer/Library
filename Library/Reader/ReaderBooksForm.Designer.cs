@@ -220,7 +220,7 @@
             dateTimePicker1.Size = new Size(281, 43);
             dateTimePicker1.TabIndex = 56;
             // 
-            // button1
+            // btnLoadTableBooks
             // 
             button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button1.BackColor = Color.FromArgb(52, 152, 219);

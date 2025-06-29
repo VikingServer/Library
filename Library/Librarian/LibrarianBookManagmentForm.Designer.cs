@@ -299,7 +299,7 @@
             btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
-            // btnEdit
+            // btnEditBook
             // 
             btnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnEdit.BackColor = Color.FromArgb(52, 152, 219);
@@ -315,7 +315,7 @@
             btnEdit.UseVisualStyleBackColor = false;
             btnEdit.Click += btnEdit_Click;
             // 
-            // btnAdd
+            // btnAddBook
             // 
             btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAdd.BackColor = Color.FromArgb(52, 152, 219);
@@ -391,7 +391,7 @@
             textBoxReadingRoom.Size = new Size(322, 43);
             textBoxReadingRoom.TabIndex = 30;
             // 
-            // label6
+            // labelReadingRoom
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -411,7 +411,7 @@
             textBoxYear.TabIndex = 29;
             textBoxYear.KeyPress += TextBoxYear_KeyPress;
             // 
-            // label5
+            // labelYearPublication
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -430,7 +430,7 @@
             textBoxPublisher.Size = new Size(322, 43);
             textBoxPublisher.TabIndex = 28;
             // 
-            // label4
+            // labelPublishingHouse
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -449,7 +449,7 @@
             textBoxAuthor.Size = new Size(322, 43);
             textBoxAuthor.TabIndex = 27;
             // 
-            // label3
+            // labelYearPublication
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -468,7 +468,7 @@
             textBoxTitle.Size = new Size(322, 43);
             textBoxTitle.TabIndex = 26;
             // 
-            // label2
+            // labelNameBook
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);

@@ -65,3 +65,42 @@ D:\Учеба\4 курс\2 семестр\ПИТПО\Курсач\Library\Librar
 D:\Учеба\4 курс\2 семестр\ПИТПО\Курсач\Library\Library\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 D:\Учеба\4 курс\2 семестр\ПИТПО\Курсач\Library\Library\obj\Debug\net6.0-windows\Library.csproj.AssemblyReference.cache
 D:\Учеба\4 курс\2 семестр\ПИТПО\Курсач\Library\Library\obj\Debug\net6.0-windows\Library.csproj.Up2Date
+D:\Образование\Проекты\Library\Library\bin\Debug\net6.0-windows\Library.exe
+D:\Образование\Проекты\Library\Library\bin\Debug\net6.0-windows\Library.deps.json
+D:\Образование\Проекты\Library\Library\bin\Debug\net6.0-windows\Library.runtimeconfig.json
+D:\Образование\Проекты\Library\Library\bin\Debug\net6.0-windows\Library.dll
+D:\Образование\Проекты\Library\Library\bin\Debug\net6.0-windows\Library.pdb
+D:\Образование\Проекты\Library\Library\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Образование\Проекты\Library\Library\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Образование\Проекты\Library\Library\bin\Debug\net6.0-windows\Npgsql.dll
+D:\Образование\Проекты\Library\Library\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+D:\Образование\Проекты\Library\Library\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+D:\Образование\Проекты\Library\Library\bin\Debug\net6.0-windows\System.Text.Json.dll
+D:\Образование\Проекты\Library\Library\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.csproj.AssemblyReference.cache
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.AuthorizationForm.resources
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.Form7.resources
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.LibrarianBookKeeping.resources
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.LibrarianBookManagmentForm.resources
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.LibrarianManageReadersForm.resources
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.LibrarianMenuForm.resources
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.AdminBookManagementForm.resources
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.AdminManagementOfReadingRoomsForm.resources
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.AdminMenuForm.resources
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.Synopsis.resources
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.Properties.Resources.resources
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.ReaderBooksForm.resources
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.ReaderMenuForm.resources
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.ReaderSelectBookForm.resources
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.csproj.GenerateResource.cache
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.GeneratedMSBuildEditorConfig.editorconfig
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.AssemblyInfoInputs.cache
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.AssemblyInfo.cs
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.csproj.CoreCompileInputs.cache
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.sourcelink.json
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.csproj.Up2Date
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.dll
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\refint\Library.dll
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.pdb
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\Library.genruntimeconfig.cache
+D:\Образование\Проекты\Library\Library\obj\Debug\net6.0-windows\ref\Library.dll

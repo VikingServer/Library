@@ -104,7 +104,7 @@
             panelFormContainer.Size = new Size(821, 525);
             panelFormContainer.TabIndex = 12;
             // 
-            // label4
+            // labelPublishingHouse
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 28.2F, FontStyle.Bold, GraphicsUnit.Point);
@@ -142,7 +142,7 @@
             textBoxPassword.Size = new Size(461, 32);
             textBoxPassword.TabIndex = 4;
             // 
-            // label3
+            // labelYearPublication
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -162,7 +162,7 @@
             textBoxLogin.Size = new Size(461, 32);
             textBoxLogin.TabIndex = 2;
             // 
-            // label2
+            // labelNameBook
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);

@@ -221,7 +221,7 @@
             btnDelete.Text = "Удалить";
             btnDelete.UseVisualStyleBackColor = false;
             // 
-            // btnEdit
+            // btnEditBook
             // 
             btnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnEdit.BackColor = Color.FromArgb(52, 152, 219);
@@ -236,7 +236,7 @@
             btnEdit.Text = "Изменить данные";
             btnEdit.UseVisualStyleBackColor = false;
             // 
-            // btnAdd
+            // btnAddBook
             // 
             btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAdd.BackColor = Color.FromArgb(52, 152, 219);
@@ -251,7 +251,7 @@
             btnAdd.Text = "Добавить зал";
             btnAdd.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // tbNameBook
             // 
             textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox1.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -260,7 +260,7 @@
             textBox1.Size = new Size(1066, 43);
             textBox1.TabIndex = 19;
             // 
-            // label2
+            // labelNameBook
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);

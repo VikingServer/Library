@@ -255,7 +255,7 @@
             dateTimePicker1.Size = new Size(276, 43);
             dateTimePicker1.TabIndex = 44;
             // 
-            // btnAdd
+            // btnAddBook
             // 
             btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAdd.BackColor = Color.FromArgb(52, 152, 219);
@@ -379,7 +379,7 @@
             textBoxDocumentSeries.Size = new Size(276, 43);
             textBoxDocumentSeries.TabIndex = 35;
             // 
-            // label6
+            // labelReadingRoom
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -398,7 +398,7 @@
             textBoxPhone.Size = new Size(106, 43);
             textBoxPhone.TabIndex = 32;
             // 
-            // label5
+            // labelYearPublication
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -417,7 +417,7 @@
             textBoxPatronymic.Size = new Size(276, 43);
             textBoxPatronymic.TabIndex = 31;
             // 
-            // label4
+            // labelPublishingHouse
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -436,7 +436,7 @@
             textBoxFirstName.Size = new Size(276, 43);
             textBoxFirstName.TabIndex = 29;
             // 
-            // label3
+            // labelYearPublication
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -455,7 +455,7 @@
             textBoxLastName.Size = new Size(276, 43);
             textBoxLastName.TabIndex = 27;
             // 
-            // label2
+            // labelNameBook
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);

@@ -17,22 +17,15 @@ namespace Library
             InitializeComponent();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAddBook_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnAddHall_Click(object sender, EventArgs e)
         {
             AdminManagementOfReadingRoomsForm form3 = new AdminManagementOfReadingRoomsForm();
             form3.Show();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Close();
-            AdminMenuForm form10 = new AdminMenuForm();
-            form10.Show();
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -40,6 +33,11 @@ namespace Library
             Close();
             AdminMenuForm form10 = new AdminMenuForm();
             form10.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

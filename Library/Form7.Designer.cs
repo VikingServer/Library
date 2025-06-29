@@ -45,7 +45,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // btnLoadTableBooks
             // 
             button1.BackColor = SystemColors.HotTrack;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -128,7 +128,7 @@
             dataGridViewTextBoxColumn3.Resizable = DataGridViewTriState.True;
             dataGridViewTextBoxColumn3.Width = 125;
             // 
-            // label2
+            // labelNameBook
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
