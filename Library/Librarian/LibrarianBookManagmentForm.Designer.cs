@@ -193,7 +193,7 @@
             btnSearchBook.TabIndex = 27;
             btnSearchBook.Text = "Поиск";
             btnSearchBook.UseVisualStyleBackColor = false;
-            btnSearchBook.Click += BtnSearchBook_Click;
+            btnSearchBook.Click += btnSearchBook_Click;
             // 
             // labelTitle
             // 

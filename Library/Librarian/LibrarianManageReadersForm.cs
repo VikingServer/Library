@@ -20,7 +20,7 @@ namespace Library
             InitializeComponent();
             Authorization = new AuthorizationForm();
 
-            CheckConnection();
+            Utils.IsConnect();
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -59,7 +59,8 @@ namespace Library
 
         private void btnUpdateTable_Click(object sender, EventArgs e)
         {
-            CheckConnection();
+            if (Utils.IsConnect())
+                LoadReadersData();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -82,21 +83,6 @@ namespace Library
             AddReader();
         }
 
-        private void CheckConnection()
-        {
-            if (DatabaseConnection.IsConnect())
-            {
-                LoadReadersData();
-            }
-            else
-            {
-                MessageBox.Show("Не удалось подключиться к базе данных",
-                                "Ошибка подключения",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-            }
-        }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dataGridViewReaders.SelectedRows.Count == 0)
@@ -116,25 +102,25 @@ namespace Library
             try
             {
                 string query = @"
-            SELECT 
-                ч.idЧитателя AS ""idЧитателя"",  -- Добавляем idЧитателя для использования при удалении
-                ф.Фамилия AS ""Фамилия"",
-                ф.Имя AS ""Имя"",
-                ф.Отчество AS ""Отчество"",
-                ч.НомерТелефона AS ""Номер телефона"",
-                пд.Серия AS ""Серия"",
-                пд.Номер AS ""Номер"",
-                пд.КемВыдан AS ""Кем выдан"",
-                TO_CHAR(пд.ДатаВыдачи, 'DD.MM.YYYY') AS ""Дата выдачи"",
-                пд.АдресРегистрации AS ""Адрес регистрации""
-            FROM 
-                Читатели ч
-            JOIN 
-                ФИОЧитатели ф ON ч.idЧитателя = ф.idЧитателя
-            JOIN 
-                ПаспортныеДанныеЧитатели пд ON ч.idЧитателя = пд.idЧитателя
-            ORDER BY 
-                ф.Фамилия, ф.Имя, ф.Отчество";
+                SELECT 
+                    ч.idЧитателя AS ""idЧитателя"",
+                    ф.Фамилия AS ""Фамилия"",
+                    ф.Имя AS ""Имя"",
+                    ф.Отчество AS ""Отчество"",
+                    ч.НомерТелефона AS ""Номер телефона"",
+                    пд.Серия AS ""Серия"",
+                    пд.Номер AS ""Номер"",
+                    пд.КемВыдан AS ""Кем выдан"",
+                    TO_CHAR(пд.ДатаВыдачи, 'DD.MM.YYYY') AS ""Дата выдачи"",
+                    пд.АдресРегистрации AS ""Адрес регистрации""
+                FROM 
+                    Читатели ч
+                JOIN 
+                    ФИОЧитатели ф ON ч.idЧитателя = ф.idЧитателя
+                JOIN 
+                    ПаспортныеДанныеЧитатели пд ON ч.idЧитателя = пд.idЧитателя
+                ORDER BY 
+                    ф.Фамилия, ф.Имя, ф.Отчество";
 
                 DataTable readersData = DatabaseConnection.ExecuteQuery(query);
 
@@ -247,7 +233,6 @@ namespace Library
                             // Обновляем таблицу
                             LoadReadersData();
 
-                            // Очищаем поля формы
                             ClearFormFields();
                         }
                         catch (NpgsqlException ex) when (ex.SqlState == "23505")
@@ -315,8 +300,8 @@ namespace Library
                         {
                             // 1. Удаляем из ФИОЧитатели
                             string deleteFIOQuery = @"
-                        DELETE FROM ФИОЧитатели
-                        WHERE idЧитателя = @ReaderId;";
+                            DELETE FROM ФИОЧитатели
+                            WHERE idЧитателя = @ReaderId;";
 
                             using (var command = new NpgsqlCommand(deleteFIOQuery, connection, transaction))
                             {
@@ -326,8 +311,8 @@ namespace Library
 
                             // 2. Удаляем из ПаспортныеДанныеЧитатели
                             string deletePassportQuery = @"
-                        DELETE FROM ПаспортныеДанныеЧитатели
-                        WHERE idЧитателя = @ReaderId;";
+                            DELETE FROM ПаспортныеДанныеЧитатели
+                            WHERE idЧитателя = @ReaderId;";
 
                             using (var command = new NpgsqlCommand(deletePassportQuery, connection, transaction))
                             {
@@ -337,8 +322,8 @@ namespace Library
 
                             // 3. Удаляем из Читатели
                             string deleteReaderQuery = @"
-                        DELETE FROM Читатели
-                        WHERE idЧитателя = @ReaderId;";
+                            DELETE FROM Читатели
+                            WHERE idЧитателя = @ReaderId;";
 
                             using (var command = new NpgsqlCommand(deleteReaderQuery, connection, transaction))
                             {

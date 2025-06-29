@@ -39,6 +39,7 @@
             labelTitle = new Label();
             panelContent = new Panel();
             panelForm = new Panel();
+            button1 = new Button();
             btnUpdateTable = new Button();
             btnWriteOff = new Button();
             btnEditBook = new Button();
@@ -49,7 +50,6 @@
             tbBookAuthor = new TextBox();
             tbNameBook = new TextBox();
             labelReadingRoom = new Label();
-            labelBookAuthor = new Label();
             labelPublishingHouse = new Label();
             labelBookAuthor = new Label();
             labelNameBook = new Label();
@@ -175,11 +175,11 @@
             btnLoadTableBooks.FlatStyle = FlatStyle.Flat;
             btnLoadTableBooks.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
             btnLoadTableBooks.ForeColor = Color.White;
-            btnLoadTableBooks.Location = new Point(1528, 32);
-            btnLoadTableBooks.Name = "button1";
-            btnLoadTableBooks.Size = new Size(338, 52);
+            btnLoadTableBooks.Location = new Point(1680, 32);
+            btnLoadTableBooks.Name = "btnLoadTableBooks";
+            btnLoadTableBooks.Size = new Size(186, 52);
             btnLoadTableBooks.TabIndex = 27;
-            btnLoadTableBooks.Text = "Загрузить таблицу книг";
+            btnLoadTableBooks.Text = "Поиск";
             btnLoadTableBooks.UseVisualStyleBackColor = false;
             // 
             // labelTitle
@@ -206,6 +206,7 @@
             // 
             // panelForm
             // 
+            panelForm.Controls.Add(button1);
             panelForm.Controls.Add(btnUpdateTable);
             panelForm.Controls.Add(btnWriteOff);
             panelForm.Controls.Add(btnEditBook);
@@ -216,7 +217,6 @@
             panelForm.Controls.Add(tbBookAuthor);
             panelForm.Controls.Add(tbNameBook);
             panelForm.Controls.Add(labelReadingRoom);
-            panelForm.Controls.Add(labelBookAuthor);
             panelForm.Controls.Add(labelPublishingHouse);
             panelForm.Controls.Add(labelBookAuthor);
             panelForm.Controls.Add(labelNameBook);
@@ -226,6 +226,21 @@
             panelForm.Padding = new Padding(22, 21, 22, 21);
             panelForm.Size = new Size(1888, 525);
             panelForm.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button1.BackColor = Color.FromArgb(52, 152, 219);
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(953, 395);
+            button1.Name = "button1";
+            button1.Size = new Size(338, 52);
+            button1.TabIndex = 27;
+            button1.Text = "Очистить поля";
+            button1.UseVisualStyleBackColor = false;
             // 
             // btnUpdateTable
             // 
@@ -266,7 +281,7 @@
             btnEditBook.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
             btnEditBook.ForeColor = Color.White;
             btnEditBook.Location = new Point(1517, 222);
-            btnEditBook.Name = "btnEdit";
+            btnEditBook.Name = "btnEditBook";
             btnEditBook.Size = new Size(338, 52);
             btnEditBook.TabIndex = 24;
             btnEditBook.Text = "Изменить данные";
@@ -281,7 +296,7 @@
             btnAddBook.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
             btnAddBook.ForeColor = Color.White;
             btnAddBook.Location = new Point(1517, 140);
-            btnAddBook.Name = "btnAdd";
+            btnAddBook.Name = "btnAddBook";
             btnAddBook.Size = new Size(338, 52);
             btnAddBook.TabIndex = 9;
             btnAddBook.Text = "Добавить книгу";
@@ -293,7 +308,7 @@
             tbReadingRoom.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbReadingRoom.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             tbReadingRoom.Location = new Point(225, 313);
-            tbReadingRoom.Name = "textBox5";
+            tbReadingRoom.Name = "tbReadingRoom";
             tbReadingRoom.Size = new Size(1066, 43);
             tbReadingRoom.TabIndex = 23;
             // 
@@ -302,7 +317,7 @@
             tbYearPublication.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbYearPublication.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             tbYearPublication.Location = new Point(225, 240);
-            tbYearPublication.Name = "textBox4";
+            tbYearPublication.Name = "tbYearPublication";
             tbYearPublication.Size = new Size(1066, 43);
             tbYearPublication.TabIndex = 22;
             // 
@@ -312,7 +327,7 @@
             tbPublishingHouse.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             tbPublishingHouse.Location = new Point(225, 167);
             tbPublishingHouse.Margin = new Padding(5);
-            tbPublishingHouse.Name = "textBox3";
+            tbPublishingHouse.Name = "tbPublishingHouse";
             tbPublishingHouse.Size = new Size(1066, 43);
             tbPublishingHouse.TabIndex = 21;
             // 
@@ -321,7 +336,7 @@
             tbBookAuthor.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbBookAuthor.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             tbBookAuthor.Location = new Point(225, 94);
-            tbBookAuthor.Name = "textBox2";
+            tbBookAuthor.Name = "tbBookAuthor";
             tbBookAuthor.Size = new Size(1066, 43);
             tbBookAuthor.TabIndex = 20;
             // 
@@ -330,7 +345,7 @@
             tbNameBook.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbNameBook.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             tbNameBook.Location = new Point(225, 21);
-            tbNameBook.Name = "textBox1";
+            tbNameBook.Name = "tbNameBook";
             tbNameBook.Size = new Size(1066, 43);
             tbNameBook.TabIndex = 19;
             // 
@@ -339,37 +354,27 @@
             labelReadingRoom.AutoSize = true;
             labelReadingRoom.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             labelReadingRoom.Location = new Point(22, 319);
-            labelReadingRoom.Name = "label6";
+            labelReadingRoom.Name = "labelReadingRoom";
             labelReadingRoom.Size = new Size(202, 37);
             labelReadingRoom.TabIndex = 18;
             labelReadingRoom.Text = "Читальный зал";
-            // 
-            // labelYearPublication
-            // 
-            labelBookAuthor.AutoSize = true;
-            labelBookAuthor.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            labelBookAuthor.Location = new Point(22, 246);
-            labelBookAuthor.Name = "label5";
-            labelBookAuthor.Size = new Size(171, 37);
-            labelBookAuthor.TabIndex = 17;
-            labelBookAuthor.Text = "Год издания";
             // 
             // labelPublishingHouse
             // 
             labelPublishingHouse.AutoSize = true;
             labelPublishingHouse.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             labelPublishingHouse.Location = new Point(22, 173);
-            labelPublishingHouse.Name = "label4";
+            labelPublishingHouse.Name = "labelPublishingHouse";
             labelPublishingHouse.Size = new Size(184, 37);
             labelPublishingHouse.TabIndex = 16;
             labelPublishingHouse.Text = "Издательство";
             // 
-            // labelYearPublication
+            // labelBookAuthor
             // 
             labelBookAuthor.AutoSize = true;
             labelBookAuthor.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             labelBookAuthor.Location = new Point(22, 100);
-            labelBookAuthor.Name = "label3";
+            labelBookAuthor.Name = "labelBookAuthor";
             labelBookAuthor.Size = new Size(91, 37);
             labelBookAuthor.TabIndex = 15;
             labelBookAuthor.Text = "Автор";
@@ -379,7 +384,7 @@
             labelNameBook.AutoSize = true;
             labelNameBook.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             labelNameBook.Location = new Point(22, 27);
-            labelNameBook.Name = "label2";
+            labelNameBook.Name = "labelNameBook";
             labelNameBook.Size = new Size(136, 37);
             labelNameBook.TabIndex = 14;
             labelNameBook.Text = "Название";
@@ -499,5 +504,6 @@
         private Button btnLoadTableBooks;
         private Button btnMakeCertificate;
         private Button btnMenu;
+        private Button button1;
     }
 }

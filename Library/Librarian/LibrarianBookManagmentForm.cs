@@ -20,18 +20,7 @@ namespace Library
         {
             InitializeComponent();
             LoadAutoCompleteData();
-
-            if (DatabaseConnection.IsConnect())
-            {
-                LoadBooksData();
-            }
-            else
-            {
-                MessageBox.Show("Не удалось подключиться к базе данных",
-                "Ошибка подключения",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-            }
+            CheckConnection();
 
             IssueDateTimePicker.ShowCheckBox = true;
             ReturnDateTimePicker.ShowCheckBox = true;
@@ -53,7 +42,7 @@ namespace Library
             menuLibrarian.Show();
         }
 
-        private void BtnSearchBook_Click(object sender, EventArgs e)
+        private void btnSearchBook_Click(object sender, EventArgs e)
         {
             // Проверяем, загружены ли данные
             if (dataGridViewBooks.DataSource == null)
@@ -68,48 +57,54 @@ namespace Library
             SearchBook();
         }
 
+        private void CheckConnection()
+        {
+            if (Utils.IsConnect())
+                LoadBooksData();
+        }
+
         private void LoadBooksData()
         {
             try
             {
                 string query = @"
                     SELECT 
-                    k.Название AS ""Название"",
-                    ka.Автор AS ""Автор"",
-                    чз.Название AS ""Читальный зал"",
-                    k.Издательство AS ""Издательство"",
-                    TO_CHAR(k.ГодИздания, 'YYYY') AS ""Год издания"",
+                        k.Название AS ""Название"",
+                        ka.Автор AS ""Автор"",
+                        чз.Название AS ""Читальный зал"",
+                        k.Издательство AS ""Издательство"",
+                        TO_CHAR(k.ГодИздания, 'YYYY') AS ""Год издания"",
                     CASE 
                         WHEN km.Метка = 'Выдана' THEN 'Выдана'
                         ELSE 'Доступна'
                     END AS ""Статус"",
-                    TO_CHAR(ko.ДатаВыдачи, 'DD.MM.YYYY') AS ""Дата выдачи"",
-                    TO_CHAR(ko.ДатаВозврата, 'DD.MM.YYYY') AS ""Дата возврата"",
+                        TO_CHAR(ko.ДатаВыдачи, 'DD.MM.YYYY') AS ""Дата выдачи"",
+                        TO_CHAR(ko.ДатаВозврата, 'DD.MM.YYYY') AS ""Дата возврата"",
                     CASE 
                         WHEN km.Метка = 'Выдана' THEN 
                             COALESCE(ф.Фамилия || ' ' || LEFT(ф.Имя, 1) || '. ' || LEFT(ф.Отчество, 1) || '.', '')
                         ELSE ''
                     END AS ""Читатель""
-                FROM 
-                    Книги k
-                JOIN 
-                    КнигиИАвтор ka ON k.idКниги = ka.idКниги
-                JOIN 
-                    ЧитальныйЗалИКниги чзик ON k.idКниги = чзик.idКниги
-                JOIN 
-                    ЧитальныеЗалы чз ON чзик.idЧитальногоЗала = чз.idЧитальногоЗала
-                LEFT JOIN 
-                    КнигиМетка km ON k.idКниги = km.idКниги
-                LEFT JOIN
-                    Книгооборот ko ON k.idКниги = ko.idКниги
-                LEFT JOIN
-                    ЧитателиИКниги чк ON k.idКниги = чк.idКниги
-                LEFT JOIN
-                    Читатели ч ON чк.idЧитателя = ч.idЧитателя
-                LEFT JOIN
-                    ФИОЧитатели ф ON ч.idЧитателя = ф.idЧитателя
-                ORDER BY 
-                    k.Название";
+                    FROM 
+                        Книги k
+                    JOIN 
+                        КнигиИАвтор ka ON k.idКниги = ka.idКниги
+                    JOIN 
+                        ЧитальныйЗалИКниги чзик ON k.idКниги = чзик.idКниги
+                    JOIN 
+                        ЧитальныеЗалы чз ON чзик.idЧитальногоЗала = чз.idЧитальногоЗала
+                    LEFT JOIN 
+                        КнигиМетка km ON k.idКниги = km.idКниги
+                    LEFT JOIN
+                        Книгооборот ko ON k.idКниги = ko.idКниги
+                    LEFT JOIN
+                        ЧитателиИКниги чк ON k.idКниги = чк.idКниги
+                    LEFT JOIN
+                        Читатели ч ON чк.idЧитателя = ч.idЧитателя
+                    LEFT JOIN
+                        ФИОЧитатели ф ON ч.idЧитателя = ф.idЧитателя
+                    ORDER BY 
+                        k.Название";
 
                 DataTable booksData = DatabaseConnection.ExecuteQuery(query);
                 NameBook.DataPropertyName = "Название";
@@ -124,16 +119,13 @@ namespace Library
 
                 dataGridViewBooks.DataSource = booksData;
 
-                // Настройка форматирования
                 dataGridViewBooks.Columns["StartDate"].DefaultCellStyle.Alignment =
                     DataGridViewContentAlignment.MiddleCenter;
                 dataGridViewBooks.Columns["FinishDate"].DefaultCellStyle.Alignment =
                     DataGridViewContentAlignment.MiddleCenter;
 
-                // Условное форматирование для статуса
                 var statusColumn = dataGridViewBooks.Columns["Mark"];
 
-                // Специальный стиль для выданных книг
                 dataGridViewBooks.CellFormatting += (sender, e) =>
                 {
                     if (e.ColumnIndex == dataGridViewBooks.Columns["Mark"].Index && e.Value != null)
