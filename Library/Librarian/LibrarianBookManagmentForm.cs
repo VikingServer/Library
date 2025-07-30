@@ -44,7 +44,6 @@ namespace Library
 
         private void btnSearchBook_Click(object sender, EventArgs e)
         {
-            // Проверяем, загружены ли данные
             if (dataGridViewBooks.DataSource == null)
             {
                 MessageBox.Show("Данные не загружены. Нажмите 'Загрузить таблицу'.",
@@ -648,7 +647,7 @@ namespace Library
                                     return;
                                 }
 
-                                // 4.1. Обновляем или вставляем запись в Книгооборот
+                                // 4.1. Обновляем или вставляем запись в BookTurnover
                                 string upsertIssueQuery = @"
                             INSERT INTO Книгооборот (idКниги, ДатаВыдачи, ДатаВозврата)
                             VALUES (@BookId, @IssueDate, @ReturnDate)
@@ -704,7 +703,7 @@ namespace Library
                             }
                             else
                             {
-                                // Если книга не выдана, удаляем записи из Книгооборот и ЧитателиИКниги
+                                // Если книга не выдана, удаляем записи из BookTurnover и ЧитателиИКниги
                                 string deleteIssueQuery = @"
                             DELETE FROM Книгооборот WHERE idКниги = @BookId;
                             DELETE FROM ЧитателиИКниги WHERE idКниги = @BookId;";

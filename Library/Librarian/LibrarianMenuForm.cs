@@ -12,11 +12,11 @@ namespace Library
 {
     public partial class LibrarianMenuForm : Form
     {
-        public Form Authorization { get; set; }
+        //public Form Authorization { get; set; }
         public LibrarianMenuForm()
         {
             InitializeComponent();
-            Authorization = new AuthorizationForm();
+            //Authorization = new AuthorizationForm();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace Library
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            Authorization.Show();
+            //Authorization.Show();
             Close();
         }
     }

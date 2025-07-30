@@ -22,7 +22,7 @@ namespace Library
             {
                 LibrarianMenuForm librarianMenu = new LibrarianMenuForm();
                 Hide();
-                librarianMenu.Authorization = this;
+                //librarianMenu.Authorization = this;
                 librarianMenu.Show();
 
                 CleanTextBox();
