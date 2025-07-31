@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Library.Models;
 
-public partial class ГрафикРаботы
+public partial class WorkScheduleModel
 {
     public int Id { get; set; }
 
@@ -11,5 +11,5 @@ public partial class ГрафикРаботы
 
     public string ЧасыРаботы { get; set; } = null!;
 
-    public virtual Библиотека IdNavigation { get; set; } = null!;
+    public virtual LibraryModel IdNavigation { get; set; } = null!;
 }

@@ -16,33 +16,33 @@ public partial class AppDbContext : DbContext
     {
     }
 
-    public virtual DbSet<Библиотека> Библиотекаs { get; set; }
+    public virtual DbSet<LibraryModel> LibraryModel { get; set; }
 
-    public virtual DbSet<ГрафикРаботы> ГрафикРаботыs { get; set; }
+    public virtual DbSet<WorkScheduleModel> WorkSchedule { get; set; }
 
-    public virtual DbSet<Книги> Книгиs { get; set; }
+    public virtual DbSet<Books> Books { get; set; }
 
-    public virtual DbSet<КнигиИавтор> КнигиИавторs { get; set; }
+    public virtual DbSet<BooksAuthor> BooksAuthor { get; set; }
 
-    public virtual DbSet<КнигиМетка> КнигиМеткаs { get; set; }
+    public virtual DbSet<BooksMarks> BooksMarks { get; set; }
 
-    public virtual DbSet<Книгооборот> Книгооборотs { get; set; }
+    public virtual DbSet<BookCirculation> BookCirculation { get; set; }
 
-    public virtual DbSet<ПаспортныеДанныеЧитатели> ПаспортныеДанныеЧитателиs { get; set; }
+    public virtual DbSet<ReadersPassport> ReadersPassport { get; set; }
 
-    public virtual DbSet<Фиочитатели> Фиочитателиs { get; set; }
+    public virtual DbSet<ReadersFullName> ReadersFullName { get; set; }
 
-    public virtual DbSet<ЧитальныеЗалы> ЧитальныеЗалыs { get; set; }
+    public virtual DbSet<ReadingRooms> ReadingRooms { get; set; }
 
-    public virtual DbSet<ЧитальныеЗалыВбиблиотеке> ЧитальныеЗалыВбиблиотекеs { get; set; }
+    public virtual DbSet<ReadingRoomsInLibrary> ReadingRoomsInLibrary { get; set; }
 
-    public virtual DbSet<ЧитальныеЗалыВместимость> ЧитальныеЗалыВместимостьs { get; set; }
+    public virtual DbSet<ReadingRoomsCapacity> ReadingRoomsCapacity { get; set; }
 
-    public virtual DbSet<ЧитальныйЗалИкниги> ЧитальныйЗалИкнигиs { get; set; }
+    public virtual DbSet<ReadingRoomsAndBooks> ReadingRoomsAndBooks { get; set; }
 
-    public virtual DbSet<Читатели> Читателиs { get; set; }
+    public virtual DbSet<Readers> Readers { get; set; }
 
-    public virtual DbSet<ЧитателиИкниги> ЧитателиИкнигиs { get; set; }
+    public virtual DbSet<ReadersAndBooks> ReadersAndBooks { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -50,7 +50,7 @@ public partial class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Библиотека>(entity =>
+        modelBuilder.Entity<LibraryModel>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("Библиотека_pkey");
 
@@ -72,7 +72,7 @@ public partial class AppDbContext : DbContext
                 .HasColumnName("телефон");
         });
 
-        modelBuilder.Entity<ГрафикРаботы>(entity =>
+        modelBuilder.Entity<WorkScheduleModel>(entity =>
         {
             entity.HasKey(e => new { e.Id, e.ДеньНедели }).HasName("ГрафикРаботы_pkey");
 
@@ -88,7 +88,7 @@ public partial class AppDbContext : DbContext
                 .HasConstraintName("ГрафикРаботы_id_fkey");
         });
 
-        modelBuilder.Entity<Книги>(entity =>
+        modelBuilder.Entity<Books>(entity =>
         {
             entity.HasKey(e => e.IdКниги).HasName("Книги_pkey");
 
@@ -101,12 +101,12 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Название).HasMaxLength(255);
 
             entity.HasOne(d => d.IdКнигиNavigation).WithOne(p => p.Книги)
-                .HasForeignKey<Книги>(d => d.IdКниги)
+                .HasForeignKey<Books>(d => d.IdКниги)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("Книги_idКниги_fkey");
         });
 
-        modelBuilder.Entity<КнигиИавтор>(entity =>
+        modelBuilder.Entity<BooksAuthor>(entity =>
         {
             entity.HasKey(e => e.IdКниги).HasName("КнигиИАвтор_pkey");
 
@@ -118,12 +118,12 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Автор).HasMaxLength(255);
 
             entity.HasOne(d => d.IdКнигиNavigation).WithOne(p => p.КнигиИавтор)
-                .HasForeignKey<КнигиИавтор>(d => d.IdКниги)
+                .HasForeignKey<BooksAuthor>(d => d.IdКниги)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("КнигиИАвтор_idКниги_fkey");
         });
 
-        modelBuilder.Entity<КнигиМетка>(entity =>
+        modelBuilder.Entity<BooksMarks>(entity =>
         {
             entity.HasKey(e => e.IdКниги).HasName("КнигиМетка_pkey");
 
@@ -135,12 +135,12 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Метка).HasMaxLength(7);
 
             entity.HasOne(d => d.IdКнигиNavigation).WithOne(p => p.КнигиМетка)
-                .HasForeignKey<КнигиМетка>(d => d.IdКниги)
+                .HasForeignKey<BooksMarks>(d => d.IdКниги)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("КнигиМетка_idКниги_fkey");
         });
 
-        modelBuilder.Entity<Книгооборот>(entity =>
+        modelBuilder.Entity<BookCirculation>(entity =>
         {
             entity.HasKey(e => e.IdКниги).HasName("Книгооборот_pkey");
 
@@ -151,12 +151,12 @@ public partial class AppDbContext : DbContext
                 .HasColumnName("idКниги");
 
             entity.HasOne(d => d.IdКнигиNavigation).WithOne(p => p.Книгооборот)
-                .HasForeignKey<Книгооборот>(d => d.IdКниги)
+                .HasForeignKey<BookCirculation>(d => d.IdКниги)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("Книгооборот_idКниги_fkey");
         });
 
-        modelBuilder.Entity<ПаспортныеДанныеЧитатели>(entity =>
+        modelBuilder.Entity<ReadersPassport>(entity =>
         {
             entity.HasKey(e => e.IdЧитателя).HasName("ПаспортныеДанныеЧитатели_pkey");
 
@@ -171,12 +171,12 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Серия).HasMaxLength(4);
 
             entity.HasOne(d => d.IdЧитателяNavigation).WithOne(p => p.ПаспортныеДанныеЧитатели)
-                .HasForeignKey<ПаспортныеДанныеЧитатели>(d => d.IdЧитателя)
+                .HasForeignKey<ReadersPassport>(d => d.IdЧитателя)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("ПаспортныеДанныеЧит_idЧитателя_fkey");
         });
 
-        modelBuilder.Entity<Фиочитатели>(entity =>
+        modelBuilder.Entity<ReadersFullName>(entity =>
         {
             entity.HasKey(e => e.IdЧитателя).HasName("ФИОЧитатели_pkey");
 
@@ -190,12 +190,12 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Фамилия).HasMaxLength(255);
 
             entity.HasOne(d => d.IdЧитателяNavigation).WithOne(p => p.Фиочитатели)
-                .HasForeignKey<Фиочитатели>(d => d.IdЧитателя)
+                .HasForeignKey<ReadersFullName>(d => d.IdЧитателя)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("ФИОЧитатели_idЧитателя_fkey");
         });
 
-        modelBuilder.Entity<ЧитальныеЗалы>(entity =>
+        modelBuilder.Entity<ReadingRooms>(entity =>
         {
             entity.HasKey(e => e.IdЧитальногоЗала).HasName("ЧитальныеЗалы_pkey");
 
@@ -209,12 +209,12 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Название).HasMaxLength(255);
 
             entity.HasOne(d => d.IdЧитальногоЗалаNavigation).WithOne(p => p.ЧитальныеЗалы)
-                .HasForeignKey<ЧитальныеЗалы>(d => d.IdЧитальногоЗала)
+                .HasForeignKey<ReadingRooms>(d => d.IdЧитальногоЗала)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("ЧитальныеЗалы_idЧитальногоЗала_fkey");
         });
 
-        modelBuilder.Entity<ЧитальныеЗалыВбиблиотеке>(entity =>
+        modelBuilder.Entity<ReadingRoomsInLibrary>(entity =>
         {
             entity.HasKey(e => e.IdЧитальногоЗала).HasName("ЧитальныеЗалыВБиблиотеке_pkey");
 
@@ -230,7 +230,7 @@ public partial class AppDbContext : DbContext
                 .HasConstraintName("ЧитальныеЗалыВБиблиотеке_id_fkey");
         });
 
-        modelBuilder.Entity<ЧитальныеЗалыВместимость>(entity =>
+        modelBuilder.Entity<ReadingRoomsCapacity>(entity =>
         {
             entity.HasKey(e => e.IdЧитальногоЗала).HasName("ЧитальныеЗалыВместимость_pkey");
 
@@ -241,12 +241,12 @@ public partial class AppDbContext : DbContext
                 .HasColumnName("idЧитальногоЗала");
 
             entity.HasOne(d => d.IdЧитальногоЗалаNavigation).WithOne(p => p.ЧитальныеЗалыВместимость)
-                .HasForeignKey<ЧитальныеЗалыВместимость>(d => d.IdЧитальногоЗала)
+                .HasForeignKey<ReadingRoomsCapacity>(d => d.IdЧитальногоЗала)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("ЧитальныеЗалыВ_idЧитальногоЗал_fkey");
         });
 
-        modelBuilder.Entity<ЧитальныйЗалИкниги>(entity =>
+        modelBuilder.Entity<ReadingRoomsAndBooks>(entity =>
         {
             entity.HasKey(e => e.IdКниги).HasName("ЧитальныйЗалИКниги_pkey");
 
@@ -263,7 +263,7 @@ public partial class AppDbContext : DbContext
                 .HasConstraintName("ЧитальныйЗалИК_idЧитальногоЗал_fkey");
         });
 
-        modelBuilder.Entity<Читатели>(entity =>
+        modelBuilder.Entity<Readers>(entity =>
         {
             entity.HasKey(e => e.IdЧитателя).HasName("Читатели_pkey");
 
@@ -275,11 +275,11 @@ public partial class AppDbContext : DbContext
             entity.HasMany(d => d.IdЧитальногоЗалаs).WithMany(p => p.IdЧитателяs)
                 .UsingEntity<Dictionary<string, object>>(
                     "ЧитальныеЗалыИчитатели",
-                    r => r.HasOne<ЧитальныеЗалыВбиблиотеке>().WithMany()
+                    r => r.HasOne<ReadingRoomsInLibrary>().WithMany()
                         .HasForeignKey("IdЧитальногоЗала")
                         .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("ЧитальныеЗалыИ_idЧитальногоЗал_fkey"),
-                    l => l.HasOne<Читатели>().WithMany()
+                    l => l.HasOne<Readers>().WithMany()
                         .HasForeignKey("IdЧитателя")
                         .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("ЧитальныеЗалыИЧитат_idЧитателя_fkey"),
@@ -296,7 +296,7 @@ public partial class AppDbContext : DbContext
                     });
         });
 
-        modelBuilder.Entity<ЧитателиИкниги>(entity =>
+        modelBuilder.Entity<ReadersAndBooks>(entity =>
         {
             entity.HasKey(e => e.IdКниги).HasName("ЧитателиИКниги_pkey");
 
@@ -310,7 +310,7 @@ public partial class AppDbContext : DbContext
                 .HasColumnName("idЧитателя");
 
             entity.HasOne(d => d.IdКнигиNavigation).WithOne(p => p.ЧитателиИкниги)
-                .HasForeignKey<ЧитателиИкниги>(d => d.IdКниги)
+                .HasForeignKey<ReadersAndBooks>(d => d.IdКниги)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("ЧитателиИКниги_idКниги_fkey");
 

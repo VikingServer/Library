@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Library.Models;
 
-public partial class ПаспортныеДанныеЧитатели
+public partial class ReadersPassport
 {
     public int IdЧитателя { get; set; }
 
@@ -17,5 +17,5 @@ public partial class ПаспортныеДанныеЧитатели
 
     public string АдресРегистрации { get; set; } = null!;
 
-    public virtual Читатели IdЧитателяNavigation { get; set; } = null!;
+    public virtual Readers IdЧитателяNavigation { get; set; } = null!;
 }

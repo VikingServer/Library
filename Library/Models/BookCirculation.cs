@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Library.Models;
 
-public partial class Книгооборот
+public partial class BookCirculation
 {
     public int IdКниги { get; set; }
 
@@ -11,5 +11,5 @@ public partial class Книгооборот
 
     public DateOnly? ДатаВозврата { get; set; }
 
-    public virtual ЧитальныйЗалИкниги IdКнигиNavigation { get; set; } = null!;
+    public virtual ReadingRoomsAndBooks IdКнигиNavigation { get; set; } = null!;
 }

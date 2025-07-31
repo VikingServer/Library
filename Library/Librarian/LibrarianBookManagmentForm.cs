@@ -575,7 +575,7 @@ namespace Library
                     {
                         try
                         {
-                            // 1. Обновляем данные в таблице Книги
+                            // 1. Обновляем данные в таблице Books
                             string updateBookQuery = @"
                         UPDATE Книги
                         SET Название = @Title, Издательство = @Publisher, ГодИздания = @Year

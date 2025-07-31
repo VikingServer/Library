@@ -179,7 +179,7 @@ namespace Library
                     {
                         try
                         {
-                            // 1. Добавляем запись в таблицу Читатели (получаем новый idЧитателя)
+                            // 1. Добавляем запись в таблицу Readers (получаем новый idЧитателя)
                             string insertReaderQuery = @"
                                 INSERT INTO Читатели (НомерТелефона)
                                 VALUES (@Phone)
@@ -206,7 +206,7 @@ namespace Library
                                 command.ExecuteNonQuery();
                             }
 
-                            // 3. Добавляем запись в таблицу ПаспортныеДанныеЧитатели
+                            // 3. Добавляем запись в таблицу ReadersPassport
                             string insertPassportQuery = @"
                                 INSERT INTO ПаспортныеДанныеЧитатели (idЧитателя, Серия, Номер, КемВыдан, ДатаВыдачи, АдресРегистрации)
                                 VALUES (@ReaderId, @Series, @Number, @IssuedBy, @IssueDate, @Address);";
@@ -309,7 +309,7 @@ namespace Library
                                 command.ExecuteNonQuery();
                             }
 
-                            // 2. Удаляем из ПаспортныеДанныеЧитатели
+                            // 2. Удаляем из ReadersPassport
                             string deletePassportQuery = @"
                             DELETE FROM ПаспортныеДанныеЧитатели
                             WHERE idЧитателя = @ReaderId;";
@@ -320,7 +320,7 @@ namespace Library
                                 command.ExecuteNonQuery();
                             }
 
-                            // 3. Удаляем из Читатели
+                            // 3. Удаляем из Readers
                             string deleteReaderQuery = @"
                             DELETE FROM Читатели
                             WHERE idЧитателя = @ReaderId;";

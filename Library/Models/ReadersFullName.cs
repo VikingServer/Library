@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Library.Models;
 
-public partial class Фиочитатели
+public partial class ReadersFullName
 {
     public int IdЧитателя { get; set; }
 
@@ -13,5 +13,5 @@ public partial class Фиочитатели
 
     public string? Отчество { get; set; }
 
-    public virtual Читатели IdЧитателяNavigation { get; set; } = null!;
+    public virtual Readers IdЧитателяNavigation { get; set; } = null!;
 }
