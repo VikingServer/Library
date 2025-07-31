@@ -7,13 +7,13 @@ public partial class LibraryModel
 {
     public int Id { get; set; }
 
-    public string? Название { get; set; }
+    public string? Name { get; set; }
 
-    public string Адрес { get; set; } = null!;
+    public string Address { get; set; } = null!;
 
-    public string Телефон { get; set; } = null!;
+    public string PhoneNumber { get; set; } = null!;
 
-    public virtual ICollection<WorkScheduleModel> ГрафикРаботыs { get; set; } = new List<WorkScheduleModel>();
+    public virtual ICollection<WorkScheduleModel> WorkScheduleModel { get; set; } = new List<WorkScheduleModel>();
 
-    public virtual ICollection<ReadingRoomsInLibrary> ЧитальныеЗалыВбиблиотекеs { get; set; } = new List<ReadingRoomsInLibrary>();
+    public virtual ICollection<ReadingRoomsInLibrary> ReadingRoomsInLibrary { get; set; } = new List<ReadingRoomsInLibrary>();
 }

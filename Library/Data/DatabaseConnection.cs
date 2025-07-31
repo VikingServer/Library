@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Npgsql;
 
-namespace Library
+namespace Library.Data
 {
     internal class DatabaseConnection
     {

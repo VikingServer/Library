@@ -5,7 +5,7 @@ namespace Library.Models;
 
 public partial class BookCirculation
 {
-    public int IdКниги { get; set; }
+    public int BookId { get; set; }
 
     public DateOnly? ДатаВыдачи { get; set; }
 

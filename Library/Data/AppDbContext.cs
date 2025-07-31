@@ -56,102 +56,102 @@ public partial class AppDbContext : DbContext
 
             entity.ToTable("Библиотека");
 
-            entity.HasIndex(e => e.Название, "Библиотека_название_key").IsUnique();
+            entity.HasIndex(e => e.Name, "Библиотека_название_key").IsUnique();
 
             entity.Property(e => e.Id)
                 .ValueGeneratedNever()
                 .HasColumnName("id");
-            entity.Property(e => e.Адрес)
+            entity.Property(e => e.Address)
                 .HasMaxLength(255)
                 .HasColumnName("адрес");
-            entity.Property(e => e.Название)
+            entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("название");
-            entity.Property(e => e.Телефон)
+            entity.Property(e => e.PhoneNumber)
                 .HasMaxLength(14)
                 .HasColumnName("телефон");
         });
 
         modelBuilder.Entity<WorkScheduleModel>(entity =>
         {
-            entity.HasKey(e => new { e.Id, e.ДеньНедели }).HasName("ГрафикРаботы_pkey");
+            entity.HasKey(e => new { e.LibraryId, e.DayOfWeek }).HasName("ГрафикРаботы_pkey");
 
             entity.ToTable("ГрафикРаботы");
 
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.ДеньНедели).HasMaxLength(255);
-            entity.Property(e => e.ЧасыРаботы).HasMaxLength(255);
+            entity.Property(e => e.LibraryId).HasColumnName("id");
+            entity.Property(e => e.DayOfWeek).HasMaxLength(255);
+            entity.Property(e => e.OpeningHours).HasMaxLength(255);
 
-            entity.HasOne(d => d.IdNavigation).WithMany(p => p.ГрафикРаботыs)
-                .HasForeignKey(d => d.Id)
+            entity.HasOne(d => d.IdNavigation).WithMany(p => p.WorkScheduleModel)
+                .HasForeignKey(d => d.LibraryId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("ГрафикРаботы_id_fkey");
         });
 
         modelBuilder.Entity<Books>(entity =>
         {
-            entity.HasKey(e => e.IdКниги).HasName("Книги_pkey");
+            entity.HasKey(e => e.BookId).HasName("Книги_pkey");
 
             entity.ToTable("Книги");
 
-            entity.Property(e => e.IdКниги)
+            entity.Property(e => e.BookId)
                 .ValueGeneratedOnAdd()
                 .HasColumnName("idКниги");
-            entity.Property(e => e.Издательство).HasMaxLength(255);
-            entity.Property(e => e.Название).HasMaxLength(255);
+            entity.Property(e => e.Publisher).HasMaxLength(255);
+            entity.Property(e => e.Title).HasMaxLength(255);
 
-            entity.HasOne(d => d.IdКнигиNavigation).WithOne(p => p.Книги)
-                .HasForeignKey<Books>(d => d.IdКниги)
+            entity.HasOne(d => d.IdBookNavigation).WithOne(p => p.Книги)
+                .HasForeignKey<Books>(d => d.BookId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("Книги_idКниги_fkey");
         });
 
         modelBuilder.Entity<BooksAuthor>(entity =>
         {
-            entity.HasKey(e => e.IdКниги).HasName("КнигиИАвтор_pkey");
+            entity.HasKey(e => e.BookId).HasName("КнигиИАвтор_pkey");
 
             entity.ToTable("КнигиИАвтор");
 
-            entity.Property(e => e.IdКниги)
+            entity.Property(e => e.BookId)
                 .ValueGeneratedOnAdd()
                 .HasColumnName("idКниги");
-            entity.Property(e => e.Автор).HasMaxLength(255);
+            entity.Property(e => e.Author).HasMaxLength(255);
 
-            entity.HasOne(d => d.IdКнигиNavigation).WithOne(p => p.КнигиИавтор)
-                .HasForeignKey<BooksAuthor>(d => d.IdКниги)
+            entity.HasOne(d => d.IdBookNavigation).WithOne(p => p.КнигиИавтор)
+                .HasForeignKey<BooksAuthor>(d => d.BookId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("КнигиИАвтор_idКниги_fkey");
         });
 
         modelBuilder.Entity<BooksMarks>(entity =>
         {
-            entity.HasKey(e => e.IdКниги).HasName("КнигиМетка_pkey");
+            entity.HasKey(e => e.BookId).HasName("КнигиМетка_pkey");
 
             entity.ToTable("КнигиМетка");
 
-            entity.Property(e => e.IdКниги)
+            entity.Property(e => e.BookId)
                 .ValueGeneratedOnAdd()
                 .HasColumnName("idКниги");
-            entity.Property(e => e.Метка).HasMaxLength(7);
+            entity.Property(e => e.Mark).HasMaxLength(7);
 
-            entity.HasOne(d => d.IdКнигиNavigation).WithOne(p => p.КнигиМетка)
-                .HasForeignKey<BooksMarks>(d => d.IdКниги)
+            entity.HasOne(d => d.IdBookNavigation).WithOne(p => p.КнигиМетка)
+                .HasForeignKey<BooksMarks>(d => d.BookId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("КнигиМетка_idКниги_fkey");
         });
 
         modelBuilder.Entity<BookCirculation>(entity =>
         {
-            entity.HasKey(e => e.IdКниги).HasName("Книгооборот_pkey");
+            entity.HasKey(e => e.BookId).HasName("Книгооборот_pkey");
 
             entity.ToTable("Книгооборот");
 
-            entity.Property(e => e.IdКниги)
+            entity.Property(e => e.BookId)
                 .ValueGeneratedOnAdd()
                 .HasColumnName("idКниги");
 
             entity.HasOne(d => d.IdКнигиNavigation).WithOne(p => p.Книгооборот)
-                .HasForeignKey<BookCirculation>(d => d.IdКниги)
+                .HasForeignKey<BookCirculation>(d => d.BookId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("Книгооборот_idКниги_fkey");
         });
@@ -225,7 +225,7 @@ public partial class AppDbContext : DbContext
                 .HasColumnName("idЧитальногоЗала");
             entity.Property(e => e.Id).HasColumnName("id");
 
-            entity.HasOne(d => d.IdNavigation).WithMany(p => p.ЧитальныеЗалыВбиблиотекеs)
+            entity.HasOne(d => d.IdNavigation).WithMany(p => p.ReadingRoomsInLibrary)
                 .HasForeignKey(d => d.Id)
                 .HasConstraintName("ЧитальныеЗалыВБиблиотеке_id_fkey");
         });

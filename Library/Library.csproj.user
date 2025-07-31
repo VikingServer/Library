@@ -1,43 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="AuthorizationForm.cs">
+    <Compile Update="UI\AuthorizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="LibraryAdministrator\AdminBookManagementForm.cs">
+    <Compile Update="UI\LibraryAdministrator\AdminBookManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="LibraryAdministrator\AdminManagementOfReadingRoomsForm.cs">
+    <Compile Update="UI\LibraryAdministrator\AdminManagementOfReadingRoomsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="LibraryAdministrator\AdminMenuForm.cs">
+    <Compile Update="UI\LibraryAdministrator\AdminMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Librarian\LibrarianMenuForm.cs">
+    <Compile Update="UI\Librarian\LibrarianMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Librarian\LibrarianBookKeeping.cs">
+    <Compile Update="UI\Librarian\LibrarianBookKeeping.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Reader\ReaderMenuForm.cs">
+    <Compile Update="UI\Reader\ReaderMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="LibraryAdministrator\AdminSynopsisForm.cs">
+    <Compile Update="UI\LibraryAdministrator\AdminSynopsisForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Librarian\LibrarianBookManagmentForm.cs">
+    <Compile Update="UI\Librarian\LibrarianBookManagmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Librarian\LibrarianManageReadersForm.cs">
+    <Compile Update="UI\Librarian\LibrarianManageReadersForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form7.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Reader\ReaderSelectBookForm.cs">
+    <Compile Update="UI\Reader\ReaderSelectBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Reader\ReaderBooksForm.cs">
+    <Compile Update="UI\Reader\ReaderBooksForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

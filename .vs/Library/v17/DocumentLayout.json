@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Work\\Test\\Library\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\work\\test\\library\\library\\models\\bookcirculation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\models\\bookcirculation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\work\\test\\library\\library\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,48 +15,24 @@
       "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\models\\books.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\work\\test\\library\\library\\models\\booksauthor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\models\\booksauthor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\work\\test\\library\\library\\models\\workschedulemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\models\\workschedulemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\work\\test\\library\\library\\models\\booksmarks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\models\\booksmarks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\work\\test\\library\\library\\models\\librarymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\models\\librarymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\work\\test\\library\\library\\authorizationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\authorizationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\work\\test\\library\\library\\ui\\authorizationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\ui\\authorizationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\work\\test\\library\\library\\librarian\\librarianmenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\librarian\\librarianmenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\work\\test\\library\\library\\data\\databaseconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\data\\databaseconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\work\\test\\library\\library\\librarian\\librarianbookmanagmentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\librarian\\librarianbookmanagmentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|D:\\Work\\Test\\Library\\library\\librarian\\librarianbookmanagmentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\librarian\\librarianbookmanagmentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\work\\test\\library\\library\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|D:\\Work\\Test\\Library\\library\\librarian\\librarianbookkeeping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\librarian\\librarianbookkeeping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\work\\test\\library\\library\\library.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\library.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\work\\test\\library\\library\\databaseconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\databaseconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|d:\\work\\test\\library\\library\\ui\\librarian\\librarianmenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2364D0F8-86C2-4BE4-A71C-3018A7E7E0F2}|Library\\Library.csproj|solutionrelative:library\\ui\\librarian\\librarianmenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,8 +42,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BookCirculation.cs",
+              "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\Models\\BookCirculation.cs",
+              "RelativeDocumentMoniker": "Library\\Models\\BookCirculation.cs",
+              "ToolTip": "D:\\Work\\Test\\Library\\Library\\Models\\BookCirculation.cs",
+              "RelativeToolTip": "Library\\Models\\BookCirculation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T11:44:00.128Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BooksMarks.cs",
+              "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\Models\\BooksMarks.cs",
+              "RelativeDocumentMoniker": "Library\\Models\\BooksMarks.cs",
+              "ToolTip": "D:\\Work\\Test\\Library\\Library\\Models\\BooksMarks.cs",
+              "RelativeToolTip": "Library\\Models\\BooksMarks.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T11:43:13.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Books.cs",
+              "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\Models\\Books.cs",
+              "RelativeDocumentMoniker": "Library\\Models\\Books.cs",
+              "ToolTip": "D:\\Work\\Test\\Library\\Library\\Models\\Books.cs",
+              "RelativeToolTip": "Library\\Models\\Books.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T11:40:31.273Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -86,54 +105,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Library\\Data\\AppDbContext.cs",
               "ToolTip": "D:\\Work\\Test\\Library\\Library\\Data\\AppDbContext.cs",
               "RelativeToolTip": "Library\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAAACwAAABHAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBwAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-31T09:58:28.891Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Books.cs",
-              "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\Models\\Books.cs",
-              "RelativeDocumentMoniker": "Library\\Models\\Books.cs",
-              "ToolTip": "D:\\Work\\Test\\Library\\Library\\Models\\Books.cs",
-              "RelativeToolTip": "Library\\Models\\Books.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAUAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-30T18:10:11.969Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BooksAuthor.cs",
-              "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\Models\\BooksAuthor.cs",
-              "RelativeDocumentMoniker": "Library\\Models\\BooksAuthor.cs",
-              "ToolTip": "D:\\Work\\Test\\Library\\Library\\Models\\BooksAuthor.cs",
-              "RelativeToolTip": "Library\\Models\\BooksAuthor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-30T18:10:10.912Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "WorkScheduleModel.cs",
-              "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\Models\\WorkScheduleModel.cs",
-              "RelativeDocumentMoniker": "Library\\Models\\WorkScheduleModel.cs",
-              "ToolTip": "D:\\Work\\Test\\Library\\Library\\Models\\WorkScheduleModel.cs",
-              "RelativeToolTip": "Library\\Models\\WorkScheduleModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-30T18:10:08.307Z",
               "EditorCaption": ""
             },
             {
@@ -144,7 +124,7 @@
               "RelativeDocumentMoniker": "Library\\Models\\LibraryModel.cs",
               "ToolTip": "D:\\Work\\Test\\Library\\Library\\Models\\LibraryModel.cs",
               "RelativeToolTip": "Library\\Models\\LibraryModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-30T18:10:04.746Z",
               "EditorCaption": ""
@@ -153,96 +133,39 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "AuthorizationForm.cs",
-              "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\AuthorizationForm.cs",
-              "RelativeDocumentMoniker": "Library\\AuthorizationForm.cs",
-              "ToolTip": "D:\\Work\\Test\\Library\\Library\\AuthorizationForm.cs",
-              "RelativeToolTip": "Library\\AuthorizationForm.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAMBAwBgAAAASAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\UI\\AuthorizationForm.cs",
+              "RelativeDocumentMoniker": "Library\\UI\\AuthorizationForm.cs",
+              "ToolTip": "D:\\Work\\Test\\Library\\Library\\UI\\AuthorizationForm.cs",
+              "RelativeToolTip": "Library\\UI\\AuthorizationForm.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAIAwwBgAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-30T18:09:35.815Z"
+              "WhenOpened": "2025-07-30T18:09:35.815Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "LibrarianMenuForm.cs",
-              "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\Librarian\\LibrarianMenuForm.cs",
-              "RelativeDocumentMoniker": "Library\\Librarian\\LibrarianMenuForm.cs",
-              "ToolTip": "D:\\Work\\Test\\Library\\Library\\Librarian\\LibrarianMenuForm.cs",
-              "RelativeToolTip": "Library\\Librarian\\LibrarianMenuForm.cs",
+              "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\UI\\Librarian\\LibrarianMenuForm.cs",
+              "RelativeDocumentMoniker": "Library\\UI\\Librarian\\LibrarianMenuForm.cs",
+              "ToolTip": "D:\\Work\\Test\\Library\\Library\\UI\\Librarian\\LibrarianMenuForm.cs",
+              "RelativeToolTip": "Library\\UI\\Librarian\\LibrarianMenuForm.cs",
               "ViewState": "AgIAACMAAAAAAAAAAAAewDoAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-30T18:07:19.538Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Library.csproj",
-              "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\Library.csproj",
-              "RelativeDocumentMoniker": "Library\\Library.csproj",
-              "ToolTip": "D:\\Work\\Test\\Library\\Library\\Library.csproj",
-              "RelativeToolTip": "Library\\Library.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-30T18:04:54.557Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 6,
               "Title": "DatabaseConnection.cs",
-              "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\DatabaseConnection.cs",
-              "RelativeDocumentMoniker": "Library\\DatabaseConnection.cs",
-              "ToolTip": "D:\\Work\\Test\\Library\\Library\\DatabaseConnection.cs",
-              "RelativeToolTip": "Library\\DatabaseConnection.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAnwD4AAABXAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\Data\\DatabaseConnection.cs",
+              "RelativeDocumentMoniker": "Library\\Data\\DatabaseConnection.cs",
+              "ToolTip": "D:\\Work\\Test\\Library\\Library\\Data\\DatabaseConnection.cs",
+              "RelativeToolTip": "Library\\Data\\DatabaseConnection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T17:45:00.065Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "LibrarianBookKeeping.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\Librarian\\LibrarianBookKeeping.cs",
-              "RelativeDocumentMoniker": "Library\\Librarian\\LibrarianBookKeeping.cs",
-              "ToolTip": "D:\\\u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0435\\\u041F\u0440\u043E\u0435\u043A\u0442\u044B\\Library\\Library\\Librarian\\LibrarianBookKeeping.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "..\\..\\..\\\u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0435\\\u041F\u0440\u043E\u0435\u043A\u0442\u044B\\Library\\Library\\Librarian\\LibrarianBookKeeping.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T17:18:16.464Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LibrarianBookManagmentForm.cs",
-              "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\Librarian\\LibrarianBookManagmentForm.cs",
-              "RelativeDocumentMoniker": "Library\\Librarian\\LibrarianBookManagmentForm.cs",
-              "ToolTip": "D:\\Work\\Test\\Library\\Library\\Librarian\\LibrarianBookManagmentForm.cs",
-              "RelativeToolTip": "Library\\Librarian\\LibrarianBookManagmentForm.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAIkCAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T16:28:09.994Z",
+              "WhenOpened": "2025-07-29T17:45:00.065Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "LibrarianBookManagmentForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\Librarian\\LibrarianBookManagmentForm.cs",
-              "RelativeDocumentMoniker": "Library\\Librarian\\LibrarianBookManagmentForm.cs",
-              "ToolTip": "D:\\\u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0435\\\u041F\u0440\u043E\u0435\u043A\u0442\u044B\\Library\\Library\\Librarian\\LibrarianBookManagmentForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "..\\..\\..\\\u041E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0435\\\u041F\u0440\u043E\u0435\u043A\u0442\u044B\\Library\\Library\\Librarian\\LibrarianBookManagmentForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T16:28:04.266Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Utils.cs",
-              "DocumentMoniker": "D:\\Work\\Test\\Library\\Library\\Utils.cs",
-              "RelativeDocumentMoniker": "Library\\Utils.cs",
-              "ToolTip": "D:\\Work\\Test\\Library\\Library\\Utils.cs",
-              "RelativeToolTip": "Library\\Utils.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T16:07:45.91Z"
             }
           ]
         }

@@ -5,9 +5,9 @@ namespace Library.Models;
 
 public partial class BooksAuthor
 {
-    public int IdКниги { get; set; }
+    public int BookId { get; set; }
 
-    public string Автор { get; set; } = null!;
+    public string Author { get; set; } = null!;
 
-    public virtual ReadingRoomsAndBooks IdКнигиNavigation { get; set; } = null!;
+    public virtual ReadingRoomsAndBooks IdBookNavigation { get; set; } = null!;
 }

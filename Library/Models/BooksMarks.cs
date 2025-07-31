@@ -5,9 +5,9 @@ namespace Library.Models;
 
 public partial class BooksMarks
 {
-    public int IdКниги { get; set; }
+    public int BookId { get; set; }
 
-    public string Метка { get; set; } = null!;
+    public string Mark { get; set; } = null!;
 
-    public virtual ReadingRoomsAndBooks IdКнигиNavigation { get; set; } = null!;
+    public virtual ReadingRoomsAndBooks IdBookNavigation { get; set; } = null!;
 }

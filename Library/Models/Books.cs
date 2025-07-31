@@ -5,13 +5,13 @@ namespace Library.Models;
 
 public partial class Books
 {
-    public int IdКниги { get; set; }
+    public int BookId { get; set; }
 
-    public string Название { get; set; } = null!;
+    public string Title { get; set; } = null!;
 
-    public string? Издательство { get; set; }
+    public string? Publisher { get; set; }
 
-    public DateOnly? ГодИздания { get; set; }
+    public DateOnly? YearOfPublication { get; set; }
 
-    public virtual ReadingRoomsAndBooks IdКнигиNavigation { get; set; } = null!;
+    public virtual ReadingRoomsAndBooks IdBookNavigation { get; set; } = null!;
 }
