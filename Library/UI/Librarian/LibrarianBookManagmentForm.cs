@@ -1,28 +1,30 @@
 ﻿using Library.Data;
-using Npgsql;
+using Library.Repositories;
+using Library.Services;
+using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Library
 {
     public partial class LibrarianBookManagmentForm : Form
     {
         private int selectedBookId = -1;
+        private readonly BookService _bookService;
 
         public LibrarianBookManagmentForm()
         {
             InitializeComponent();
+            var options = new DbContextOptionsBuilder<LibraryContext>()
+                .UseNpgsql(DatabaseConnection.СonnectionString)
+                .Options;
+            var context = new LibraryContext(options);
+            _bookService = new BookService(new BookRepository(context));
             LoadAutoCompleteData();
             CheckConnection();
-
             IssueDateTimePicker.ShowCheckBox = true;
             ReturnDateTimePicker.ShowCheckBox = true;
             IssueDateTimePicker.Checked = false;
@@ -59,7 +61,7 @@ namespace Library
 
         private void CheckConnection()
         {
-            if (Utils.IsConnect())
+            if (DatabaseConnection.IsConnect())
                 LoadBooksData();
         }
 
@@ -67,46 +69,8 @@ namespace Library
         {
             try
             {
-                string query = @"
-                    SELECT 
-                        k.Название AS ""Название"",
-                        ka.Автор AS ""Автор"",
-                        чз.Название AS ""Читальный зал"",
-                        k.Издательство AS ""Издательство"",
-                        TO_CHAR(k.ГодИздания, 'YYYY') AS ""Год издания"",
-                    CASE 
-                        WHEN km.Метка = 'Выдана' THEN 'Выдана'
-                        ELSE 'Доступна'
-                    END AS ""Статус"",
-                        TO_CHAR(ko.ДатаВыдачи, 'DD.MM.YYYY') AS ""Дата выдачи"",
-                        TO_CHAR(ko.ДатаВозврата, 'DD.MM.YYYY') AS ""Дата возврата"",
-                    CASE 
-                        WHEN km.Метка = 'Выдана' THEN 
-                            COALESCE(ф.Фамилия || ' ' || LEFT(ф.Имя, 1) || '. ' || LEFT(ф.Отчество, 1) || '.', '')
-                        ELSE ''
-                    END AS ""Читатель""
-                    FROM 
-                        Книги k
-                    JOIN 
-                        КнигиИАвтор ka ON k.idКниги = ka.idКниги
-                    JOIN 
-                        ЧитальныйЗалИКниги чзик ON k.idКниги = чзик.idКниги
-                    JOIN 
-                        ЧитальныеЗалы чз ON чзик.idЧитальногоЗала = чз.idЧитальногоЗала
-                    LEFT JOIN 
-                        КнигиМетка km ON k.idКниги = km.idКниги
-                    LEFT JOIN
-                        Книгооборот ko ON k.idКниги = ko.idКниги
-                    LEFT JOIN
-                        ЧитателиИКниги чк ON k.idКниги = чк.idКниги
-                    LEFT JOIN
-                        Читатели ч ON чк.idЧитателя = ч.idЧитателя
-                    LEFT JOIN
-                        ФИОЧитатели ф ON ч.idЧитателя = ф.idЧитателя
-                    ORDER BY 
-                        k.Название";
+                dataGridViewBooks.DataSource = _bookService.GetBooks();
 
-                DataTable booksData = DatabaseConnection.ExecuteQuery(query);
                 NameBook.DataPropertyName = "Название";
                 Author.DataPropertyName = "Автор";
                 PublishingHouse.DataPropertyName = "Издательство";
@@ -117,14 +81,10 @@ namespace Library
                 FinishDate.DataPropertyName = "Дата возврата";
                 Reader.DataPropertyName = "Читатель";
 
-                dataGridViewBooks.DataSource = booksData;
-
                 dataGridViewBooks.Columns["StartDate"].DefaultCellStyle.Alignment =
                     DataGridViewContentAlignment.MiddleCenter;
                 dataGridViewBooks.Columns["FinishDate"].DefaultCellStyle.Alignment =
                     DataGridViewContentAlignment.MiddleCenter;
-
-                var statusColumn = dataGridViewBooks.Columns["Mark"];
 
                 dataGridViewBooks.CellFormatting += (sender, e) =>
                 {
@@ -147,9 +107,9 @@ namespace Library
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка при загрузке данных: {ex.Message}",
-                              "Ошибка",
-                              MessageBoxButtons.OK,
-                              MessageBoxIcon.Error);
+                                "Ошибка",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
             }
         }
 
@@ -162,9 +122,9 @@ namespace Library
             else
             {
                 MessageBox.Show("Не удалось подключиться к базе данных",
-                "Ошибка подключения",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
+                                "Ошибка подключения",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
             }
         }
 
@@ -172,240 +132,115 @@ namespace Library
         {
             try
             {
-                // Проверка обязательных полей
-                if (string.IsNullOrWhiteSpace(textBoxTitle.Text) ||
-                    string.IsNullOrWhiteSpace(textBoxAuthor.Text) ||
-                    string.IsNullOrWhiteSpace(textBoxReadingRoom.Text))
-                {
-                    MessageBox.Show("Заполните обязательные поля: Название, Автор, Читальный зал",
-                                  "Ошибка",
-                                  MessageBoxButtons.OK,
-                                  MessageBoxIcon.Warning);
-                    return;
-                }
+                _bookService.AddBook(
+                    textBoxTitle.Text,
+                    textBoxAuthor.Text,
+                    textBoxPublisher.Text,
+                    string.IsNullOrWhiteSpace(textBoxYear.Text) ? null : DateOnly.Parse($"{textBoxYear.Text}-01-01"),
+                    textBoxReadingRoom.Text,
+                    checkBoxIssued.Checked,
+                    textBoxReader.Text,
+                    IssueDateTimePicker.Checked ? DateOnly.FromDateTime(IssueDateTimePicker.Value) : null,
+                    ReturnDateTimePicker.Checked ? DateOnly.FromDateTime(ReturnDateTimePicker.Value) : null);
 
-                // Получаем ID читального зала
-                int readingRoomId = GetReadingRoomId(textBoxReadingRoom.Text);
-                if (readingRoomId == -1)
-                {
-                    MessageBox.Show("Читальный зал не найден!");
-                    return;
-                }
+                MessageBox.Show("Книга успешно добавлена!",
+                                "Успех",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
 
-                using (var connection = new NpgsqlConnection(DatabaseConnection.СonnectionString))
-                {
-                    connection.Open();
-                    using (var transaction = connection.BeginTransaction())
-                    {
-                        try
-                        {
-                            // 1. Вставляем запись в ЧитальныйЗалИКниги
-                            string insertRoomBookQuery = @"
-                        INSERT INTO ЧитальныйЗалИКниги (idЧитальногоЗала)
-                        VALUES (@RoomId)
-                        RETURNING idКниги;";
-
-                            int bookId;
-                            using (var command = new NpgsqlCommand(insertRoomBookQuery, connection, transaction))
-                            {
-                                command.Parameters.AddWithValue("@RoomId", readingRoomId);
-                                bookId = Convert.ToInt32(command.ExecuteScalar());
-                            }
-
-                            // 2. Добавляем книгу
-                            string insertBookQuery = @"
-                        INSERT INTO Книги (idКниги, Название, Издательство, ГодИздания)
-                        VALUES (@BookId, @Title, @Publisher, @Year);";
-
-                            object yearValue = DBNull.Value;
-                            if (!string.IsNullOrWhiteSpace(textBoxYear.Text))
-                            {
-                                if (int.TryParse(textBoxYear.Text, out int year))
-                                {
-                                    yearValue = new DateTime(year, 1, 1);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Некорректный формат года издания",
-                                                  "Ошибка",
-                                                  MessageBoxButtons.OK,
-                                                  MessageBoxIcon.Warning);
-                                    return;
-                                }
-                            }
-
-                            using (var command = new NpgsqlCommand(insertBookQuery, connection, transaction))
-                            {
-                                command.Parameters.AddWithValue("@BookId", bookId);
-                                command.Parameters.AddWithValue("@Title", textBoxTitle.Text);
-                                command.Parameters.AddWithValue("@Publisher",
-                                    string.IsNullOrWhiteSpace(textBoxPublisher.Text) ?
-                                    DBNull.Value : textBoxPublisher.Text);
-                                command.Parameters.AddWithValue("@Year", yearValue);
-                                command.ExecuteNonQuery();
-                            }
-
-                            // 3. Добавляем автора
-                            string insertAuthorQuery = @"
-                        INSERT INTO КнигиИАвтор (idКниги, Автор)
-                        VALUES (@BookId, @Author);";
-
-                            using (var command = new NpgsqlCommand(insertAuthorQuery, connection, transaction))
-                            {
-                                command.Parameters.AddWithValue("@BookId", bookId);
-                                command.Parameters.AddWithValue("@Author", textBoxAuthor.Text);
-                                command.ExecuteNonQuery();
-                            }
-
-                            // 4. Если книга выдана, добавляем запись о выдаче
-                            if (checkBoxIssued.Checked)
-                            {
-                                int readerId = GetReaderId(textBoxReader.Text);
-                                if (readerId == -1)
-                                {
-                                    MessageBox.Show("Читатель не найден",
-                                                  "Ошибка",
-                                                  MessageBoxButtons.OK,
-                                                  MessageBoxIcon.Warning);
-                                    return;
-                                }
-
-                                // 4.1. Добавляем запись о выдаче
-                                string insertIssueQuery = @"
-                            INSERT INTO Книгооборот (idКниги, ДатаВыдачи, ДатаВозврата)
-                            VALUES (@BookId, @IssueDate, @ReturnDate);";
-
-                                if (IssueDateTimePicker.Checked && ReturnDateTimePicker.Checked && ReturnDateTimePicker.Value < IssueDateTimePicker.Value)
-                                {
-                                    MessageBox.Show("Дата возврата не может быть раньше даты выдачи",
-                                                  "Ошибка",
-                                                  MessageBoxButtons.OK,
-                                                  MessageBoxIcon.Warning);
-                                    return;
-                                }
-
-                                object issueDate = IssueDateTimePicker.Checked ? IssueDateTimePicker.Value : DBNull.Value;
-                                object returnDate = ReturnDateTimePicker.Checked ? ReturnDateTimePicker.Value : DBNull.Value;
-
-                                using (var command = new NpgsqlCommand(insertIssueQuery, connection, transaction))
-                                {
-                                    command.Parameters.AddWithValue("@BookId", bookId);
-                                    command.Parameters.AddWithValue("@IssueDate", issueDate);
-                                    command.Parameters.AddWithValue("@ReturnDate", returnDate);
-                                    command.ExecuteNonQuery();
-                                }
-
-                                // 4.2. Связываем книгу с читателем
-                                string insertReaderQuery = @"
-                            INSERT INTO ЧитателиИКниги (idКниги, idЧитателя)
-                            VALUES (@BookId, @ReaderId);";
-
-                                using (var command = new NpgsqlCommand(insertReaderQuery, connection, transaction))
-                                {
-                                    command.Parameters.AddWithValue("@BookId", bookId);
-                                    command.Parameters.AddWithValue("@ReaderId", readerId);
-                                    command.ExecuteNonQuery();
-                                }
-
-                                // 4.3. Обновляем метку книги
-                                string updateMarkQuery = @"
-                            INSERT INTO КнигиМетка (idКниги, Метка)
-                            VALUES (@BookId, 'Выдана')
-                            ON CONFLICT (idКниги) DO UPDATE SET Метка = 'Выдана';";
-
-                                using (var command = new NpgsqlCommand(updateMarkQuery, connection, transaction))
-                                {
-                                    command.Parameters.AddWithValue("@BookId", bookId);
-                                    command.ExecuteNonQuery();
-                                }
-                            }
-                            else
-                            {
-                                // Если книга не выдана, устанавливаем метку "Нет"
-                                string updateMarkQuery = @"
-                            INSERT INTO КнигиМетка (idКниги, Метка)
-                            VALUES (@BookId, 'Нет')
-                            ON CONFLICT (idКниги) DO UPDATE SET Метка = 'Нет';";
-
-                                using (var command = new NpgsqlCommand(updateMarkQuery, connection, transaction))
-                                {
-                                    command.Parameters.AddWithValue("@BookId", bookId);
-                                    command.ExecuteNonQuery();
-                                }
-                            }
-
-                            // Фиксируем транзакцию
-                            transaction.Commit();
-
-                            MessageBox.Show("Книга успешно добавлена!",
-                                          "Успех",
-                                          MessageBoxButtons.OK,
-                                          MessageBoxIcon.Information);
-
-                            // Обновляем таблицу
-                            LoadBooksData();
-
-                            // Очищаем поля формы
-                            ClearFormFields();
-                        }
-                        catch (NpgsqlException ex) when (ex.SqlState == "23505")
-                        {
-                            transaction.Rollback();
-                            MessageBox.Show("Ошибка: книга с таким ID уже существует. Попробуйте снова.",
-                                          "Ошибка уникальности",
-                                          MessageBoxButtons.OK,
-                                          MessageBoxIcon.Error);
-                        }
-                        catch (Exception ex)
-                        {
-                            transaction.Rollback();
-                            MessageBox.Show($"Ошибка при добавлении книги Skype: {ex.Message}",
-                                          "Ошибка",
-                                          MessageBoxButtons.OK,
-                                          MessageBoxIcon.Error);
-                        }
-                    }
-                }
+                LoadBooksData();
+                ClearFormFields();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка подключения: {ex.Message}",
-                              "Ошибка",
-                              MessageBoxButtons.OK,
-                              MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка при добавлении книги: {ex.Message}",
+                                "Ошибка",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
             }
         }
 
-        private int GetReadingRoomId(string roomName)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
-            string query = "SELECT idЧитальногоЗала FROM ЧитальныеЗалы WHERE Название = @Name";
-            var parameter = new NpgsqlParameter("@Name", roomName);
+            if (MessageBox.Show("Вы уверены, что хотите изменить данные книги?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+            {
+                return;
+            }
 
-            object result = DatabaseConnection.ExecuteScalar(query, new NpgsqlParameter[] { parameter });
-            return result != null ? Convert.ToInt32(result) : -1;
+            try
+            {
+                _bookService.UpdateBook(
+                    selectedBookId,
+                    textBoxTitle.Text,
+                    textBoxAuthor.Text,
+                    textBoxPublisher.Text,
+                    string.IsNullOrWhiteSpace(textBoxYear.Text) ? null : DateOnly.Parse($"{textBoxYear.Text}-01-01"),
+                    textBoxReadingRoom.Text,
+                    checkBoxIssued.Checked,
+                    textBoxReader.Text,
+                    IssueDateTimePicker.Checked ? DateOnly.FromDateTime(IssueDateTimePicker.Value) : null,
+                    ReturnDateTimePicker.Checked ? DateOnly.FromDateTime(ReturnDateTimePicker.Value) : null);
+
+                MessageBox.Show("Данные книги успешно обновлены!",
+                                "Успех",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+
+                LoadBooksData();
+                ClearFormFields();
+                selectedBookId = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при обновлении книги: {ex.Message}",
+                                "Ошибка",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
 
-        private int GetReaderId(string readerName)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(readerName)) return -1;
-
-            string[] names = readerName.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            if (names.Length < 2) return -1;
-
-            string query = @"
-                SELECT ч.idЧитателя 
-                FROM Читатели ч
-                JOIN ФИОЧитатели ф ON ч.idЧитателя = ф.idЧитателя
-                WHERE ф.Фамилия = @LastName AND ф.Имя LIKE @FirstName || '%'";
-
-            var parameters = new NpgsqlParameter[]
+            if (selectedBookId == -1)
             {
-                new NpgsqlParameter("@LastName", names[0]),
-                new NpgsqlParameter("@FirstName", names[1])
-            };
+                MessageBox.Show("Выберите книгу для удаления",
+                                "Ошибка",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
 
-            object result = DatabaseConnection.ExecuteScalar(query, parameters);
-            return result != null ? Convert.ToInt32(result) : -1;
+            if (MessageBox.Show("Вы уверены, что хотите удалить эту книгу? Это действие нельзя отменить.",
+                                "Подтверждение удаления",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question) != DialogResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+                _bookService.DeleteBook(selectedBookId);
+                MessageBox.Show("Книга успешно удалена!",
+                                "Успех",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+
+                LoadBooksData();
+                ClearFormFields();
+                selectedBookId = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при удалении книги: {ex.Message}",
+                                "Ошибка",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
         }
 
         private void ClearFormFields()
@@ -418,7 +253,6 @@ namespace Library
             textBoxReader.Clear();
             checkBoxIssued.Checked = false;
             IssueDateTimePicker.Checked = false;
-            ReturnDateTimePicker.Checked = false;
             ReturnDateTimePicker.Checked = false;
         }
 
@@ -436,29 +270,35 @@ namespace Library
 
         private void LoadAutoCompleteData()
         {
-            // Для читателей
-            string readersQuery = "SELECT Фамилия || ' ' || Имя || ' ' || Отчество AS ФИО FROM ФИОЧитатели";
-            DataTable readers = DatabaseConnection.ExecuteQuery(readersQuery);
-
-            var readerSource = new AutoCompleteStringCollection();
-            foreach (DataRow row in readers.Rows)
+            try
             {
-                readerSource.Add(row["ФИО"].ToString());
+                using (var context = new LibraryContext(new DbContextOptionsBuilder<LibraryContext>()
+                    .UseNpgsql(DatabaseConnection.СonnectionString).Options))
+                {
+                    var readers = context.ReadersFullName
+                        .Select(fn => $"{fn.LastName} {fn.Name} {fn.MiddleName}")
+                        .ToList();
+                    var readerSource = new AutoCompleteStringCollection();
+                    readerSource.AddRange(readers.ToArray());
+                    textBoxReader.AutoCompleteCustomSource = readerSource;
+                    textBoxReader.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
+                    var rooms = context.ReadingRooms
+                        .Select(rr => rr.Name)
+                        .ToList();
+                    var roomSource = new AutoCompleteStringCollection();
+                    roomSource.AddRange(rooms.ToArray());
+                    textBoxReadingRoom.AutoCompleteCustomSource = roomSource;
+                    textBoxReadingRoom.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                }
             }
-            textBoxReader.AutoCompleteCustomSource = readerSource;
-            textBoxReader.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-
-            // Для читальных залов
-            string roomsQuery = "SELECT Название FROM ЧитальныеЗалы";
-            DataTable rooms = DatabaseConnection.ExecuteQuery(roomsQuery);
-
-            var roomSource = new AutoCompleteStringCollection();
-            foreach (DataRow row in rooms.Rows)
+            catch (Exception ex)
             {
-                roomSource.Add(row["Название"].ToString());
+                MessageBox.Show($"Ошибка при загрузке автодополнения: {ex.Message}",
+                                "Ошибка",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
             }
-            textBoxReadingRoom.AutoCompleteCustomSource = roomSource;
-            textBoxReadingRoom.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
 
         private void TextBoxYear_KeyPress(object sender, KeyPressEventArgs e)
@@ -481,16 +321,17 @@ namespace Library
             try
             {
                 var selectedRow = dataGridViewBooks.SelectedRows[0];
-                // Получаем idКниги через запрос, так как он не отображается в таблице
                 string title = selectedRow.Cells["NameBook"].Value.ToString();
-                string query = @"
-            SELECT k.idКниги
-            FROM Книги k
-            WHERE k.Название = @Title";
-                var parameter = new NpgsqlParameter("@Title", title);
-                selectedBookId = Convert.ToInt32(DatabaseConnection.ExecuteScalar(query, new NpgsqlParameter[] { parameter }));
 
-                // Загружаем данные в поля формы
+                using (var context = new LibraryContext(new DbContextOptionsBuilder<LibraryContext>()
+                    .UseNpgsql(DatabaseConnection.СonnectionString).Options))
+                {
+                    selectedBookId = context.Books
+                        .Where(b => b.Title == title)
+                        .Select(b => b.BookId)
+                        .FirstOrDefault();
+                }
+
                 textBoxTitle.Text = title;
                 textBoxAuthor.Text = selectedRow.Cells["Author"].Value.ToString();
                 textBoxPublisher.Text = selectedRow.Cells["PublishingHouse"].Value?.ToString();
@@ -499,7 +340,6 @@ namespace Library
                 textBoxReader.Text = selectedRow.Cells["Reader"].Value?.ToString();
                 checkBoxIssued.Checked = selectedRow.Cells["Mark"].Value.ToString() == "Выдана";
 
-                // Устанавливаем даты выдачи и возврата
                 IssueDateTimePicker.Checked = !string.IsNullOrEmpty(selectedRow.Cells["StartDate"].Value?.ToString());
                 if (IssueDateTimePicker.Checked)
                 {
@@ -523,393 +363,6 @@ namespace Library
             }
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Вы уверены, что хотите изменить данные книги?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
-            {
-                return;
-            }
-
-            EditData();
-        }
-
-        private void EditData()
-        {
-            if (selectedBookId == -1)
-            {
-                MessageBox.Show("Выберите книгу для редактирования",
-                                "Ошибка",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                return;
-            }
-
-            try
-            {
-                // Проверка обязательных полей
-                if (string.IsNullOrWhiteSpace(textBoxTitle.Text) ||
-                    string.IsNullOrWhiteSpace(textBoxAuthor.Text) ||
-                    string.IsNullOrWhiteSpace(textBoxReadingRoom.Text))
-                {
-                    MessageBox.Show("Заполните обязательные поля: Название, Автор, Читальный зал",
-                                    "Ошибка",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Получаем ID читального зала
-                int readingRoomId = GetReadingRoomId(textBoxReadingRoom.Text);
-                if (readingRoomId == -1)
-                {
-                    MessageBox.Show("Читальный зал не найден!",
-                                    "Ошибка",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Warning);
-                    return;
-                }
-
-                using (var connection = new NpgsqlConnection(DatabaseConnection.СonnectionString))
-                {
-                    connection.Open();
-                    using (var transaction = connection.BeginTransaction())
-                    {
-                        try
-                        {
-                            // 1. Обновляем данные в таблице Books
-                            string updateBookQuery = @"
-                        UPDATE Книги
-                        SET Название = @Title, Издательство = @Publisher, ГодИздания = @Year
-                        WHERE idКниги = @BookId;";
-
-                            object yearValue = DBNull.Value;
-                            if (!string.IsNullOrWhiteSpace(textBoxYear.Text))
-                            {
-                                if (int.TryParse(textBoxYear.Text, out int year))
-                                {
-                                    yearValue = new DateTime(year, 1, 1);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Некорректный формат года издания",
-                                                    "Ошибка",
-                                                    MessageBoxButtons.OK,
-                                                    MessageBoxIcon.Warning);
-                                    return;
-                                }
-                            }
-
-                            using (var command = new NpgsqlCommand(updateBookQuery, connection, transaction))
-                            {
-                                command.Parameters.AddWithValue("@BookId", selectedBookId);
-                                command.Parameters.AddWithValue("@Title", textBoxTitle.Text);
-                                command.Parameters.AddWithValue("@Publisher",
-                                    string.IsNullOrWhiteSpace(textBoxPublisher.Text) ? DBNull.Value : textBoxPublisher.Text);
-                                command.Parameters.AddWithValue("@Year", yearValue);
-                                command.ExecuteNonQuery();
-                            }
-
-                            // 2. Обновляем автора
-                            string updateAuthorQuery = @"
-                        UPDATE КнигиИАвтор
-                        SET Автор = @Author
-                        WHERE idКниги = @BookId;";
-
-                            using (var command = new NpgsqlCommand(updateAuthorQuery, connection, transaction))
-                            {
-                                command.Parameters.AddWithValue("@BookId", selectedBookId);
-                                command.Parameters.AddWithValue("@Author", textBoxAuthor.Text);
-                                command.ExecuteNonQuery();
-                            }
-
-                            // 3. Обновляем читальный зал
-                            string updateRoomQuery = @"
-                        UPDATE ЧитальныйЗалИКниги
-                        SET idЧитальногоЗала = @RoomId
-                        WHERE idКниги = @BookId;";
-
-                            using (var command = new NpgsqlCommand(updateRoomQuery, connection, transaction))
-                            {
-                                command.Parameters.AddWithValue("@BookId", selectedBookId);
-                                command.Parameters.AddWithValue("@RoomId", readingRoomId);
-                                command.ExecuteNonQuery();
-                            }
-
-                            // 4. Обновляем статус выдачи
-                            if (checkBoxIssued.Checked)
-                            {
-                                int readerId = GetReaderId(textBoxReader.Text);
-                                if (readerId == -1)
-                                {
-                                    MessageBox.Show("Читатель не найден",
-                                                    "Ошибка",
-                                                    MessageBoxButtons.OK,
-                                                    MessageBoxIcon.Warning);
-                                    return;
-                                }
-
-                                // 4.1. Обновляем или вставляем запись в BookTurnover
-                                string upsertIssueQuery = @"
-                            INSERT INTO Книгооборот (idКниги, ДатаВыдачи, ДатаВозврата)
-                            VALUES (@BookId, @IssueDate, @ReturnDate)
-                            ON CONFLICT (idКниги)
-                            DO UPDATE SET ДатаВыдачи = @IssueDate, ДатаВозврата = @ReturnDate;";
-
-                                if (IssueDateTimePicker.Checked && ReturnDateTimePicker.Checked && ReturnDateTimePicker.Value < IssueDateTimePicker.Value)
-                                {
-                                    MessageBox.Show("Дата возврата не может быть раньше даты выдачи",
-                                                    "Ошибка",
-                                                    MessageBoxButtons.OK,
-                                                    MessageBoxIcon.Warning);
-                                    return;
-                                }
-
-                                object issueDate = IssueDateTimePicker.Checked ? IssueDateTimePicker.Value : DBNull.Value;
-                                object returnDate = ReturnDateTimePicker.Checked ? ReturnDateTimePicker.Value : DBNull.Value;
-
-                                using (var command = new NpgsqlCommand(upsertIssueQuery, connection, transaction))
-                                {
-                                    command.Parameters.AddWithValue("@BookId", selectedBookId);
-                                    command.Parameters.AddWithValue("@IssueDate", issueDate);
-                                    command.Parameters.AddWithValue("@ReturnDate", returnDate);
-                                    command.ExecuteNonQuery();
-                                }
-
-                                // 4.2. Обновляем или вставляем связь с читателем
-                                string upsertReaderQuery = @"
-                            INSERT INTO ЧитателиИКниги (idКниги, idЧитателя)
-                            VALUES (@BookId, @ReaderId)
-                            ON CONFLICT (idКниги)
-                            DO UPDATE SET idЧитателя = @ReaderId;";
-
-                                using (var command = new NpgsqlCommand(upsertReaderQuery, connection, transaction))
-                                {
-                                    command.Parameters.AddWithValue("@BookId", selectedBookId);
-                                    command.Parameters.AddWithValue("@ReaderId", readerId);
-                                    command.ExecuteNonQuery();
-                                }
-
-                                // 4.3. Обновляем метку
-                                string updateMarkQuery = @"
-                            INSERT INTO КнигиМетка (idКниги, Метка)
-                            VALUES (@BookId, 'Выдана')
-                            ON CONFLICT (idКниги)
-                            DO UPDATE SET Метка = 'Выдана';";
-
-                                using (var command = new NpgsqlCommand(updateMarkQuery, connection, transaction))
-                                {
-                                    command.Parameters.AddWithValue("@BookId", selectedBookId);
-                                    command.ExecuteNonQuery();
-                                }
-                            }
-                            else
-                            {
-                                // Если книга не выдана, удаляем записи из BookTurnover и ЧитателиИКниги
-                                string deleteIssueQuery = @"
-                            DELETE FROM Книгооборот WHERE idКниги = @BookId;
-                            DELETE FROM ЧитателиИКниги WHERE idКниги = @BookId;";
-
-                                using (var command = new NpgsqlCommand(deleteIssueQuery, connection, transaction))
-                                {
-                                    command.Parameters.AddWithValue("@BookId", selectedBookId);
-                                    command.ExecuteNonQuery();
-                                }
-
-                                // Устанавливаем метку "Нет"
-                                string updateMarkQuery = @"
-                            INSERT INTO КнигиМетка (idКниги, Метка)
-                            VALUES (@BookId, 'Нет')
-                            ON CONFLICT (idКниги)
-                            DO UPDATE SET Метка = 'Нет';";
-
-                                using (var command = new NpgsqlCommand(updateMarkQuery, connection, transaction))
-                                {
-                                    command.Parameters.AddWithValue("@BookId", selectedBookId);
-                                    command.ExecuteNonQuery();
-                                }
-                            }
-
-                            // Фиксируем транзакцию
-                            transaction.Commit();
-
-                            MessageBox.Show("Данные книги успешно обновлены!",
-                                            "Успех",
-                                            MessageBoxButtons.OK,
-                                            MessageBoxIcon.Information);
-
-                            // Обновляем таблицу
-                            LoadBooksData();
-
-                            // Очищаем поля формы
-                            ClearFormFields();
-                            selectedBookId = -1;
-                        }
-                        catch (NpgsqlException ex) when (ex.SqlState == "23505")
-                        {
-                            transaction.Rollback();
-                            MessageBox.Show("Ошибка: книга с таким названием или ID уже существует.",
-                                            "Ошибка уникальности",
-                                            MessageBoxButtons.OK,
-                                            MessageBoxIcon.Error);
-                        }
-                        catch (Exception ex)
-                        {
-                            transaction.Rollback();
-                            MessageBox.Show($"Ошибка при обновлении книги: {ex.Message}",
-                                            "Ошибка",
-                                            MessageBoxButtons.OK,
-                                            MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка подключения: {ex.Message}",
-                                "Ошибка",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (selectedBookId == -1)
-            {
-                MessageBox.Show("Выберите книгу для удаления",
-                                "Ошибка",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                return;
-            }
-
-            // Подтверждение удаления
-            if (MessageBox.Show("Вы уверены, что хотите удалить эту книгу? Это действие нельзя отменить.",
-                                "Подтверждение удаления",
-                                MessageBoxButtons.YesNo,
-                                MessageBoxIcon.Question) != DialogResult.Yes)
-            {
-                return;
-            }
-
-            DeleteBook();
-        }
-
-        private void DeleteBook()
-        {
-            try
-            {
-                using (var connection = new NpgsqlConnection(DatabaseConnection.СonnectionString))
-                {
-                    connection.Open();
-                    using (var transaction = connection.BeginTransaction())
-                    {
-                        try
-                        {
-                            string deleteReaderBookQuery = @"
-                                DELETE FROM ЧитателиИКниги
-                                WHERE idКниги = @BookId;";
-
-                            using (var command = new NpgsqlCommand(deleteReaderBookQuery, connection, transaction))
-                            {
-                                command.Parameters.AddWithValue("@BookId", selectedBookId);
-                                command.ExecuteNonQuery();
-                            }
-
-                            string deleteCirculationQuery = @"
-                                DELETE FROM Книгооборот
-                                WHERE idКниги = @BookId;";
-
-                            using (var command = new NpgsqlCommand(deleteCirculationQuery, connection, transaction))
-                            {
-                                command.Parameters.AddWithValue("@BookId", selectedBookId);
-                                command.ExecuteNonQuery();
-                            }
-
-                            string deleteMarkQuery = @"
-                                DELETE FROM КнигиМетка
-                                WHERE idКниги = @BookId;";
-
-                            using (var command = new NpgsqlCommand(deleteMarkQuery, connection, transaction))
-                            {
-                                command.Parameters.AddWithValue("@BookId", selectedBookId);
-                                command.ExecuteNonQuery();
-                            }
-
-                            string deleteAuthorQuery = @"
-                                DELETE FROM КнигиИАвтор
-                                WHERE idКниги = @BookId;";
-
-                            using (var command = new NpgsqlCommand(deleteAuthorQuery, connection, transaction))
-                            {
-                                command.Parameters.AddWithValue("@BookId", selectedBookId);
-                                command.ExecuteNonQuery();
-                            }
-
-                            string deleteBookQuery = @"
-                                DELETE FROM Книги
-                                WHERE idКниги = @BookId;";
-
-                            using (var command = new NpgsqlCommand(deleteBookQuery, connection, transaction))
-                            {
-                                command.Parameters.AddWithValue("@BookId", selectedBookId);
-                                command.ExecuteNonQuery();
-                            }
-
-                            string deleteRoomBookQuery = @"
-                                DELETE FROM ЧитальныйЗалИКниги
-                                WHERE idКниги = @BookId;";
-
-                            using (var command = new NpgsqlCommand(deleteRoomBookQuery, connection, transaction))
-                            {
-                                command.Parameters.AddWithValue("@BookId", selectedBookId);
-                                command.ExecuteNonQuery();
-                            }
-
-                            transaction.Commit();
-
-                            MessageBox.Show("Книга успешно удалена!",
-                                            "Успех",
-                                            MessageBoxButtons.OK,
-                                            MessageBoxIcon.Information);
-
-                            LoadBooksData();
-                            ClearFormFields();
-                            selectedBookId = -1;
-                        }
-                        catch (NpgsqlException ex)
-                        {
-                            transaction.Rollback();
-                            MessageBox.Show($"Ошибка при удалении книги: {ex.Message}",
-                                            "Ошибка",
-                                            MessageBoxButtons.OK,
-                                            MessageBoxIcon.Error);
-                        }
-                        catch (Exception ex)
-                        {
-                            transaction.Rollback();
-                            MessageBox.Show($"Общая ошибка: {ex.Message}",
-                                            "Ошибка",
-                                            MessageBoxButtons.OK,
-                                            MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка подключения: {ex.Message}",
-                                "Ошибка",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void SearchBook()
         {
             DataTable dataTable = (DataTable)dataGridViewBooks.DataSource;
@@ -925,10 +378,9 @@ namespace Library
 
             bool found = false;
 
-            // Проходим по всем строкам таблицы
             foreach (DataGridViewRow row in dataGridViewBooks.Rows)
             {
-                if (row.IsNewRow) continue; // Пропускаем новую строку
+                if (row.IsNewRow) continue;
 
                 string rowTitle = row.Cells["NameBook"].Value?.ToString().Trim().ToLower() ?? "";
                 string rowAuthor = row.Cells["Author"].Value?.ToString().Trim().ToLower() ?? "";
@@ -940,7 +392,6 @@ namespace Library
                 string rowIssueDate = row.Cells["StartDate"].Value?.ToString().Trim().ToLower() ?? "";
                 string rowReturnDate = row.Cells["FinishDate"].Value?.ToString().Trim().ToLower() ?? "";
 
-                // Проверяем совпадение по любому непустому полю
                 if ((!string.IsNullOrEmpty(title) && rowTitle.Contains(title)) ||
                     (!string.IsNullOrEmpty(author) && rowAuthor.Contains(author)) ||
                     (!string.IsNullOrEmpty(publisher) && rowPublisher.Contains(publisher)) ||
@@ -948,14 +399,13 @@ namespace Library
                     (!string.IsNullOrEmpty(readingRoom) && rowReadingRoom.Contains(readingRoom)) ||
                     (!string.IsNullOrEmpty(reader) && rowReader.Contains(reader)) ||
                     (!string.IsNullOrEmpty(status) && rowStatus.Contains(status)) ||
-                    (!string.IsNullOrEmpty(issueDate) && rowIssueDate.Contains(issueDate)) &&
+                    (!string.IsNullOrEmpty(issueDate) && rowIssueDate.Contains(issueDate)) ||
                     (!string.IsNullOrEmpty(returnDate) && rowReturnDate.Contains(returnDate)))
                 {
-                    // Выделяем найденную строку
                     row.Selected = true;
-                    dataGridViewBooks.CurrentCell = row.Cells[0]; // Устанавливаем текущую ячейку
+                    dataGridViewBooks.CurrentCell = row.Cells[0];
                     found = true;
-                    break; // Останавливаемся на первой найденной строке
+                    break;
                 }
             }
 

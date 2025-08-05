@@ -1,17 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library.Models;
 
 public partial class ReadersFullName
 {
-    public int IdЧитателя { get; set; }
+    [Column("idЧитателя")]
+    public int IdReader { get; set; }
 
-    public string Фамилия { get; set; } = null!;
+    [Column("Фамилия")]
+    public string LastName { get; set; } = null!;
 
-    public string Имя { get; set; } = null!;
+    [Column("Имя")]
+    public string Name { get; set; } = null!;
 
-    public string? Отчество { get; set; }
+    [Column("Отчество")]
+    public string? MiddleName { get; set; }
 
-    public virtual Readers IdЧитателяNavigation { get; set; } = null!;
+    public virtual Readers IdReaderNavigation { get; set; } = null!;
 }

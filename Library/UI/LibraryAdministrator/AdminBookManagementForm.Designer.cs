@@ -60,6 +60,7 @@
             PublishingHouse = new DataGridViewTextBoxColumn();
             YearPublication = new DataGridViewTextBoxColumn();
             ReadingRoom = new DataGridViewTextBoxColumn();
+            labelYearPublishing = new Label();
             panelNav.SuspendLayout();
             panelHeader.SuspendLayout();
             panelContent.SuspendLayout();
@@ -87,7 +88,7 @@
             btnMenu.BackColor = Color.Transparent;
             btnMenu.FlatAppearance.BorderSize = 0;
             btnMenu.FlatStyle = FlatStyle.Flat;
-            btnMenu.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnMenu.Font = new Font("Segoe UI", 21.75F);
             btnMenu.ForeColor = Color.White;
             btnMenu.Location = new Point(0, 136);
             btnMenu.Name = "btnMenu";
@@ -103,7 +104,7 @@
             btnMakeCertificate.BackColor = Color.Transparent;
             btnMakeCertificate.FlatAppearance.BorderSize = 0;
             btnMakeCertificate.FlatStyle = FlatStyle.Flat;
-            btnMakeCertificate.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnMakeCertificate.Font = new Font("Segoe UI", 21.75F);
             btnMakeCertificate.ForeColor = Color.White;
             btnMakeCertificate.Location = new Point(0, 224);
             btnMakeCertificate.Name = "btnMakeCertificate";
@@ -119,7 +120,7 @@
             btnLogout.Dock = DockStyle.Bottom;
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLogout.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold);
             btnLogout.ForeColor = Color.White;
             btnLogout.Location = new Point(0, 1065);
             btnLogout.Name = "btnLogout";
@@ -133,7 +134,7 @@
             btnAddHall.BackColor = Color.Transparent;
             btnAddHall.FlatAppearance.BorderSize = 0;
             btnAddHall.FlatStyle = FlatStyle.Flat;
-            btnAddHall.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAddHall.Font = new Font("Segoe UI", 21.75F);
             btnAddHall.ForeColor = Color.White;
             btnAddHall.Location = new Point(0, 312);
             btnAddHall.Name = "btnAddHall";
@@ -147,7 +148,7 @@
             // labelNavTitle
             // 
             labelNavTitle.Dock = DockStyle.Top;
-            labelNavTitle.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labelNavTitle.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold);
             labelNavTitle.ForeColor = Color.White;
             labelNavTitle.Location = new Point(0, 0);
             labelNavTitle.Name = "labelNavTitle";
@@ -173,7 +174,7 @@
             btnLoadTableBooks.BackColor = Color.FromArgb(52, 152, 219);
             btnLoadTableBooks.FlatAppearance.BorderSize = 0;
             btnLoadTableBooks.FlatStyle = FlatStyle.Flat;
-            btnLoadTableBooks.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLoadTableBooks.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             btnLoadTableBooks.ForeColor = Color.White;
             btnLoadTableBooks.Location = new Point(1680, 32);
             btnLoadTableBooks.Name = "btnLoadTableBooks";
@@ -185,7 +186,7 @@
             // labelTitle
             // 
             labelTitle.AutoSize = true;
-            labelTitle.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labelTitle.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold);
             labelTitle.ForeColor = Color.FromArgb(41, 128, 185);
             labelTitle.Location = new Point(22, 21);
             labelTitle.Name = "labelTitle";
@@ -206,6 +207,7 @@
             // 
             // panelForm
             // 
+            panelForm.Controls.Add(labelYearPublishing);
             panelForm.Controls.Add(button1);
             panelForm.Controls.Add(btnUpdateTable);
             panelForm.Controls.Add(btnWriteOff);
@@ -233,7 +235,7 @@
             button1.BackColor = Color.FromArgb(52, 152, 219);
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             button1.ForeColor = Color.White;
             button1.Location = new Point(953, 395);
             button1.Name = "button1";
@@ -248,7 +250,7 @@
             btnUpdateTable.BackColor = Color.FromArgb(52, 152, 219);
             btnUpdateTable.FlatAppearance.BorderSize = 0;
             btnUpdateTable.FlatStyle = FlatStyle.Flat;
-            btnUpdateTable.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUpdateTable.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
             btnUpdateTable.ForeColor = Color.White;
             btnUpdateTable.Location = new Point(1517, 21);
             btnUpdateTable.Name = "btnUpdateTable";
@@ -263,7 +265,7 @@
             btnWriteOff.BackColor = Color.FromArgb(231, 76, 60);
             btnWriteOff.FlatAppearance.BorderSize = 0;
             btnWriteOff.FlatStyle = FlatStyle.Flat;
-            btnWriteOff.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            btnWriteOff.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             btnWriteOff.ForeColor = Color.White;
             btnWriteOff.Location = new Point(1517, 304);
             btnWriteOff.Name = "btnWriteOff";
@@ -278,7 +280,7 @@
             btnEditBook.BackColor = Color.FromArgb(52, 152, 219);
             btnEditBook.FlatAppearance.BorderSize = 0;
             btnEditBook.FlatStyle = FlatStyle.Flat;
-            btnEditBook.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEditBook.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             btnEditBook.ForeColor = Color.White;
             btnEditBook.Location = new Point(1517, 222);
             btnEditBook.Name = "btnEditBook";
@@ -293,7 +295,7 @@
             btnAddBook.BackColor = Color.FromArgb(52, 152, 219);
             btnAddBook.FlatAppearance.BorderSize = 0;
             btnAddBook.FlatStyle = FlatStyle.Flat;
-            btnAddBook.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAddBook.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             btnAddBook.ForeColor = Color.White;
             btnAddBook.Location = new Point(1517, 140);
             btnAddBook.Name = "btnAddBook";
@@ -306,8 +308,8 @@
             // tbReadingRoom
             // 
             tbReadingRoom.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tbReadingRoom.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            tbReadingRoom.Location = new Point(225, 313);
+            tbReadingRoom.Font = new Font("Segoe UI", 20.25F);
+            tbReadingRoom.Location = new Point(246, 313);
             tbReadingRoom.Name = "tbReadingRoom";
             tbReadingRoom.Size = new Size(1066, 43);
             tbReadingRoom.TabIndex = 23;
@@ -315,17 +317,17 @@
             // tbYearPublication
             // 
             tbYearPublication.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tbYearPublication.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            tbYearPublication.Location = new Point(225, 240);
+            tbYearPublication.Font = new Font("Segoe UI", 20.25F);
+            tbYearPublication.Location = new Point(246, 240);
             tbYearPublication.Name = "tbYearPublication";
-            tbYearPublication.Size = new Size(1066, 43);
+            tbYearPublication.Size = new Size(1034, 43);
             tbYearPublication.TabIndex = 22;
             // 
             // tbPublishingHouse
             // 
             tbPublishingHouse.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tbPublishingHouse.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            tbPublishingHouse.Location = new Point(225, 167);
+            tbPublishingHouse.Font = new Font("Segoe UI", 20.25F);
+            tbPublishingHouse.Location = new Point(246, 167);
             tbPublishingHouse.Margin = new Padding(5);
             tbPublishingHouse.Name = "tbPublishingHouse";
             tbPublishingHouse.Size = new Size(1066, 43);
@@ -334,8 +336,8 @@
             // tbBookAuthor
             // 
             tbBookAuthor.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tbBookAuthor.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            tbBookAuthor.Location = new Point(225, 94);
+            tbBookAuthor.Font = new Font("Segoe UI", 20.25F);
+            tbBookAuthor.Location = new Point(246, 94);
             tbBookAuthor.Name = "tbBookAuthor";
             tbBookAuthor.Size = new Size(1066, 43);
             tbBookAuthor.TabIndex = 20;
@@ -343,8 +345,8 @@
             // tbNameBook
             // 
             tbNameBook.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tbNameBook.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            tbNameBook.Location = new Point(225, 21);
+            tbNameBook.Font = new Font("Segoe UI", 20.25F);
+            tbNameBook.Location = new Point(246, 24);
             tbNameBook.Name = "tbNameBook";
             tbNameBook.Size = new Size(1066, 43);
             tbNameBook.TabIndex = 19;
@@ -352,7 +354,7 @@
             // labelReadingRoom
             // 
             labelReadingRoom.AutoSize = true;
-            labelReadingRoom.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            labelReadingRoom.Font = new Font("Segoe UI", 20.25F);
             labelReadingRoom.Location = new Point(22, 319);
             labelReadingRoom.Name = "labelReadingRoom";
             labelReadingRoom.Size = new Size(202, 37);
@@ -362,7 +364,7 @@
             // labelPublishingHouse
             // 
             labelPublishingHouse.AutoSize = true;
-            labelPublishingHouse.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            labelPublishingHouse.Font = new Font("Segoe UI", 20.25F);
             labelPublishingHouse.Location = new Point(22, 173);
             labelPublishingHouse.Name = "labelPublishingHouse";
             labelPublishingHouse.Size = new Size(184, 37);
@@ -372,7 +374,7 @@
             // labelBookAuthor
             // 
             labelBookAuthor.AutoSize = true;
-            labelBookAuthor.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            labelBookAuthor.Font = new Font("Segoe UI", 20.25F);
             labelBookAuthor.Location = new Point(22, 100);
             labelBookAuthor.Name = "labelBookAuthor";
             labelBookAuthor.Size = new Size(91, 37);
@@ -382,7 +384,7 @@
             // labelNameBook
             // 
             labelNameBook.AutoSize = true;
-            labelNameBook.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            labelNameBook.Font = new Font("Segoe UI", 20.25F);
             labelNameBook.Location = new Point(22, 27);
             labelNameBook.Name = "labelNameBook";
             labelNameBook.Size = new Size(136, 37);
@@ -447,6 +449,16 @@
             ReadingRoom.Name = "ReadingRoom";
             ReadingRoom.Width = 200;
             // 
+            // labelYearPublishing
+            // 
+            labelYearPublishing.AutoSize = true;
+            labelYearPublishing.Font = new Font("Segoe UI", 20.25F);
+            labelYearPublishing.Location = new Point(22, 246);
+            labelYearPublishing.Name = "labelYearPublishing";
+            labelYearPublishing.Size = new Size(218, 37);
+            labelYearPublishing.TabIndex = 28;
+            labelYearPublishing.Text = "Год публикации";
+            // 
             // AdminBookManagementForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
@@ -505,5 +517,6 @@
         private Button btnMakeCertificate;
         private Button btnMenu;
         private Button button1;
+        private Label labelYearPublishing;
     }
 }

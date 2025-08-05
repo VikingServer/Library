@@ -5,9 +5,9 @@ namespace Library.Models;
 
 public partial class ReadingRoomsCapacity
 {
-    public int IdЧитальногоЗала { get; set; }
+    public int IdReadingRoom { get; set; }
 
-    public int Вместимость { get; set; }
+    public int Capacity { get; set; }
 
-    public virtual ReadingRoomsInLibrary IdЧитальногоЗалаNavigation { get; set; } = null!;
+    public virtual ReadingRoomsInLibrary IdReadingRoomNavigation { get; set; } = null!;
 }

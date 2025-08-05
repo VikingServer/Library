@@ -207,7 +207,7 @@ namespace Library
                                 command.ExecuteNonQuery();
                             }
 
-                            // 3. Добавляем запись в таблицу ReadersPassport
+                            // 3. Добавляем запись в таблицу Passport
                             string insertPassportQuery = @"
                                 INSERT INTO ПаспортныеДанныеЧитатели (idЧитателя, Серия, Номер, КемВыдан, ДатаВыдачи, АдресРегистрации)
                                 VALUES (@ReaderId, @Series, @Number, @IssuedBy, @IssueDate, @Address);";
@@ -310,7 +310,7 @@ namespace Library
                                 command.ExecuteNonQuery();
                             }
 
-                            // 2. Удаляем из ReadersPassport
+                            // 2. Удаляем из Passport
                             string deletePassportQuery = @"
                             DELETE FROM ПаспортныеДанныеЧитатели
                             WHERE idЧитателя = @ReaderId;";

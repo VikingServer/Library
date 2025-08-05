@@ -5,19 +5,19 @@ namespace Library.Models;
 
 public partial class ReadingRoomsAndBooks
 {
-    public int IdЧитальногоЗала { get; set; }
+    public int IdReadingRoom { get; set; }
 
-    public int IdКниги { get; set; }
+    public int IdBook { get; set; }
 
-    public virtual ReadingRoomsInLibrary IdЧитальногоЗалаNavigation { get; set; } = null!;
+    public virtual ReadingRoomsInLibrary IdReadingRoomNavigation { get; set; } = null!;
 
-    public virtual Books? Книги { get; set; }
+    public virtual Books? Books { get; set; }
 
-    public virtual BooksAuthor? КнигиИавтор { get; set; }
+    public virtual BooksAuthor? BooksAuthor { get; set; }
 
-    public virtual BooksMarks? КнигиМетка { get; set; }
+    public virtual BooksMarks? BooksMarks { get; set; }
 
-    public virtual BookCirculation? Книгооборот { get; set; }
+    public virtual BookCirculation? BookCirculation { get; set; }
 
-    public virtual ReadersAndBooks? ЧитателиИкниги { get; set; }
+    public virtual ReadersAndBooks? ReadersAndBooks { get; set; }
 }

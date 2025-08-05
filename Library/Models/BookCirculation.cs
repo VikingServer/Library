@@ -7,9 +7,9 @@ public partial class BookCirculation
 {
     public int BookId { get; set; }
 
-    public DateOnly? ДатаВыдачи { get; set; }
+    public DateOnly? IssueDate { get; set; }
 
-    public DateOnly? ДатаВозврата { get; set; }
+    public DateOnly? ReturnDate { get; set; }
 
-    public virtual ReadingRoomsAndBooks IdКнигиNavigation { get; set; } = null!;
+    public virtual ReadingRoomsAndBooks IdBookNavigation { get; set; } = null!;
 }
