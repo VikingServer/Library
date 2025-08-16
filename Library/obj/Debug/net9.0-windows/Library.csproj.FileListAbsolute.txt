@@ -55,7 +55,6 @@ D:\Образование\Проекты\Library\Library\bin\Debug\net9.0-window
 D:\Образование\Проекты\Library\Library\bin\Debug\net9.0-windows\System.Composition.Hosting.dll
 D:\Образование\Проекты\Library\Library\bin\Debug\net9.0-windows\System.Composition.Runtime.dll
 D:\Образование\Проекты\Library\Library\bin\Debug\net9.0-windows\System.Composition.TypedParts.dll
-D:\Образование\Проекты\Library\Library\bin\Debug\net9.0-windows\System.Text.Json.dll
 D:\Образование\Проекты\Library\Library\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.resources.dll
 D:\Образование\Проекты\Library\Library\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.resources.dll
 D:\Образование\Проекты\Library\Library\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.resources.dll

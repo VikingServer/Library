@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library.Models;
 
 public partial class Readers
 {
+    [Column("idЧитателя")]
     public int IdReader { get; set; }
 
+    [Column("НомерТелефона")]
     public string PhoneNumber { get; set; } = null!;
 
     public virtual ReadersPassport? Passport { get; set; }

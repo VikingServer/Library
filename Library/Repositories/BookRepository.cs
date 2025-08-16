@@ -34,7 +34,7 @@ namespace Library.Repositories
                         from readerFullName in rfnGroup.DefaultIfEmpty()
                         select new
                         {
-                            Title = book.Title,
+                            book.Title,
                             Author = bookAuthor != null ? bookAuthor.Author : null,
                             ReadingRoom = readingRoom != null ? readingRoom.Name : null,
                             Publisher = book.Publisher,

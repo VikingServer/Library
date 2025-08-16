@@ -208,7 +208,7 @@ public partial class LibraryContext : DbContext
                 .HasColumnName("idЧитальногоЗала");
             entity.Property(e => e.Name).HasMaxLength(255);
 
-            entity.HasOne(d => d.IdReadingRoomNavigation).WithOne(p => p.ReadingRooms)
+            entity.HasOne(d => d.IdReadingRoomNavigation).WithOne(p => p.IdReadingRoomNavigation)
                 .HasForeignKey<ReadingRooms>(d => d.IdReadingRoom)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("ЧитальныеЗалы_idЧитальногоЗала_fkey");

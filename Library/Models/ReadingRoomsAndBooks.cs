@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library.Models;
 
 public partial class ReadingRoomsAndBooks
 {
+    [Column("idЧитальногоЗала")]
     public int IdReadingRoom { get; set; }
 
+    [Column("idКниги")]
     public int IdBook { get; set; }
 
     public virtual ReadingRoomsInLibrary IdReadingRoomNavigation { get; set; } = null!;
