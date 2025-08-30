@@ -71,6 +71,7 @@
             StartDate = new DataGridViewTextBoxColumn();
             FinishDate = new DataGridViewTextBoxColumn();
             Reader = new DataGridViewTextBoxColumn();
+            btnClearField = new Button();
             panelNav.SuspendLayout();
             panelHeader.SuspendLayout();
             panelContent.SuspendLayout();
@@ -98,7 +99,7 @@
             btnMenu.BackColor = Color.Transparent;
             btnMenu.FlatAppearance.BorderSize = 0;
             btnMenu.FlatStyle = FlatStyle.Flat;
-            btnMenu.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnMenu.Font = new Font("Segoe UI", 21.75F);
             btnMenu.ForeColor = Color.White;
             btnMenu.Location = new Point(0, 136);
             btnMenu.Name = "btnMenu";
@@ -114,7 +115,7 @@
             btnMakeCertificate.BackColor = Color.Transparent;
             btnMakeCertificate.FlatAppearance.BorderSize = 0;
             btnMakeCertificate.FlatStyle = FlatStyle.Flat;
-            btnMakeCertificate.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnMakeCertificate.Font = new Font("Segoe UI", 21.75F);
             btnMakeCertificate.ForeColor = Color.White;
             btnMakeCertificate.Location = new Point(0, 224);
             btnMakeCertificate.Name = "btnMakeCertificate";
@@ -130,7 +131,7 @@
             btnLogout.Dock = DockStyle.Bottom;
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLogout.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold);
             btnLogout.ForeColor = Color.White;
             btnLogout.Location = new Point(0, 1065);
             btnLogout.Name = "btnLogout";
@@ -145,7 +146,7 @@
             btnAddReader.BackColor = Color.Transparent;
             btnAddReader.FlatAppearance.BorderSize = 0;
             btnAddReader.FlatStyle = FlatStyle.Flat;
-            btnAddReader.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAddReader.Font = new Font("Segoe UI", 21.75F);
             btnAddReader.ForeColor = Color.White;
             btnAddReader.Location = new Point(0, 312);
             btnAddReader.Name = "btnAddReader";
@@ -159,7 +160,7 @@
             // labelNavTitle
             // 
             labelNavTitle.Dock = DockStyle.Top;
-            labelNavTitle.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labelNavTitle.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold);
             labelNavTitle.ForeColor = Color.White;
             labelNavTitle.Location = new Point(0, 0);
             labelNavTitle.Name = "labelNavTitle";
@@ -185,7 +186,7 @@
             btnSearchBook.BackColor = Color.FromArgb(52, 152, 219);
             btnSearchBook.FlatAppearance.BorderSize = 0;
             btnSearchBook.FlatStyle = FlatStyle.Flat;
-            btnSearchBook.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSearchBook.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             btnSearchBook.ForeColor = Color.White;
             btnSearchBook.Location = new Point(1675, 32);
             btnSearchBook.Name = "btnSearchBook";
@@ -198,7 +199,7 @@
             // labelTitle
             // 
             labelTitle.AutoSize = true;
-            labelTitle.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labelTitle.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold);
             labelTitle.ForeColor = Color.FromArgb(41, 128, 185);
             labelTitle.Location = new Point(22, 21);
             labelTitle.Name = "labelTitle";
@@ -219,6 +220,7 @@
             // 
             // panelForm
             // 
+            panelForm.Controls.Add(btnClearField);
             panelForm.Controls.Add(ReturnDateTimePicker);
             panelForm.Controls.Add(IssueDateTimePicker);
             panelForm.Controls.Add(btnUpdateTable);
@@ -249,8 +251,8 @@
             // 
             // ReturnDateTimePicker
             // 
-            ReturnDateTimePicker.CalendarFont = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            ReturnDateTimePicker.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            ReturnDateTimePicker.CalendarFont = new Font("Segoe UI", 20.25F);
+            ReturnDateTimePicker.Font = new Font("Segoe UI", 15.75F);
             ReturnDateTimePicker.Location = new Point(1365, 166);
             ReturnDateTimePicker.Name = "ReturnDateTimePicker";
             ReturnDateTimePicker.Size = new Size(200, 35);
@@ -259,8 +261,8 @@
             // 
             // IssueDateTimePicker
             // 
-            IssueDateTimePicker.CalendarFont = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            IssueDateTimePicker.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            IssueDateTimePicker.CalendarFont = new Font("Segoe UI", 20.25F);
+            IssueDateTimePicker.Font = new Font("Segoe UI", 15.75F);
             IssueDateTimePicker.Location = new Point(1365, 94);
             IssueDateTimePicker.Name = "IssueDateTimePicker";
             IssueDateTimePicker.Size = new Size(200, 35);
@@ -273,7 +275,7 @@
             btnUpdateTable.BackColor = Color.FromArgb(52, 152, 219);
             btnUpdateTable.FlatAppearance.BorderSize = 0;
             btnUpdateTable.FlatStyle = FlatStyle.Flat;
-            btnUpdateTable.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUpdateTable.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
             btnUpdateTable.ForeColor = Color.White;
             btnUpdateTable.Location = new Point(1501, 21);
             btnUpdateTable.Name = "btnUpdateTable";
@@ -289,7 +291,7 @@
             btnDelete.BackColor = Color.FromArgb(231, 76, 60);
             btnDelete.FlatAppearance.BorderSize = 0;
             btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            btnDelete.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             btnDelete.ForeColor = Color.White;
             btnDelete.Location = new Point(1501, 304);
             btnDelete.Name = "btnDelete";
@@ -299,13 +301,13 @@
             btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
-            // btnEditBook
+            // btnEdit
             // 
             btnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnEdit.BackColor = Color.FromArgb(52, 152, 219);
             btnEdit.FlatAppearance.BorderSize = 0;
             btnEdit.FlatStyle = FlatStyle.Flat;
-            btnEdit.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEdit.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             btnEdit.ForeColor = Color.White;
             btnEdit.Location = new Point(1501, 222);
             btnEdit.Name = "btnEdit";
@@ -315,13 +317,13 @@
             btnEdit.UseVisualStyleBackColor = false;
             btnEdit.Click += btnEdit_Click;
             // 
-            // btnAddBook
+            // btnAdd
             // 
             btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAdd.BackColor = Color.FromArgb(52, 152, 219);
             btnAdd.FlatAppearance.BorderSize = 0;
             btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAdd.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             btnAdd.ForeColor = Color.White;
             btnAdd.Location = new Point(1501, 140);
             btnAdd.Name = "btnAdd";
@@ -334,7 +336,7 @@
             // textBoxReader
             // 
             textBoxReader.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxReader.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxReader.Font = new Font("Segoe UI", 20.25F);
             textBoxReader.Location = new Point(275, 388);
             textBoxReader.Name = "textBoxReader";
             textBoxReader.Size = new Size(322, 43);
@@ -343,7 +345,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Font = new Font("Segoe UI", 20.25F);
             label9.Location = new Point(67, 394);
             label9.Name = "label9";
             label9.Size = new Size(129, 37);
@@ -353,7 +355,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Font = new Font("Segoe UI", 20.25F);
             label8.Location = new Point(1166, 166);
             label8.Name = "label8";
             label8.Size = new Size(193, 37);
@@ -363,7 +365,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Font = new Font("Segoe UI", 20.25F);
             label7.Location = new Point(1166, 96);
             label7.Name = "label7";
             label7.Size = new Size(175, 37);
@@ -373,7 +375,7 @@
             // checkBoxIssued
             // 
             checkBoxIssued.AutoSize = true;
-            checkBoxIssued.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            checkBoxIssued.Font = new Font("Segoe UI", 20.25F);
             checkBoxIssued.Location = new Point(1166, 17);
             checkBoxIssued.Name = "checkBoxIssued";
             checkBoxIssued.Size = new Size(115, 41);
@@ -385,16 +387,16 @@
             // textBoxReadingRoom
             // 
             textBoxReadingRoom.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxReadingRoom.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxReadingRoom.Font = new Font("Segoe UI", 20.25F);
             textBoxReadingRoom.Location = new Point(275, 309);
             textBoxReadingRoom.Name = "textBoxReadingRoom";
             textBoxReadingRoom.Size = new Size(322, 43);
             textBoxReadingRoom.TabIndex = 30;
             // 
-            // labelReadingRoom
+            // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Font = new Font("Segoe UI", 20.25F);
             label6.Location = new Point(67, 315);
             label6.Name = "label6";
             label6.Size = new Size(202, 37);
@@ -404,17 +406,17 @@
             // textBoxYear
             // 
             textBoxYear.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxYear.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxYear.Font = new Font("Segoe UI", 20.25F);
             textBoxYear.Location = new Point(275, 236);
             textBoxYear.Name = "textBoxYear";
             textBoxYear.Size = new Size(322, 43);
             textBoxYear.TabIndex = 29;
             textBoxYear.KeyPress += TextBoxYear_KeyPress;
             // 
-            // labelYearPublication
+            // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Font = new Font("Segoe UI", 20.25F);
             label5.Location = new Point(67, 242);
             label5.Name = "label5";
             label5.Size = new Size(171, 37);
@@ -424,16 +426,16 @@
             // textBoxPublisher
             // 
             textBoxPublisher.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxPublisher.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxPublisher.Font = new Font("Segoe UI", 20.25F);
             textBoxPublisher.Location = new Point(275, 163);
             textBoxPublisher.Name = "textBoxPublisher";
             textBoxPublisher.Size = new Size(322, 43);
             textBoxPublisher.TabIndex = 28;
             // 
-            // labelPublishingHouse
+            // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Font = new Font("Segoe UI", 20.25F);
             label4.Location = new Point(67, 169);
             label4.Name = "label4";
             label4.Size = new Size(184, 37);
@@ -443,16 +445,16 @@
             // textBoxAuthor
             // 
             textBoxAuthor.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxAuthor.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxAuthor.Font = new Font("Segoe UI", 20.25F);
             textBoxAuthor.Location = new Point(275, 90);
             textBoxAuthor.Name = "textBoxAuthor";
             textBoxAuthor.Size = new Size(322, 43);
             textBoxAuthor.TabIndex = 27;
             // 
-            // labelYearPublication
+            // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Segoe UI", 20.25F);
             label3.Location = new Point(67, 96);
             label3.Name = "label3";
             label3.Size = new Size(91, 37);
@@ -462,16 +464,16 @@
             // textBoxTitle
             // 
             textBoxTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxTitle.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxTitle.Font = new Font("Segoe UI", 20.25F);
             textBoxTitle.Location = new Point(275, 17);
             textBoxTitle.Name = "textBoxTitle";
             textBoxTitle.Size = new Size(322, 43);
             textBoxTitle.TabIndex = 26;
             // 
-            // labelNameBook
+            // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Segoe UI", 20.25F);
             label2.Location = new Point(67, 23);
             label2.Name = "label2";
             label2.Size = new Size(136, 37);
@@ -566,6 +568,22 @@
             Reader.Name = "Reader";
             Reader.Width = 200;
             // 
+            // btnClearField
+            // 
+            btnClearField.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnClearField.BackColor = Color.FromArgb(52, 152, 219);
+            btnClearField.FlatAppearance.BorderSize = 0;
+            btnClearField.FlatStyle = FlatStyle.Flat;
+            btnClearField.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            btnClearField.ForeColor = Color.White;
+            btnClearField.Location = new Point(275, 473);
+            btnClearField.Name = "btnClearField";
+            btnClearField.Size = new Size(322, 52);
+            btnClearField.TabIndex = 40;
+            btnClearField.Text = "Очистить поля";
+            btnClearField.UseVisualStyleBackColor = false;
+            btnClearField.Click += btnClearField_Click;
+            // 
             // LibrarianBookManagmentForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
@@ -634,5 +652,6 @@
         private DataGridViewTextBoxColumn Reader;
         private DateTimePicker ReturnDateTimePicker;
         private DateTimePicker IssueDateTimePicker;
+        private Button btnClearField;
     }
 }

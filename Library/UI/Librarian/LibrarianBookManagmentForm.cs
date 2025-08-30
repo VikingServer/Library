@@ -77,10 +77,8 @@ namespace Library
                 FinishDate.DataPropertyName = "Дата возврата";
                 Reader.DataPropertyName = "Читатель";
 
-                dataGridViewBooks.Columns["StartDate"].DefaultCellStyle.Alignment =
-                    DataGridViewContentAlignment.MiddleCenter;
-                dataGridViewBooks.Columns["FinishDate"].DefaultCellStyle.Alignment =
-                    DataGridViewContentAlignment.MiddleCenter;
+                dataGridViewBooks.Columns["StartDate"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dataGridViewBooks.Columns["FinishDate"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 dataGridViewBooks.CellFormatting += (sender, e) =>
                 {
@@ -413,6 +411,12 @@ namespace Library
                                 MessageBoxIcon.Information);
                 dataGridViewBooks.ClearSelection();
             }
+        }
+
+        private void btnClearField_Click(object sender, EventArgs e)
+        {
+            this.ClearAllControls();
+            selectedBookId = -1;
         }
     }
 }
