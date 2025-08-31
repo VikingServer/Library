@@ -86,53 +86,95 @@ namespace Library.Repositories
             if (readingRoomId == -1)
                 throw new ArgumentException("Читальный зал не найден");
 
+            int readerId = isIssued ? GetReaderId(reader) : -1;
+            if (isIssued && readerId == -1)
+                throw new ArgumentException("Читатель не найден");
+
+            if (issueDate.HasValue && returnDate.HasValue && returnDate < issueDate)
+                throw new ArgumentException("Дата возврата не может быть раньше даты выдачи");
+
             using (var transaction = _context.Database.BeginTransaction())
             {
+                //try
+                //{
+                //    var book = new Books
+                //    {
+                //        Title = title,
+                //        Publisher = publisher,
+                //        YearOfPublication = year
+                //    };
+                //    _context.Books.Add(book);
+                //    _context.SaveChanges();
+
+                //    _context.BooksAuthor.Add(new BooksAuthor { BookId = book.BookId, Author = author });
+                //    _context.ReadingRoomsAndBooks.Add(new ReadingRoomsAndBooks { IdBook = book.BookId, IdReadingRoom = readingRoomId });
+
+                //    if (isIssued)
+                //    {
+                //        _context.BookCirculation.Add(new BookCirculation
+                //        {
+                //            BookId = book.BookId,
+                //            IssueDate = issueDate,
+                //            ReturnDate = returnDate
+                //        });
+
+                //        _context.ReadersAndBooks.Add(new ReadersAndBooks { IdBook = book.BookId, IdReader = readerId });
+                //        _context.BooksMarks.Add(new BooksMarks { BookId = book.BookId, Mark = "Выдана" });
+                //    }
+                //    else
+                //    {
+                //        _context.BooksMarks.Add(new BooksMarks { BookId = book.BookId, Mark = "Нет" });
+                //    }
+
+                //    _context.SaveChanges();
+                //    transaction.Commit();
+                //}
+                //catch(Exception ex)
+                //{
+                //    transaction.Rollback();
+                //    throw new Exception($"Ошибка при добавлении книги: {ex.InnerException}", ex);
+                //}
+
                 try
                 {
+                    // Шаг 1: Создаем запись в ЧитальныйЗалИКниги (генерирует idКниги)
+                    var roomBook = new ReadingRoomsAndBooks { IdReadingRoom = readingRoomId };
+                    _context.ReadingRoomsAndBooks.Add(roomBook);
+                    _context.SaveChanges();  // Сохраняем, чтобы получить сгенерированный idКниги
+
+                    int generatedBookId = roomBook.IdBook;
+
+                    // Шаг 2: Создаем запись в Книги с использованием сгенерированного ID (FK теперь удовлетворен)
                     var book = new Books
                     {
+                        BookId = generatedBookId,  // Устанавливаем вручную, чтобы избежать генерации
                         Title = title,
                         Publisher = publisher,
                         YearOfPublication = year
                     };
-                    Add(book);
-                    Save();
+                    _context.Books.Add(book);
 
-                    _context.BooksAuthor.Add(new BooksAuthor { BookId = book.BookId, Author = author });
-                    _context.ReadingRoomsAndBooks.Add(new ReadingRoomsAndBooks { IdBook = book.BookId, IdReadingRoom = readingRoomId });
+                    // Шаг 3: Добавляем связанные записи с тем же ID
+                    _context.BooksAuthor.Add(new BooksAuthor { BookId = generatedBookId, Author = author });
 
                     if (isIssued)
                     {
-                        int readerId = GetReaderId(reader);
-                        if (readerId == -1)
-                            throw new ArgumentException("Читатель не найден");
-
-                        if (issueDate.HasValue && returnDate.HasValue && returnDate < issueDate)
-                            throw new ArgumentException("Дата возврата не может быть раньше даты выдачи");
-
-                        _context.BookCirculation.Add(new BookCirculation
-                        {
-                            BookId = book.BookId,
-                            IssueDate = issueDate,
-                            ReturnDate = returnDate
-                        });
-
-                        _context.ReadersAndBooks.Add(new ReadersAndBooks { IdBook = book.BookId, IdReader = readerId });
-                        _context.BooksMarks.Add(new BooksMarks { BookId = book.BookId, Mark = "Выдана" });
+                        _context.BookCirculation.Add(new BookCirculation { BookId = generatedBookId, IssueDate = issueDate, ReturnDate = returnDate });
+                        _context.ReadersAndBooks.Add(new ReadersAndBooks { IdBook = generatedBookId, IdReader = readerId });
+                        _context.BooksMarks.Add(new BooksMarks { BookId = generatedBookId, Mark = "Выдана" });
                     }
                     else
                     {
-                        _context.BooksMarks.Add(new BooksMarks { BookId = book.BookId, Mark = "Нет" });
+                        _context.BooksMarks.Add(new BooksMarks { BookId = generatedBookId, Mark = "Нет" });
                     }
 
-                    Save();
+                    _context.SaveChanges();
                     transaction.Commit();
                 }
-                catch
+                catch (Exception ex)
                 {
                     transaction.Rollback();
-                    throw;
+                    throw new Exception($"Ошибка при добавлении книги: {ex.Message}\nВнутренняя ошибка: {ex.InnerException?.Message}", ex);
                 }
             }
         }

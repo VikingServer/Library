@@ -288,7 +288,7 @@ namespace Library
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при загрузке автодополнения: {ex.Message}",
+                MessageBox.Show($"Ошибка при загрузке таблицы: {ex.Message}",
                                 "Ошибка",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
@@ -359,56 +359,47 @@ namespace Library
 
         private void SearchBook()
         {
-            DataTable dataTable = (DataTable)dataGridViewBooks.DataSource;
-            string title = textBoxTitle.Text.Trim().ToLower();
-            string author = textBoxAuthor.Text.Trim().ToLower();
-            string publisher = textBoxPublisher.Text.Trim().ToLower();
-            string year = textBoxYear.Text.Trim().ToLower();
-            string readingRoom = textBoxReadingRoom.Text.Trim().ToLower();
-            string reader = textBoxReader.Text.Trim().ToLower();
-            string status = checkBoxIssued.Checked ? "выдана" : "";
-            string issueDate = IssueDateTimePicker.Checked ? IssueDateTimePicker.Value.ToString("dd.MM.yyyy") : "";
-            string returnDate = ReturnDateTimePicker.Checked ? ReturnDateTimePicker.Value.ToString("dd.MM.yyyy") : "";
-
-            bool found = false;
-
-            foreach (DataGridViewRow row in dataGridViewBooks.Rows)
+            try
             {
-                if (row.IsNewRow) continue;
-
-                string rowTitle = row.Cells["NameBook"].Value?.ToString().Trim().ToLower() ?? "";
-                string rowAuthor = row.Cells["Author"].Value?.ToString().Trim().ToLower() ?? "";
-                string rowPublisher = row.Cells["PublishingHouse"].Value?.ToString().Trim().ToLower() ?? "";
-                string rowYear = row.Cells["YearPublication"].Value?.ToString().Trim().ToLower() ?? "";
-                string rowReadingRoom = row.Cells["ReadingRoom"].Value?.ToString().Trim().ToLower() ?? "";
-                string rowReader = row.Cells["Reader"].Value?.ToString().Trim().ToLower() ?? "";
-                string rowStatus = row.Cells["Mark"].Value?.ToString().Trim().ToLower() ?? "";
-                string rowIssueDate = row.Cells["StartDate"].Value?.ToString().Trim().ToLower() ?? "";
-                string rowReturnDate = row.Cells["FinishDate"].Value?.ToString().Trim().ToLower() ?? "";
-
-                if ((!string.IsNullOrEmpty(title) && rowTitle.Contains(title)) ||
-                    (!string.IsNullOrEmpty(author) && rowAuthor.Contains(author)) ||
-                    (!string.IsNullOrEmpty(publisher) && rowPublisher.Contains(publisher)) ||
-                    (!string.IsNullOrEmpty(year) && rowYear.Contains(year)) ||
-                    (!string.IsNullOrEmpty(readingRoom) && rowReadingRoom.Contains(readingRoom)) ||
-                    (!string.IsNullOrEmpty(reader) && rowReader.Contains(reader)) ||
-                    (!string.IsNullOrEmpty(status) && rowStatus.Contains(status)) ||
-                    (!string.IsNullOrEmpty(issueDate) && rowIssueDate.Contains(issueDate)) ||
-                    (!string.IsNullOrEmpty(returnDate) && rowReturnDate.Contains(returnDate)))
+                var dataTable = (DataTable)dataGridViewBooks.DataSource;
+                var searchCriteria = new Dictionary<string, string>
                 {
-                    row.Selected = true;
-                    dataGridViewBooks.CurrentCell = row.Cells[0];
-                    found = true;
-                    break;
+                    { "Название", Utils.NormalizeField(textBoxTitle.Text) },
+                    { "Автор", Utils.NormalizeField(textBoxAuthor.Text) },
+                    { "Издательство", Utils.NormalizeField(textBoxPublisher.Text) },
+                    { "Год издания", Utils.NormalizeField(textBoxYear.Text) },
+                    { "Читальный зал", Utils.NormalizeField(textBoxReadingRoom.Text) },
+                    { "Читатель", Utils.NormalizeField(textBoxReader.Text) },
+                    { "Статус", checkBoxIssued.Checked ? "выдана" : "" },
+                    { "Дата выдачи", Utils.NormalizeDateField(IssueDateTimePicker) },
+                    { "Дата возврата", Utils.NormalizeDateField(ReturnDateTimePicker) }
+                };
+
+                var foundRow = dataTable.AsEnumerable().FirstOrDefault(row =>
+                {
+                    return Utils.MatchesAnyCriteria(row, searchCriteria);
+                });
+
+                if (foundRow != null)
+                {
+                    var index = dataTable.Rows.IndexOf(foundRow);
+                    dataGridViewBooks.Rows[index].Selected = true;
+                    dataGridViewBooks.CurrentCell = dataGridViewBooks.Rows[index].Cells[0];
+                }
+                else
+                {
+                    MessageBox.Show("Книга с указанными данными не найдена.",
+                                    "Результат поиска",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
                 }
             }
-
-            if (!found)
+            catch (Exception ex)
             {
-                MessageBox.Show("Книга с указанными данными не найдена.",
-                                "Результат поиска",
+                MessageBox.Show($"Ошибка при поиске книги: {ex.Message}",
+                                "Ошибка",
                                 MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
+                                MessageBoxIcon.Error);
                 dataGridViewBooks.ClearSelection();
             }
         }

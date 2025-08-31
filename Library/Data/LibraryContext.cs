@@ -95,7 +95,6 @@ public partial class LibraryContext : DbContext
             entity.ToTable("Книги");
 
             entity.Property(e => e.BookId)
-                .ValueGeneratedOnAdd()
                 .HasColumnName("idКниги");
             entity.Property(e => e.Publisher).HasMaxLength(255);
             entity.Property(e => e.Title).HasMaxLength(255);
@@ -113,7 +112,6 @@ public partial class LibraryContext : DbContext
             entity.ToTable("КнигиИАвтор");
 
             entity.Property(e => e.BookId)
-                .ValueGeneratedOnAdd()
                 .HasColumnName("idКниги");
             entity.Property(e => e.Author).HasMaxLength(255);
 
@@ -130,7 +128,6 @@ public partial class LibraryContext : DbContext
             entity.ToTable("КнигиМетка");
 
             entity.Property(e => e.BookId)
-                .ValueGeneratedOnAdd()
                 .HasColumnName("idКниги");
             entity.Property(e => e.Mark).HasMaxLength(7);
 
@@ -147,7 +144,6 @@ public partial class LibraryContext : DbContext
             entity.ToTable("Книгооборот");
 
             entity.Property(e => e.BookId)
-                .ValueGeneratedOnAdd()
                 .HasColumnName("idКниги");
 
             entity.HasOne(d => d.IdBookNavigation).WithOne(p => p.BookCirculation)

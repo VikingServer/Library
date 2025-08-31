@@ -1,6 +1,8 @@
 ﻿using Library.Data;
+using Library.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +34,33 @@ namespace Library
 
             return false;
         }
+
+        public static string NormalizeField(string value)
+        {
+            return string.IsNullOrWhiteSpace(value) ? string.Empty : value.Trim().ToLower();
+        }
+
+        public static string NormalizeDateField(DateTimePicker picker, string format = "dd.MM.yyyy")
+        {
+            return picker.Checked ? picker.Value.ToString(format) : string.Empty;
+        }
+
+        public static bool MatchesAnyCriteria(DataRow row, Dictionary<string, string> criteria)
+        {
+            foreach (var criterion in criteria)
+            {
+                if (!string.IsNullOrEmpty(criterion.Value))
+                {
+                    string rowValue = NormalizeField(row.Field<string>(criterion.Key));
+                    if (rowValue.Contains(criterion.Value))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
     }
 
     public static class ControlExtensions
@@ -46,7 +75,7 @@ namespace Library
                     ((CheckBox)control).Checked = false;
                 else if (control is DateTimePicker)
                 {
-                    var picker = (DateTimePicker)control;
+                    DateTimePicker? picker = (DateTimePicker)control;
                     picker.Value = DateTime.Now;
                     picker.Checked = false;
                 }
