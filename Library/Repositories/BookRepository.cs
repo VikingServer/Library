@@ -1,9 +1,6 @@
 ﻿using Library.Data;
 using Library.Models;
-using Microsoft.EntityFrameworkCore;
-using System;
 using System.Data;
-using System.Linq;
 
 namespace Library.Repositories
 {
@@ -95,46 +92,6 @@ namespace Library.Repositories
 
             using (var transaction = _context.Database.BeginTransaction())
             {
-                //try
-                //{
-                //    var book = new Books
-                //    {
-                //        Title = title,
-                //        Publisher = publisher,
-                //        YearOfPublication = year
-                //    };
-                //    _context.Books.Add(book);
-                //    _context.SaveChanges();
-
-                //    _context.BooksAuthor.Add(new BooksAuthor { BookId = book.BookId, Author = author });
-                //    _context.ReadingRoomsAndBooks.Add(new ReadingRoomsAndBooks { IdBook = book.BookId, IdReadingRoom = readingRoomId });
-
-                //    if (isIssued)
-                //    {
-                //        _context.BookCirculation.Add(new BookCirculation
-                //        {
-                //            BookId = book.BookId,
-                //            IssueDate = issueDate,
-                //            ReturnDate = returnDate
-                //        });
-
-                //        _context.ReadersAndBooks.Add(new ReadersAndBooks { IdBook = book.BookId, IdReader = readerId });
-                //        _context.BooksMarks.Add(new BooksMarks { BookId = book.BookId, Mark = "Выдана" });
-                //    }
-                //    else
-                //    {
-                //        _context.BooksMarks.Add(new BooksMarks { BookId = book.BookId, Mark = "Нет" });
-                //    }
-
-                //    _context.SaveChanges();
-                //    transaction.Commit();
-                //}
-                //catch(Exception ex)
-                //{
-                //    transaction.Rollback();
-                //    throw new Exception($"Ошибка при добавлении книги: {ex.InnerException}", ex);
-                //}
-
                 try
                 {
                     // Шаг 1: Создаем запись в ЧитальныйЗалИКниги (генерирует idКниги)
