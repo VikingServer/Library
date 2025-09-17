@@ -17,6 +17,9 @@ namespace Library
         {
             InitializeComponent();
             //Authorization = new AuthorizationForm();
+
+            this.AutoScaleMode = AutoScaleMode.Dpi;
+            this.AutoScaleDimensions = new SizeF(96F, 96F);
         }
 
         private void button4_Click(object sender, EventArgs e)

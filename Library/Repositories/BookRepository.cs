@@ -10,8 +10,15 @@ namespace Library.Repositories
         {
         }
 
+        public IEnumerable<Books> GetAllBooks()
+        {
+            return GetAll(); // Вызов метода из GenericRepository
+        }
+
         public DataTable GetBooks()
         {
+            //var books = GetAllBooks();
+
             var query = from book in _context.Books
                         join bookAuthor in _context.BooksAuthor on book.BookId equals bookAuthor.BookId into baGroup
                         from bookAuthor in baGroup.DefaultIfEmpty()

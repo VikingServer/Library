@@ -188,21 +188,19 @@
             dataGridView1.RowTemplate.Height = 31;
             dataGridView1.Size = new Size(335, 355);
             dataGridView1.TabIndex = 7;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Адаптивное масштабирование столбцов
             // 
             // DayOfWeek
             // 
             DayOfWeek.HeaderText = "День недели";
-            DayOfWeek.MinimumWidth = 40;
             DayOfWeek.Name = "DayOfWeek";
             DayOfWeek.ReadOnly = true;
-            DayOfWeek.Width = 150;
             // 
             // OpeningHours
             // 
             OpeningHours.HeaderText = "Часы работы";
             OpeningHours.Name = "OpeningHours";
             OpeningHours.ReadOnly = true;
-            OpeningHours.Width = 142;
             // 
             // labWorkingSchedule
             // 
@@ -230,14 +228,14 @@
             pictureBox1.Location = new Point(22, 21);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(720, 422);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom; // Сохранение пропорций изображения
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
             // LibrarianMenuForm
             // 
-            AutoScaleDimensions = new SizeF(9F, 21F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi; // Используем DPI-масштабирование
             ClientSize = new Size(2228, 1134);
             Controls.Add(panelContent);
             Controls.Add(panelHeader);

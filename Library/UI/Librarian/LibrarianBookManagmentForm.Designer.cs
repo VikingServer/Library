@@ -505,68 +505,52 @@
             dataGridViewBooks.Size = new Size(1828, 483);
             dataGridViewBooks.TabIndex = 0;
             dataGridViewBooks.SelectionChanged += DataGridViewBooks_SelectionChanged;
+            dataGridViewBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             // 
             // NameBook
             // 
             NameBook.HeaderText = "Название";
-            NameBook.MinimumWidth = 200;
             NameBook.Name = "NameBook";
-            NameBook.Width = 200;
             // 
             // Author
             // 
             Author.HeaderText = "Автор";
-            Author.MinimumWidth = 150;
             Author.Name = "Author";
-            Author.Width = 150;
             // 
             // ReadingRoom
             // 
             ReadingRoom.HeaderText = "Читальный зал";
-            ReadingRoom.MinimumWidth = 150;
             ReadingRoom.Name = "ReadingRoom";
-            ReadingRoom.Width = 150;
             // 
             // PublishingHouse
             // 
             PublishingHouse.HeaderText = "Издательство";
-            PublishingHouse.MinimumWidth = 150;
             PublishingHouse.Name = "PublishingHouse";
-            PublishingHouse.Width = 150;
             // 
             // YearPublication
             // 
             YearPublication.HeaderText = "Год издания";
-            YearPublication.MinimumWidth = 120;
             YearPublication.Name = "YearPublication";
-            YearPublication.Width = 120;
             // 
             // Mark
             // 
             Mark.HeaderText = "Статус";
-            Mark.MinimumWidth = 100;
             Mark.Name = "Mark";
             // 
             // StartDate
             // 
             StartDate.HeaderText = "Дата выдачи";
-            StartDate.MinimumWidth = 120;
             StartDate.Name = "StartDate";
-            StartDate.Width = 120;
             // 
             // FinishDate
             // 
             FinishDate.HeaderText = "Дата возврата";
-            FinishDate.MinimumWidth = 120;
             FinishDate.Name = "FinishDate";
-            FinishDate.Width = 120;
             // 
             // Reader
             // 
             Reader.HeaderText = "Читатель";
-            Reader.MinimumWidth = 200;
             Reader.Name = "Reader";
-            Reader.Width = 200;
             // 
             // btnClearField
             // 
@@ -586,8 +570,8 @@
             // 
             // LibrarianBookManagmentForm
             // 
-            AutoScaleDimensions = new SizeF(9F, 21F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(2228, 1134);
             Controls.Add(panelContent);
             Controls.Add(panelHeader);

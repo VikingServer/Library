@@ -350,6 +350,7 @@
             dataGridViewReaders.RowTemplate.Height = 29;
             dataGridViewReaders.Size = new Size(451, 477);
             dataGridViewReaders.TabIndex = 0;
+            dataGridViewReaders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             // 
             // CountOfReader
             // 
@@ -377,6 +378,7 @@
             dataGridViewBooks.RowTemplate.Height = 29;
             dataGridViewBooks.Size = new Size(908, 477);
             dataGridViewBooks.TabIndex = 1;
+            dataGridViewBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             // 
             // Book
             // 
@@ -411,6 +413,7 @@
             dataGridViewReadersWithoutBooks.RowTemplate.Height = 29;
             dataGridViewReadersWithoutBooks.Size = new Size(451, 477);
             dataGridViewReadersWithoutBooks.TabIndex = 2;
+            dataGridViewReadersWithoutBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             // 
             // Reader
             // 

@@ -14,17 +14,17 @@ namespace Library
         public LibrarianBookManagmentForm()
         {
             InitializeComponent();
+            
             var options = new DbContextOptionsBuilder<LibraryContext>()
                 .UseNpgsql(DatabaseConnection.СonnectionString)
                 .Options;
             var context = new LibraryContext(options);
             _bookService = new BookService(new BookRepository(context));
-            LoadAutoCompleteData();
-            CheckConnection();
-            IssueDateTimePicker.ShowCheckBox = true;
-            ReturnDateTimePicker.ShowCheckBox = true;
-            IssueDateTimePicker.Checked = false;
-            ReturnDateTimePicker.Checked = false;
+
+            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+
+            InitializeForm();
         }
 
         private void btnAddReader_Click(object sender, EventArgs e)
@@ -53,58 +53,6 @@ namespace Library
             }
 
             SearchBook();
-        }
-
-        private void CheckConnection()
-        {
-            if (DatabaseConnection.IsConnect())
-                LoadBooksData();
-        }
-
-        private void LoadBooksData()
-        {
-            try
-            {
-                dataGridViewBooks.DataSource = _bookService.GetBooks();
-
-                NameBook.DataPropertyName = "Название";
-                Author.DataPropertyName = "Автор";
-                PublishingHouse.DataPropertyName = "Издательство";
-                YearPublication.DataPropertyName = "Год издания";
-                ReadingRoom.DataPropertyName = "Читальный зал";
-                Mark.DataPropertyName = "Статус";
-                StartDate.DataPropertyName = "Дата выдачи";
-                FinishDate.DataPropertyName = "Дата возврата";
-                Reader.DataPropertyName = "Читатель";
-
-                dataGridViewBooks.Columns["StartDate"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dataGridViewBooks.Columns["FinishDate"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-                dataGridViewBooks.CellFormatting += (sender, e) =>
-                {
-                    if (e.ColumnIndex == dataGridViewBooks.Columns["Mark"].Index && e.Value != null)
-                    {
-                        if (e.Value.ToString() == "Выдана")
-                        {
-                            e.CellStyle.ForeColor = Color.Red;
-                            e.CellStyle.Font = new Font(dataGridViewBooks.Font, FontStyle.Bold);
-                            e.CellStyle.BackColor = Color.LightPink;
-                        }
-                        else
-                        {
-                            e.CellStyle.ForeColor = Color.Green;
-                            e.CellStyle.BackColor = Color.LightGreen;
-                        }
-                    }
-                };
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка при загрузке данных: {ex.Message}",
-                                "Ошибка",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-            }
         }
 
         private void btnUpdateTable_Click(object sender, EventArgs e)
@@ -237,6 +185,78 @@ namespace Library
         {
         }
 
+        private void btnClearField_Click(object sender, EventArgs e)
+        {
+            this.ClearAllControls();
+            selectedBookId = -1;
+        }
+
+        private void InitializeForm()
+        {
+            IssueDateTimePicker.ShowCheckBox = true;
+            ReturnDateTimePicker.ShowCheckBox = true;
+            IssueDateTimePicker.Checked = false;
+            ReturnDateTimePicker.Checked = false;
+
+            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+
+            LoadAutoCompleteData();
+            CheckConnection();
+        }
+
+        private void CheckConnection()
+        {
+            if (DatabaseConnection.IsConnect())
+                LoadBooksData();
+        }
+
+        private void LoadBooksData()
+        {
+            try
+            {
+                dataGridViewBooks.DataSource = _bookService.GetBooks();
+
+                NameBook.DataPropertyName = "Название";
+                Author.DataPropertyName = "Автор";
+                PublishingHouse.DataPropertyName = "Издательство";
+                YearPublication.DataPropertyName = "Год издания";
+                ReadingRoom.DataPropertyName = "Читальный зал";
+                Mark.DataPropertyName = "Статус";
+                StartDate.DataPropertyName = "Дата выдачи";
+                FinishDate.DataPropertyName = "Дата возврата";
+                Reader.DataPropertyName = "Читатель";
+
+                dataGridViewBooks.Columns["StartDate"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dataGridViewBooks.Columns["FinishDate"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                dataGridViewBooks.CellFormatting += (sender, e) =>
+                {
+                    if (e.ColumnIndex == dataGridViewBooks.Columns["Mark"].Index && e.Value != null)
+                    {
+                        if (e.Value.ToString() == "Выдана")
+                        {
+                            e.CellStyle.ForeColor = Color.Red;
+                            e.CellStyle.Font = new Font(dataGridViewBooks.Font, FontStyle.Bold);
+                            e.CellStyle.BackColor = Color.LightPink;
+                        }
+                        else
+                        {
+                            e.CellStyle.ForeColor = Color.Green;
+                            e.CellStyle.BackColor = Color.LightGreen;
+                        }
+                    }
+                };
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при загрузке данных: {ex.Message}",
+                                "Ошибка",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
+
         private void ClearFormFields()
         {
             textBoxTitle.Clear();
@@ -314,8 +334,22 @@ namespace Library
 
             try
             {
-                var selectedRow = dataGridViewBooks.SelectedRows[0];
-                string title = selectedRow.Cells["NameBook"].Value.ToString();
+                DataGridViewRow selectedRow = dataGridViewBooks.SelectedRows[0];
+
+                string title = selectedRow.Cells["NameBook"].Value?.ToString() ?? "";
+                string author = selectedRow.Cells["Author"].Value?.ToString() ?? "";
+                string publisher = selectedRow.Cells["PublishingHouse"].Value?.ToString() ?? "";
+                string year = selectedRow.Cells["YearPublication"].Value?.ToString() ?? "";
+                string readingRoom = selectedRow.Cells["ReadingRoom"].Value?.ToString() ?? "";
+                string reader = selectedRow.Cells["Reader"].Value?.ToString() ?? "";
+                string mark = selectedRow.Cells["Mark"].Value?.ToString() ?? "";
+
+                if (string.IsNullOrEmpty(title))
+                {
+                    selectedBookId = -1;
+                    FillFormFields(title, author, publisher, year, readingRoom, reader, mark, selectedRow);
+                    return;
+                }
 
                 using (var context = new LibraryContext(new DbContextOptionsBuilder<LibraryContext>()
                     .UseNpgsql(DatabaseConnection.СonnectionString).Options))
@@ -326,25 +360,7 @@ namespace Library
                         .FirstOrDefault();
                 }
 
-                textBoxTitle.Text = title;
-                textBoxAuthor.Text = selectedRow.Cells["Author"].Value.ToString();
-                textBoxPublisher.Text = selectedRow.Cells["PublishingHouse"].Value?.ToString();
-                textBoxYear.Text = selectedRow.Cells["YearPublication"].Value?.ToString();
-                textBoxReadingRoom.Text = selectedRow.Cells["ReadingRoom"].Value.ToString();
-                textBoxReader.Text = selectedRow.Cells["Reader"].Value?.ToString();
-                checkBoxIssued.Checked = selectedRow.Cells["Mark"].Value.ToString() == "Выдана";
-
-                IssueDateTimePicker.Checked = !string.IsNullOrEmpty(selectedRow.Cells["StartDate"].Value?.ToString());
-                if (IssueDateTimePicker.Checked)
-                {
-                    IssueDateTimePicker.Value = DateTime.Parse(selectedRow.Cells["StartDate"].Value.ToString());
-                }
-
-                ReturnDateTimePicker.Checked = !string.IsNullOrEmpty(selectedRow.Cells["FinishDate"].Value?.ToString());
-                if (ReturnDateTimePicker.Checked)
-                {
-                    ReturnDateTimePicker.Value = DateTime.Parse(selectedRow.Cells["FinishDate"].Value.ToString());
-                }
+                FillFormFields(title, author, publisher, year, readingRoom, reader, mark, selectedRow);
             }
             catch (Exception ex)
             {
@@ -354,6 +370,37 @@ namespace Library
                                 MessageBoxIcon.Error);
                 selectedBookId = -1;
                 ClearFormFields();
+            }
+        }
+
+        private void FillFormFields(string title, string author, string publisher, string year, string readingRoom, string reader, string mark, DataGridViewRow selectedRow)
+        {
+            textBoxTitle.Text = title;
+            textBoxAuthor.Text = author;
+            textBoxPublisher.Text = publisher;
+            textBoxYear.Text = year;
+            textBoxReadingRoom.Text = readingRoom;
+            textBoxReader.Text = reader;
+            checkBoxIssued.Checked = mark == "Выдана";
+
+            string startDateStr = selectedRow.Cells["StartDate"].Value?.ToString() ?? "";
+            IssueDateTimePicker.Checked = !string.IsNullOrEmpty(startDateStr);
+            if (IssueDateTimePicker.Checked)
+            {
+                if (DateTime.TryParse(startDateStr, out DateTime startDate))
+                    IssueDateTimePicker.Value = startDate;
+                else
+                    IssueDateTimePicker.Value = DateTime.Now;
+            }
+
+            string finishDateStr = selectedRow.Cells["FinishDate"].Value?.ToString() ?? "";
+            ReturnDateTimePicker.Checked = !string.IsNullOrEmpty(finishDateStr);
+            if (ReturnDateTimePicker.Checked)
+            {
+                if (DateTime.TryParse(finishDateStr, out DateTime finishDate))
+                    ReturnDateTimePicker.Value = finishDate;
+                else
+                    ReturnDateTimePicker.Value = DateTime.Now;
             }
         }
 
@@ -402,12 +449,6 @@ namespace Library
                                 MessageBoxIcon.Error);
                 dataGridViewBooks.ClearSelection();
             }
-        }
-
-        private void btnClearField_Click(object sender, EventArgs e)
-        {
-            this.ClearAllControls();
-            selectedBookId = -1;
         }
     }
 }
