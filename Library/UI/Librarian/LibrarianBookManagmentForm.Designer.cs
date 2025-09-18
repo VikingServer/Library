@@ -570,8 +570,6 @@
             // 
             // LibrarianBookManagmentForm
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
-            AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(2228, 1134);
             Controls.Add(panelContent);
             Controls.Add(panelHeader);
@@ -580,6 +578,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Библиотека - Управление книгами";
             WindowState = FormWindowState.Maximized;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             panelNav.ResumeLayout(false);
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();

@@ -21,9 +21,6 @@ namespace Library
             var context = new LibraryContext(options);
             _bookService = new BookService(new BookRepository(context));
 
-            AutoScaleMode = AutoScaleMode.Dpi;
-            AutoScaleDimensions = new SizeF(96F, 96F);
-
             InitializeForm();
         }
 
@@ -198,9 +195,6 @@ namespace Library
             IssueDateTimePicker.Checked = false;
             ReturnDateTimePicker.Checked = false;
 
-            AutoScaleMode = AutoScaleMode.Dpi;
-            AutoScaleDimensions = new SizeF(96F, 96F);
-
             LoadAutoCompleteData();
             CheckConnection();
         }
@@ -215,24 +209,34 @@ namespace Library
         {
             try
             {
-                dataGridViewBooks.DataSource = _bookService.GetBooks();
+                var books = _bookService.GetBooks();
 
-                NameBook.DataPropertyName = "Название";
-                Author.DataPropertyName = "Автор";
-                PublishingHouse.DataPropertyName = "Издательство";
-                YearPublication.DataPropertyName = "Год издания";
-                ReadingRoom.DataPropertyName = "Читальный зал";
-                Mark.DataPropertyName = "Статус";
-                StartDate.DataPropertyName = "Дата выдачи";
-                FinishDate.DataPropertyName = "Дата возврата";
-                Reader.DataPropertyName = "Читатель";
+                dataGridViewBooks.Columns.Clear();
+                dataGridViewBooks.AutoGenerateColumns = false;
+
+                var columns = new[]
+                {
+                    new DataGridViewTextBoxColumn { Name = "NameBook", HeaderText = "Название", DataPropertyName = "Название" },
+                    new DataGridViewTextBoxColumn { Name = "Author", HeaderText = "Автор", DataPropertyName = "Автор" },
+                    new DataGridViewTextBoxColumn { Name = "PublishingHouse", HeaderText = "Издательство", DataPropertyName = "Издательство" },
+                    new DataGridViewTextBoxColumn { Name = "YearPublication", HeaderText = "Год издания", DataPropertyName = "Год издания" },
+                    new DataGridViewTextBoxColumn { Name = "ReadingRoom", HeaderText = "Читальный зал", DataPropertyName = "Читальный зал" },
+                    new DataGridViewTextBoxColumn { Name = "Mark", HeaderText = "Статус", DataPropertyName = "Статус" },
+                    new DataGridViewTextBoxColumn { Name = "StartDate", HeaderText = "Дата выдачи", DataPropertyName = "Дата выдачи" },
+                    new DataGridViewTextBoxColumn { Name = "FinishDate", HeaderText = "Дата возврата", DataPropertyName = "Дата возврата" },
+                    new DataGridViewTextBoxColumn { Name = "Reader", HeaderText = "Читатель", DataPropertyName = "Читатель" }
+                };
+
+                dataGridViewBooks.Columns.AddRange(columns);
+
+                dataGridViewBooks.DataSource = books;
 
                 dataGridViewBooks.Columns["StartDate"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dataGridViewBooks.Columns["FinishDate"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 dataGridViewBooks.CellFormatting += (sender, e) =>
                 {
-                    if (e.ColumnIndex == dataGridViewBooks.Columns["Mark"].Index && e.Value != null)
+                    if (e.ColumnIndex == dataGridViewBooks.Columns["Mark"]?.Index && e.Value != null)
                     {
                         if (e.Value.ToString() == "Выдана")
                         {
