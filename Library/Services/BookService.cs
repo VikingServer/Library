@@ -2,6 +2,7 @@
 using Library.Repositories;
 using Library.Repositories.Interfaces;
 using System.Data;
+using Library.UI;
 
 namespace Library.Services
 {
@@ -19,14 +20,14 @@ namespace Library.Services
             return _bookRepository.GetBooks();
         }
 
-        public void AddBook(string title, string author, string publisher, DateOnly? year, string readingRoom, bool isIssued, string reader, DateOnly? issueDate, DateOnly? returnDate)
+        public void AddBook(BookInUI book)
         {
-            _bookRepository.AddBook(title, author, publisher, year, readingRoom, isIssued, reader, issueDate, returnDate);
+            _bookRepository.AddBook(book);
         }
 
-        public void UpdateBook(int bookId, string title, string author, string publisher, DateOnly? year, string readingRoom, bool isIssued, string reader, DateOnly? issueDate, DateOnly? returnDate)
+        public void UpdateBook(int bookId, BookInUI bookUI)
         {
-            _bookRepository.UpdateBook(bookId, title, author, publisher, year, readingRoom, isIssued, reader, issueDate, returnDate);
+            _bookRepository.UpdateBook(bookId, bookUI);
         }
 
         public void DeleteBook(int bookId)

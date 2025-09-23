@@ -39,6 +39,7 @@
             labelTitle = new Label();
             panelContent = new Panel();
             panelForm = new Panel();
+            btnClearField = new Button();
             ReturnDateTimePicker = new DateTimePicker();
             IssueDateTimePicker = new DateTimePicker();
             btnUpdateTable = new Button();
@@ -71,7 +72,6 @@
             StartDate = new DataGridViewTextBoxColumn();
             FinishDate = new DataGridViewTextBoxColumn();
             Reader = new DataGridViewTextBoxColumn();
-            btnClearField = new Button();
             panelNav.SuspendLayout();
             panelHeader.SuspendLayout();
             panelContent.SuspendLayout();
@@ -203,7 +203,7 @@
             labelTitle.ForeColor = Color.FromArgb(41, 128, 185);
             labelTitle.Location = new Point(22, 21);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(628, 50);
+            labelTitle.Size = new Size(792, 62);
             labelTitle.TabIndex = 0;
             labelTitle.Text = "Управление книгами библиотеки";
             // 
@@ -249,13 +249,30 @@
             panelForm.Size = new Size(1872, 525);
             panelForm.TabIndex = 0;
             // 
+            // btnClearField
+            // 
+            btnClearField.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnClearField.BackColor = Color.FromArgb(52, 152, 219);
+            btnClearField.FlatAppearance.BorderSize = 0;
+            btnClearField.FlatStyle = FlatStyle.Flat;
+            btnClearField.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            btnClearField.ForeColor = Color.White;
+            btnClearField.Location = new Point(275, 473);
+            btnClearField.Name = "btnClearField";
+            btnClearField.Size = new Size(322, 52);
+            btnClearField.TabIndex = 40;
+            btnClearField.Text = "Очистить поля";
+            btnClearField.UseVisualStyleBackColor = false;
+            btnClearField.Click += btnClearField_Click;
+            // 
             // ReturnDateTimePicker
             // 
             ReturnDateTimePicker.CalendarFont = new Font("Segoe UI", 20.25F);
             ReturnDateTimePicker.Font = new Font("Segoe UI", 15.75F);
-            ReturnDateTimePicker.Location = new Point(1365, 166);
+            ReturnDateTimePicker.Format = DateTimePickerFormat.Short;
+            ReturnDateTimePicker.Location = new Point(1356, 166);
             ReturnDateTimePicker.Name = "ReturnDateTimePicker";
-            ReturnDateTimePicker.Size = new Size(200, 35);
+            ReturnDateTimePicker.Size = new Size(200, 42);
             ReturnDateTimePicker.TabIndex = 39;
             ReturnDateTimePicker.Value = new DateTime(2025, 5, 8, 22, 19, 29, 0);
             // 
@@ -263,9 +280,10 @@
             // 
             IssueDateTimePicker.CalendarFont = new Font("Segoe UI", 20.25F);
             IssueDateTimePicker.Font = new Font("Segoe UI", 15.75F);
-            IssueDateTimePicker.Location = new Point(1365, 94);
+            IssueDateTimePicker.Format = DateTimePickerFormat.Short;
+            IssueDateTimePicker.Location = new Point(1356, 94);
             IssueDateTimePicker.Name = "IssueDateTimePicker";
-            IssueDateTimePicker.Size = new Size(200, 35);
+            IssueDateTimePicker.Size = new Size(200, 42);
             IssueDateTimePicker.TabIndex = 38;
             IssueDateTimePicker.Value = new DateTime(2025, 5, 8, 0, 0, 0, 0);
             // 
@@ -337,9 +355,9 @@
             // 
             textBoxReader.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxReader.Font = new Font("Segoe UI", 20.25F);
-            textBoxReader.Location = new Point(275, 388);
+            textBoxReader.Location = new Point(324, 388);
             textBoxReader.Name = "textBoxReader";
-            textBoxReader.Size = new Size(322, 43);
+            textBoxReader.Size = new Size(322, 52);
             textBoxReader.TabIndex = 37;
             // 
             // label9
@@ -348,7 +366,7 @@
             label9.Font = new Font("Segoe UI", 20.25F);
             label9.Location = new Point(67, 394);
             label9.Name = "label9";
-            label9.Size = new Size(129, 37);
+            label9.Size = new Size(160, 46);
             label9.TabIndex = 36;
             label9.Text = "Читатель";
             // 
@@ -356,9 +374,9 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 20.25F);
-            label8.Location = new Point(1166, 166);
+            label8.Location = new Point(1110, 163);
             label8.Name = "label8";
-            label8.Size = new Size(193, 37);
+            label8.Size = new Size(240, 46);
             label8.TabIndex = 34;
             label8.Text = "Дата возврата";
             // 
@@ -366,9 +384,9 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 20.25F);
-            label7.Location = new Point(1166, 96);
+            label7.Location = new Point(1110, 88);
             label7.Name = "label7";
-            label7.Size = new Size(175, 37);
+            label7.Size = new Size(218, 46);
             label7.TabIndex = 32;
             label7.Text = "Дата выдачи";
             // 
@@ -376,9 +394,9 @@
             // 
             checkBoxIssued.AutoSize = true;
             checkBoxIssued.Font = new Font("Segoe UI", 20.25F);
-            checkBoxIssued.Location = new Point(1166, 17);
+            checkBoxIssued.Location = new Point(1110, 17);
             checkBoxIssued.Name = "checkBoxIssued";
-            checkBoxIssued.Size = new Size(115, 41);
+            checkBoxIssued.Size = new Size(141, 50);
             checkBoxIssued.TabIndex = 31;
             checkBoxIssued.Text = "Выдан";
             checkBoxIssued.UseVisualStyleBackColor = true;
@@ -388,9 +406,9 @@
             // 
             textBoxReadingRoom.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxReadingRoom.Font = new Font("Segoe UI", 20.25F);
-            textBoxReadingRoom.Location = new Point(275, 309);
+            textBoxReadingRoom.Location = new Point(324, 309);
             textBoxReadingRoom.Name = "textBoxReadingRoom";
-            textBoxReadingRoom.Size = new Size(322, 43);
+            textBoxReadingRoom.Size = new Size(322, 52);
             textBoxReadingRoom.TabIndex = 30;
             // 
             // label6
@@ -399,7 +417,7 @@
             label6.Font = new Font("Segoe UI", 20.25F);
             label6.Location = new Point(67, 315);
             label6.Name = "label6";
-            label6.Size = new Size(202, 37);
+            label6.Size = new Size(251, 46);
             label6.TabIndex = 25;
             label6.Text = "Читальный зал";
             // 
@@ -407,9 +425,9 @@
             // 
             textBoxYear.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxYear.Font = new Font("Segoe UI", 20.25F);
-            textBoxYear.Location = new Point(275, 236);
+            textBoxYear.Location = new Point(324, 239);
             textBoxYear.Name = "textBoxYear";
-            textBoxYear.Size = new Size(322, 43);
+            textBoxYear.Size = new Size(322, 52);
             textBoxYear.TabIndex = 29;
             textBoxYear.KeyPress += TextBoxYear_KeyPress;
             // 
@@ -419,7 +437,7 @@
             label5.Font = new Font("Segoe UI", 20.25F);
             label5.Location = new Point(67, 242);
             label5.Name = "label5";
-            label5.Size = new Size(171, 37);
+            label5.Size = new Size(212, 46);
             label5.TabIndex = 24;
             label5.Text = "Год издания";
             // 
@@ -427,9 +445,9 @@
             // 
             textBoxPublisher.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxPublisher.Font = new Font("Segoe UI", 20.25F);
-            textBoxPublisher.Location = new Point(275, 163);
+            textBoxPublisher.Location = new Point(324, 163);
             textBoxPublisher.Name = "textBoxPublisher";
-            textBoxPublisher.Size = new Size(322, 43);
+            textBoxPublisher.Size = new Size(322, 52);
             textBoxPublisher.TabIndex = 28;
             // 
             // label4
@@ -438,7 +456,7 @@
             label4.Font = new Font("Segoe UI", 20.25F);
             label4.Location = new Point(67, 169);
             label4.Name = "label4";
-            label4.Size = new Size(184, 37);
+            label4.Size = new Size(231, 46);
             label4.TabIndex = 23;
             label4.Text = "Издательство";
             // 
@@ -446,9 +464,9 @@
             // 
             textBoxAuthor.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxAuthor.Font = new Font("Segoe UI", 20.25F);
-            textBoxAuthor.Location = new Point(275, 90);
+            textBoxAuthor.Location = new Point(324, 88);
             textBoxAuthor.Name = "textBoxAuthor";
-            textBoxAuthor.Size = new Size(322, 43);
+            textBoxAuthor.Size = new Size(322, 52);
             textBoxAuthor.TabIndex = 27;
             // 
             // label3
@@ -457,7 +475,7 @@
             label3.Font = new Font("Segoe UI", 20.25F);
             label3.Location = new Point(67, 96);
             label3.Name = "label3";
-            label3.Size = new Size(91, 37);
+            label3.Size = new Size(114, 46);
             label3.TabIndex = 22;
             label3.Text = "Автор";
             // 
@@ -465,9 +483,9 @@
             // 
             textBoxTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxTitle.Font = new Font("Segoe UI", 20.25F);
-            textBoxTitle.Location = new Point(275, 17);
+            textBoxTitle.Location = new Point(324, 17);
             textBoxTitle.Name = "textBoxTitle";
-            textBoxTitle.Size = new Size(322, 43);
+            textBoxTitle.Size = new Size(322, 52);
             textBoxTitle.TabIndex = 26;
             // 
             // label2
@@ -476,7 +494,7 @@
             label2.Font = new Font("Segoe UI", 20.25F);
             label2.Location = new Point(67, 23);
             label2.Name = "label2";
-            label2.Size = new Size(136, 37);
+            label2.Size = new Size(169, 46);
             label2.TabIndex = 21;
             label2.Text = "Название";
             // 
@@ -492,6 +510,7 @@
             // 
             // dataGridViewBooks
             // 
+            dataGridViewBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewBooks.BackgroundColor = Color.White;
             dataGridViewBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewBooks.Columns.AddRange(new DataGridViewColumn[] { NameBook, Author, ReadingRoom, PublishingHouse, YearPublication, Mark, StartDate, FinishDate, Reader });
@@ -500,73 +519,64 @@
             dataGridViewBooks.MultiSelect = false;
             dataGridViewBooks.Name = "dataGridViewBooks";
             dataGridViewBooks.RowHeadersWidth = 51;
-            dataGridViewBooks.RowTemplate.Height = 29;
             dataGridViewBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewBooks.Size = new Size(1828, 483);
             dataGridViewBooks.TabIndex = 0;
             dataGridViewBooks.SelectionChanged += DataGridViewBooks_SelectionChanged;
-            dataGridViewBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             // 
             // NameBook
             // 
             NameBook.HeaderText = "Название";
+            NameBook.MinimumWidth = 6;
             NameBook.Name = "NameBook";
             // 
             // Author
             // 
             Author.HeaderText = "Автор";
+            Author.MinimumWidth = 6;
             Author.Name = "Author";
             // 
             // ReadingRoom
             // 
             ReadingRoom.HeaderText = "Читальный зал";
+            ReadingRoom.MinimumWidth = 6;
             ReadingRoom.Name = "ReadingRoom";
             // 
             // PublishingHouse
             // 
             PublishingHouse.HeaderText = "Издательство";
+            PublishingHouse.MinimumWidth = 6;
             PublishingHouse.Name = "PublishingHouse";
             // 
             // YearPublication
             // 
             YearPublication.HeaderText = "Год издания";
+            YearPublication.MinimumWidth = 6;
             YearPublication.Name = "YearPublication";
             // 
             // Mark
             // 
             Mark.HeaderText = "Статус";
+            Mark.MinimumWidth = 6;
             Mark.Name = "Mark";
             // 
             // StartDate
             // 
             StartDate.HeaderText = "Дата выдачи";
+            StartDate.MinimumWidth = 6;
             StartDate.Name = "StartDate";
             // 
             // FinishDate
             // 
             FinishDate.HeaderText = "Дата возврата";
+            FinishDate.MinimumWidth = 6;
             FinishDate.Name = "FinishDate";
             // 
             // Reader
             // 
             Reader.HeaderText = "Читатель";
+            Reader.MinimumWidth = 6;
             Reader.Name = "Reader";
-            // 
-            // btnClearField
-            // 
-            btnClearField.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnClearField.BackColor = Color.FromArgb(52, 152, 219);
-            btnClearField.FlatAppearance.BorderSize = 0;
-            btnClearField.FlatStyle = FlatStyle.Flat;
-            btnClearField.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            btnClearField.ForeColor = Color.White;
-            btnClearField.Location = new Point(275, 473);
-            btnClearField.Name = "btnClearField";
-            btnClearField.Size = new Size(322, 52);
-            btnClearField.TabIndex = 40;
-            btnClearField.Text = "Очистить поля";
-            btnClearField.UseVisualStyleBackColor = false;
-            btnClearField.Click += btnClearField_Click;
             // 
             // LibrarianBookManagmentForm
             // 
@@ -578,8 +588,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Библиотека - Управление книгами";
             WindowState = FormWindowState.Maximized;
-            AutoScaleDimensions = new SizeF(96F, 96F);
-            AutoScaleMode = AutoScaleMode.Dpi;
             panelNav.ResumeLayout(false);
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();

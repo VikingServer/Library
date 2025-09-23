@@ -1,6 +1,7 @@
 ﻿using Library.Data;
 using Library.Models;
 using System.Data;
+using Library.UI;
 
 namespace Library.Repositories
 {
@@ -17,7 +18,7 @@ namespace Library.Repositories
 
         public DataTable GetBooks()
         {
-            //var books = GetAllBooks();
+            var books = GetAllBooks();
 
             var query = from book in _context.Books
                         join bookAuthor in _context.BooksAuthor on book.BookId equals bookAuthor.BookId into baGroup
@@ -81,49 +82,46 @@ namespace Library.Repositories
             return booksData;
         }
 
-        public void AddBook(string title, string author, string publisher, DateOnly? year, string readingRoom, bool isIssued, string reader, DateOnly? issueDate, DateOnly? returnDate)
+        public void AddBook(BookInUI bookUI)
         {
-            if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(author) || string.IsNullOrWhiteSpace(readingRoom))
+            if (string.IsNullOrWhiteSpace(bookUI.title) || string.IsNullOrWhiteSpace(bookUI.author) || string.IsNullOrWhiteSpace(bookUI.readingRoom))
                 throw new ArgumentException("Обязательные поля: Название, Автор, Читальный зал");
 
-            int readingRoomId = GetReadingRoomId(readingRoom);
+            int readingRoomId = GetReadingRoomId(bookUI.readingRoom);
             if (readingRoomId == -1)
                 throw new ArgumentException("Читальный зал не найден");
 
-            int readerId = isIssued ? GetReaderId(reader) : -1;
-            if (isIssued && readerId == -1)
+            int readerId = bookUI.isIssued ? GetReaderId(bookUI.reader) : -1;
+            if (bookUI.isIssued && readerId == -1)
                 throw new ArgumentException("Читатель не найден");
 
-            if (issueDate.HasValue && returnDate.HasValue && returnDate < issueDate)
+            if (bookUI.issueDate.HasValue && bookUI.returnDate.HasValue && bookUI.returnDate < bookUI.issueDate)
                 throw new ArgumentException("Дата возврата не может быть раньше даты выдачи");
 
             using (var transaction = _context.Database.BeginTransaction())
             {
                 try
                 {
-                    // Шаг 1: Создаем запись в ЧитальныйЗалИКниги (генерирует idКниги)
                     var roomBook = new ReadingRoomsAndBooks { IdReadingRoom = readingRoomId };
                     _context.ReadingRoomsAndBooks.Add(roomBook);
-                    _context.SaveChanges();  // Сохраняем, чтобы получить сгенерированный idКниги
+                    _context.SaveChanges();
 
                     int generatedBookId = roomBook.IdBook;
 
-                    // Шаг 2: Создаем запись в Книги с использованием сгенерированного ID (FK теперь удовлетворен)
                     var book = new Books
                     {
-                        BookId = generatedBookId,  // Устанавливаем вручную, чтобы избежать генерации
-                        Title = title,
-                        Publisher = publisher,
-                        YearOfPublication = year
+                        BookId = generatedBookId,
+                        Title = bookUI.title,
+                        Publisher = bookUI.publisher,
+                        YearOfPublication = bookUI.yearOfPublisher
                     };
                     _context.Books.Add(book);
 
-                    // Шаг 3: Добавляем связанные записи с тем же ID
-                    _context.BooksAuthor.Add(new BooksAuthor { BookId = generatedBookId, Author = author });
+                    _context.BooksAuthor.Add(new BooksAuthor { BookId = generatedBookId, Author = bookUI.author });
 
-                    if (isIssued)
+                    if (bookUI.isIssued)
                     {
-                        _context.BookCirculation.Add(new BookCirculation { BookId = generatedBookId, IssueDate = issueDate, ReturnDate = returnDate });
+                        _context.BookCirculation.Add(new BookCirculation { BookId = generatedBookId, IssueDate = bookUI.issueDate, ReturnDate = bookUI.returnDate });
                         _context.ReadersAndBooks.Add(new ReadersAndBooks { IdBook = generatedBookId, IdReader = readerId });
                         _context.BooksMarks.Add(new BooksMarks { BookId = generatedBookId, Mark = "Выдана" });
                     }
@@ -143,12 +141,12 @@ namespace Library.Repositories
             }
         }
 
-        public void UpdateBook(int bookId, string title, string author, string publisher, DateOnly? year, string readingRoom, bool isIssued, string reader, DateOnly? issueDate, DateOnly? returnDate)
+        public void UpdateBook(int bookId, BookInUI bookUI)
         {
-            if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(author) || string.IsNullOrWhiteSpace(readingRoom))
+            if (string.IsNullOrWhiteSpace(bookUI.title) || string.IsNullOrWhiteSpace(bookUI.author) || string.IsNullOrWhiteSpace(bookUI.readingRoom))
                 throw new ArgumentException("Обязательные поля: Название, Автор, Читальный зал");
 
-            int readingRoomId = GetReadingRoomId(readingRoom);
+            int readingRoomId = GetReadingRoomId(bookUI.readingRoom);
             if (readingRoomId == -1)
                 throw new ArgumentException("Читальный зал не найден");
 
@@ -160,15 +158,15 @@ namespace Library.Repositories
                     if (book == null)
                         throw new ArgumentException("Книга не найдена");
 
-                    book.Title = title;
-                    book.Publisher = publisher;
-                    book.YearOfPublication = year;
+                    book.Title = bookUI.title;
+                    book.Publisher = bookUI.publisher;
+                    book.YearOfPublication = bookUI.yearOfPublisher;
 
                     var bookAuthor = _context.BooksAuthor.FirstOrDefault(ba => ba.BookId == bookId);
                     if (bookAuthor != null)
-                        bookAuthor.Author = author;
+                        bookAuthor.Author = bookUI.author;
                     else
-                        _context.BooksAuthor.Add(new BooksAuthor { BookId = bookId, Author = author });
+                        _context.BooksAuthor.Add(new BooksAuthor { BookId = bookId, Author = bookUI.author });
 
                     var roomBook = _context.ReadingRoomsAndBooks.FirstOrDefault(rrb => rrb.IdBook == bookId);
                     if (roomBook != null)
@@ -176,24 +174,24 @@ namespace Library.Repositories
                     else
                         _context.ReadingRoomsAndBooks.Add(new ReadingRoomsAndBooks { IdBook = bookId, IdReadingRoom = readingRoomId });
 
-                    if (isIssued)
+                    if (bookUI.isIssued)
                     {
-                        int readerId = GetReaderId(reader);
+                        int readerId = GetReaderId(bookUI.reader);
                         if (readerId == -1)
                             throw new ArgumentException("Читатель не найден");
 
-                        if (issueDate.HasValue && returnDate.HasValue && returnDate < issueDate)
+                        if (bookUI.issueDate.HasValue && bookUI.returnDate.HasValue && bookUI.returnDate < bookUI.issueDate)
                             throw new ArgumentException("Дата возврата не может быть раньше даты выдачи");
 
                         var circulation = _context.BookCirculation.FirstOrDefault(bc => bc.BookId == bookId);
                         if (circulation != null)
                         {
-                            circulation.IssueDate = issueDate;
-                            circulation.ReturnDate = returnDate;
+                            circulation.IssueDate = bookUI.issueDate;
+                            circulation.ReturnDate = bookUI.returnDate;
                         }
                         else
                         {
-                            _context.BookCirculation.Add(new BookCirculation { BookId = bookId, IssueDate = issueDate, ReturnDate = returnDate });
+                            _context.BookCirculation.Add(new BookCirculation { BookId = bookId, IssueDate = bookUI.issueDate, ReturnDate = bookUI.returnDate });
                         }
 
                         var readerBook = _context.ReadersAndBooks.FirstOrDefault(rb => rb.IdBook == bookId);

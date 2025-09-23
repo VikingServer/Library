@@ -1,6 +1,7 @@
 ﻿using Library.Data;
 using Library.Repositories;
 using Library.Services;
+using Library.UI;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 
@@ -14,7 +15,7 @@ namespace Library
         public LibrarianBookManagmentForm()
         {
             InitializeComponent();
-            
+
             var options = new DbContextOptionsBuilder<LibraryContext>()
                 .UseNpgsql(DatabaseConnection.СonnectionString)
                 .Options;
@@ -71,16 +72,17 @@ namespace Library
         {
             try
             {
-                _bookService.AddBook(
-                    textBoxTitle.Text,
-                    textBoxAuthor.Text,
-                    textBoxPublisher.Text,
-                    string.IsNullOrWhiteSpace(textBoxYear.Text) ? null : DateOnly.Parse($"{textBoxYear.Text}-01-01"),
-                    textBoxReadingRoom.Text,
-                    checkBoxIssued.Checked,
-                    textBoxReader.Text,
-                    IssueDateTimePicker.Checked ? DateOnly.FromDateTime(IssueDateTimePicker.Value) : null,
-                    ReturnDateTimePicker.Checked ? DateOnly.FromDateTime(ReturnDateTimePicker.Value) : null);
+                BookInUI bookUI = new(textBoxTitle.Text,
+                                      textBoxAuthor.Text,
+                                      textBoxPublisher.Text,
+                                      string.IsNullOrWhiteSpace(textBoxYear.Text) ? null : DateOnly.Parse($"{textBoxYear.Text}-01-01"),
+                                      textBoxReadingRoom.Text,
+                                      checkBoxIssued.Checked,
+                                      textBoxReader.Text,
+                                      IssueDateTimePicker.Checked ? DateOnly.FromDateTime(IssueDateTimePicker.Value) : null,
+                                      ReturnDateTimePicker.Checked ? DateOnly.FromDateTime(ReturnDateTimePicker.Value) : null);
+
+                _bookService.AddBook(bookUI);
 
                 MessageBox.Show("Книга успешно добавлена!",
                                 "Успех",
@@ -108,17 +110,17 @@ namespace Library
 
             try
             {
-                _bookService.UpdateBook(
-                    selectedBookId,
-                    textBoxTitle.Text,
-                    textBoxAuthor.Text,
-                    textBoxPublisher.Text,
-                    string.IsNullOrWhiteSpace(textBoxYear.Text) ? null : DateOnly.Parse($"{textBoxYear.Text}-01-01"),
-                    textBoxReadingRoom.Text,
-                    checkBoxIssued.Checked,
-                    textBoxReader.Text,
-                    IssueDateTimePicker.Checked ? DateOnly.FromDateTime(IssueDateTimePicker.Value) : null,
-                    ReturnDateTimePicker.Checked ? DateOnly.FromDateTime(ReturnDateTimePicker.Value) : null);
+                BookInUI bookUI = new(textBoxTitle.Text,
+                                      textBoxAuthor.Text,
+                                      textBoxPublisher.Text,
+                                      string.IsNullOrWhiteSpace(textBoxYear.Text) ? null : DateOnly.Parse($"{textBoxYear.Text}-01-01"),
+                                      textBoxReadingRoom.Text,
+                                      checkBoxIssued.Checked,
+                                      textBoxReader.Text,
+                                      IssueDateTimePicker.Checked ? DateOnly.FromDateTime(IssueDateTimePicker.Value) : null,
+                                      ReturnDateTimePicker.Checked ? DateOnly.FromDateTime(ReturnDateTimePicker.Value) : null);
+
+                _bookService.UpdateBook(selectedBookId, bookUI);
 
                 MessageBox.Show("Данные книги успешно обновлены!",
                                 "Успех",
@@ -199,6 +201,31 @@ namespace Library
             CheckConnection();
         }
 
+        private void ClearFormFields()
+        {
+            textBoxTitle.Clear();
+            textBoxAuthor.Clear();
+            textBoxPublisher.Clear();
+            textBoxYear.Clear();
+            textBoxReadingRoom.Clear();
+            textBoxReader.Clear();
+            checkBoxIssued.Checked = false;
+            IssueDateTimePicker.Checked = false;
+            ReturnDateTimePicker.Checked = false;
+        }
+
+        private void СheckBoxIssued_CheckedChanged(object sender, EventArgs e)
+        {
+            ReturnDateTimePicker.Enabled = checkBoxIssued.Checked;
+            textBoxReader.Enabled = checkBoxIssued.Checked;
+
+            if (!checkBoxIssued.Checked)
+            {
+                ReturnDateTimePicker.Value = DateTime.Now.AddDays(14);
+                textBoxReader.Clear();
+            }
+        }
+
         private void CheckConnection()
         {
             if (DatabaseConnection.IsConnect())
@@ -258,31 +285,6 @@ namespace Library
                                 "Ошибка",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
-            }
-        }
-
-        private void ClearFormFields()
-        {
-            textBoxTitle.Clear();
-            textBoxAuthor.Clear();
-            textBoxPublisher.Clear();
-            textBoxYear.Clear();
-            textBoxReadingRoom.Clear();
-            textBoxReader.Clear();
-            checkBoxIssued.Checked = false;
-            IssueDateTimePicker.Checked = false;
-            ReturnDateTimePicker.Checked = false;
-        }
-
-        private void СheckBoxIssued_CheckedChanged(object sender, EventArgs e)
-        {
-            ReturnDateTimePicker.Enabled = checkBoxIssued.Checked;
-            textBoxReader.Enabled = checkBoxIssued.Checked;
-
-            if (!checkBoxIssued.Checked)
-            {
-                ReturnDateTimePicker.Value = DateTime.Now.AddDays(14);
-                textBoxReader.Clear();
             }
         }
 

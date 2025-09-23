@@ -380,7 +380,7 @@
             dataGridViewBooks.TabIndex = 1;
             dataGridViewBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             // 
-            // Book
+            // BookInUI
             // 
             Book.HeaderText = "Книга";
             Book.MinimumWidth = 150;
